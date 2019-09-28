@@ -24,16 +24,19 @@ class LoginPage extends Component {
                 <Input 
                     placeholder='Email'
                     leftIcon={{ type: 'font-awesome', name: 'at', left: -14 }}
+                    inputContainerStyle={{borderBottomWidth: 0, top: 13}}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 400, width: 350 }}
                 />
                 <Input 
                     placeholder='Password'
+                    inputContainerStyle={{borderBottomWidth: 0, top: 13}}
                     leftIcon={{ type: 'font-awesome', name: 'key', left: -14 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 500, width: 350 }}
                 />
                 <Button
                     title='Log In'
-                    buttonStyle={{backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 200}}
+                    titleStyle={{fontSize: 40}}
+                    buttonStyle={{backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 280, borderColor: 'grey', borderWidth: 1}}
                 />
                 <Text style= {{top: 270, left: 40, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25}}>Log In</Text>
             </View>
