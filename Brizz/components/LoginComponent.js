@@ -23,14 +23,14 @@ class LoginPage extends Component {
                 </TouchableWithoutFeedback>
                 <Input 
                     placeholder='Email'
-                    leftIcon={{ type: 'font-awesome', name: 'at', left: -14 }}
+                    leftIcon={{ type: 'font-awesome', name: 'at', left: -14, size: 35}}
                     inputContainerStyle={{borderBottomWidth: 0, top: 13}}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 400, width: 350 }}
                 />
                 <Input 
                     placeholder='Password'
                     inputContainerStyle={{borderBottomWidth: 0, top: 13}}
-                    leftIcon={{ type: 'font-awesome', name: 'key', left: -14 }}
+                    leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35}}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 500, width: 350 }}
                 />
                 <Button

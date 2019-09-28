@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button,TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Image,TouchableWithoutFeedback } from 'react-native';
 import LoginComponent from './LoginComponent';
-import SwipeNavigator from 'react-native-swipe-navigation';
-
+import { Input, Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 class RegisterComponent extends Component {
     render() {
         return (
@@ -15,13 +15,35 @@ class RegisterComponent extends Component {
                 <View style={styles.roundedRectangle}></View>
                 <View style={styles.LoginFlap}></View>
                 <View style={styles.SignUpFlap}></View>
-                <Text>Welcome to Registration</Text>
                 <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('LoginComponent')}>
                     <View style= {{position: 'absolute', top: 0, left: 0}}>
                         <Text style= {{top: 270, left: 40, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25, color: '#00000050'}}>Log In</Text>
                     </View>
                 </TouchableWithoutFeedback>
                 <Text style= {{top: 270, right: 30, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25}}>Sign Up</Text>
+                <Input
+                    placeholder='Email'
+                    leftIcon={{ type: 'font-awesome', name: 'at', left: -14, size: 35 }}
+                    inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 375, width: 350 }}
+                />
+                <Input
+                    placeholder='Password'
+                    leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35}}
+                    inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 475, width: 350 }}
+                />
+                <Input
+                    placeholder='Confirm Password'
+                    leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35 }}
+                    inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 575, width: 350 }}
+                />
+                <Button
+                    title='Sign Up'
+                    titleStyle={{fontSize: 40}}
+                    buttonStyle={{backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 280, borderColor: 'grey', borderWidth: 1}}
+                />
                 </View>
         ); 
     }
