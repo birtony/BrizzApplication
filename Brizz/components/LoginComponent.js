@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button, TouchableWithoutFeedback } from 'react-native';
-
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
+import { Input, Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import RegisterComponent from '../components/RegisterComponent';
 class LoginPage extends Component {
@@ -20,6 +21,20 @@ class LoginPage extends Component {
                         <Text style= {{top: 270, right: 30, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25, color: '#00000050'}}>Sign Up</Text>
                     </View>
                 </TouchableWithoutFeedback>
+                <Input 
+                    placeholder='Email'
+                    leftIcon={{ type: 'font-awesome', name: 'at', left: -14 }}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 400, width: 350 }}
+                />
+                <Input 
+                    placeholder='Password'
+                    leftIcon={{ type: 'font-awesome', name: 'key', left: -14 }}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 500, width: 350 }}
+                />
+                <Button
+                    title='Log In'
+                    buttonStyle={{backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 200}}
+                />
                 <Text style= {{top: 270, left: 40, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25}}>Log In</Text>
             </View>
         )  
@@ -71,6 +86,16 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFFFF50',
       opacity: 20,
       borderRadius: 100/5
-    }
+    },
+    materialIconTextbox2: {
+        top: 25.29,
+        left: 0.1,
+        width: 287,
+        height: 58,
+        position: "absolute",
+        borderRadius: 43,
+        borderColor: "#ee8f00",
+        borderWidth: 4
+      },
   });
   
