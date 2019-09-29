@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-
 import LoginComponent from './components/LoginComponent';
 import RegisterComponent from './components/RegisterComponent';
 

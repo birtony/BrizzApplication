@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image,TouchableWithoutFeedback } from 'react-native';
-import LoginComponent from './LoginComponent';
-import { Input, Button } from 'react-native-elements';
+import { StyleSheet, View, Image,TouchableWithoutFeedback } from 'react-native';
+//import LoginComponent from './LoginComponent';
+import { Input, Button, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 class RegisterComponent extends Component {
     render() {
@@ -21,27 +21,30 @@ class RegisterComponent extends Component {
                     </View>
                 </TouchableWithoutFeedback>
                 <Text style= {{top: 270, right: 30, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25}}>Sign Up</Text>
+                <Text h3 style={{position:'absolute', top: 340, left: 60, fontFamily: 'Optima-Bold', color:'#F28E00'}}>Email</Text>
                 <Input
                     placeholder='Email'
                     leftIcon={{ type: 'font-awesome', name: 'at', left: -14, size: 35 }}
                     inputContainerStyle={{borderBottomWidth: 0, top: 13}}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 375, width: 350 }}
                 />
+                <Text h3 style={{position:'absolute', top: 455, left: 60, fontFamily: 'Optima-Bold', color:'#F28E00'}}>Password</Text>
                 <Input
                     placeholder='Password'
                     leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35}}
                     inputContainerStyle={{borderBottomWidth: 0, top: 13}}
-                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 475, width: 350 }}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 490, width: 350 }}
                 />
+                <Text h3 style={{position:'absolute', top: 565, left: 60, fontFamily: 'Optima-Bold', color:'#F28E00'}}>Confirm Password</Text>
                 <Input
                     placeholder='Confirm Password'
                     leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35 }}
                     inputContainerStyle={{borderBottomWidth: 0, top: 13}}
-                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 575, width: 350 }}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 600, width: 350 }}
                 />
                 <Button
                     title='Sign Up'
-                    titleStyle={{fontSize: 40}}
+                    titleStyle={{fontSize: 40, fontFamily: 'Optima-Bold'}}
                     buttonStyle={{backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 280, borderColor: 'grey', borderWidth: 1}}
                 />
                 </View>

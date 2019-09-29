@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
-import { Input, Button } from 'react-native-elements';
+import { StyleSheet, View, Image, TouchableWithoutFeedback } from 'react-native';
+import { Input, Button, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import RegisterComponent from '../components/RegisterComponent';
+//import RegisterComponent from '../components/RegisterComponent';
 class LoginPage extends Component {
     render() {
         return (
@@ -21,24 +21,27 @@ class LoginPage extends Component {
                         <Text style= {{top: 270, right: 30, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25, color: '#00000050'}}>Sign Up</Text>
                     </View>
                 </TouchableWithoutFeedback>
+                <Text h3 style={{position:'absolute',top:365, left: 60, color: '#F28E00', fontFamily: 'Optima-Bold'}}>Email</Text>
                 <Input 
                     placeholder='Email'
                     leftIcon={{ type: 'font-awesome', name: 'at', left: -14, size: 35}}
                     inputContainerStyle={{borderBottomWidth: 0, top: 13}}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 400, width: 350 }}
                 />
+                <Text h3 style={{position:'absolute',top:490, left: 60, color: '#F28E00', fontFamily: 'Optima-Bold'}}>Password</Text>
                 <Input 
                     placeholder='Password'
                     inputContainerStyle={{borderBottomWidth: 0, top: 13}}
                     leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35}}
-                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 500, width: 350 }}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 525, width: 350 }}
                 />
                 <Button
                     title='Log In'
-                    titleStyle={{fontSize: 40}}
+                    titleStyle={{fontSize: 40, fontFamily: 'Optima-Bold'}}
                     buttonStyle={{backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 280, borderColor: 'grey', borderWidth: 1}}
                 />
                 <Text style= {{top: 270, left: 40, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25}}>Log In</Text>
+                <Text h5 style={{position:'absolute', top:650, fontFamily: 'Optima-Bold', color: '#009EF2'}} onPress={() => this.props.navigation.navigate('RegisterComponent')}>Tap Me to Sign Up</Text>
             </View>
         )  
     }
