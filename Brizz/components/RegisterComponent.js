@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native';
-//import LoginComponent from './LoginComponent';
 import { Input, Button, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 class RegisterComponent extends Component {

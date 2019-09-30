@@ -5,6 +5,7 @@ import LoginComponent from './components/LoginComponent';
 import RegisterComponent from './components/RegisterComponent';
 import RegisterTwo from './components/RegisterTwo';
 import RegisterThree from './components/RegisterThree';
+import FinalRegistration from './components/FinalRegistration';
 export default class App extends Component {
   render() {
     return <AppContainer/>;
@@ -24,6 +25,9 @@ const AppSwitchNavigation = createSwitchNavigator(
   RegisterThree: {
     screen: RegisterThree
   },
+  FinalRegistration: {
+    screen: FinalRegistration
+  }
   });
 const AppContainer = createAppContainer(AppSwitchNavigation);
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TouchableWithoutFeedback} from 'react-native';
+import { StyleSheet, View, TouchableWithoutFeedback, Image, KeyboardAvoidingView, Keyboard, SafeAreaView } from 'react-native';
 import { Input, Button, Text } from 'react-native-elements';
 import DateTimePicker from "react-native-modal-datetime-picker";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Progress from 'react-native-progress';
 
 class RegisterTwo extends Component {
     constructor(props) {
@@ -28,32 +29,37 @@ class RegisterTwo extends Component {
             <View style={styles.container}>
                 <View style={styles.backgroundCircle}></View>
                 <View style={styles.roundedRectangle}></View>
-                <Text style={{ color: 'black', fontFamily: 'Optima-Bold', fontSize: 30, position: 'absolute', top: 300 }}>Account Setup Two</Text>
-                <Text h3 style={{ position: 'absolute', top: 350, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>First Name</Text>
+                <Image
+                    style={{ width: 150, height: 150, position: 'absolute', top: 100 }}
+                    source={require('../assets/logo.png')}>
+                </Image>
+                <Text style={{ color: 'black', fontFamily: 'Optima-Bold', fontSize: 30, position: 'absolute', top: 300 }}>Account Setup</Text>
+                <Text h3 style={{ position: 'absolute', top: 350, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>Gender</Text>
                 <Input
-                    placeholder='First Name'
                     inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 385, width: 350 }}
                 />
-                <Text h3 style={{ position: 'absolute', top: 475, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>Last Name</Text>
+                <Text h3 style={{ position: 'absolute', top: 475, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>City</Text>
                 <Input
-                    placeholder='Last Name'
                     inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 510, width: 350 }}
                 />
-                <Text h3 style={{ position: 'absolute', top: 600, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>Date of Birth</Text>
-                <Button title="Pick Date of Birth" onPress={this.showDateTimePicker} buttonStyle={{ left: -140, top: 200, position: 'absolute', backgroundColor: '#F28E00' }} />
+                <Text h3 style={{ position: 'absolute', top: 600, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>GPA</Text>
+                <Input
+                    inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+                    containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 635, width: 350 }}
+                />
                 <DateTimePicker
                     isVisible={this.state.isDateTimePickerVisible}
                     onConfirm={this.handleDatePicked}
                     onCancel={this.hideDateTimePicker}
                 />
-                <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('RegisterFour')}>
+                <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('FinalRegistration')}>
                     <Icon
                         type='font-awesome'
                         name='check'
                         size={50}
-                        style={{position:'absolute', top: 750, right: 20}}
+                        style={{ position: 'absolute', top: 750, right: 20 }}
                     />
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('RegisterTwo')}>
@@ -61,9 +67,10 @@ class RegisterTwo extends Component {
                         type='font-awesome'
                         name='arrow-left'
                         size={50}
-                        style={{position:'absolute', top: 750, left: 20}}
+                        style={{ position: 'absolute', top: 750, left: 20 }}
                     />
                 </TouchableWithoutFeedback>
+                <Progress.Bar progress={1} width={200} color={'#F28E00'} position={'absolute'} top={810} />
             </View>
         )
     }
