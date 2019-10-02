@@ -4,26 +4,17 @@ import { Input, Button, Text } from 'react-native-elements';
 import DateTimePicker from "react-native-modal-datetime-picker";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Progress from 'react-native-progress';
+import Modal from "react-native-modal";
+import RNPickerSelect from 'react-native-picker-select';
 
 class RegisterTwo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isDateTimePickerVisible: false
-        };
-    }
-    showDateTimePicker = () => {
-        this.setState({ isDateTimePickerVisible: true });
+    toggleModal = () => {
+        this.setState({ isModalVisible: !this.state.isModalVisible });
+    };
+    state = {
+        isModalVisible: false
     };
 
-    hideDateTimePicker = () => {
-        this.setState({ isDateTimePickerVisible: false });
-    };
-
-    handleDatePicked = date => {
-        console.log("A date has been picked: ", date);
-        this.hideDateTimePicker();
-    };
     render() {
         return (
             <View style={styles.container}>
@@ -38,22 +29,33 @@ class RegisterTwo extends Component {
                 <Input
                     inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 385, width: 350 }}
+                    
                 />
                 <Text h3 style={{ position: 'absolute', top: 475, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>City</Text>
+                <TouchableWithoutFeedback onPress={this.toggleModal}>
+                    <View style={{position:'absolute', top:'46%', left: '12%'}}>
+                        <RNPickerSelect
+                            onValueChange={(value) => console.log(value)}
+                            items={[
+                                { label: 'Male', value: 'male' },
+                                { label: 'Female', value: 'female' },
+                                { label: 'Other', value: 'other' },
+                            ]}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
                 <Input
                     inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 510, width: 350 }}
                 />
                 <Text h3 style={{ position: 'absolute', top: 600, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>GPA</Text>
                 <Input
+                    keyboardType={'numbers-and-punctuation'}
+                    
                     inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 635, width: 350 }}
                 />
-                <DateTimePicker
-                    isVisible={this.state.isDateTimePickerVisible}
-                    onConfirm={this.handleDatePicked}
-                    onCancel={this.hideDateTimePicker}
-                />
+                
                 <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('FinalRegistration')}>
                     <Icon
                         type='font-awesome'

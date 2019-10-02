@@ -37,13 +37,11 @@ class RegisterTwo extends Component {
                 <Text style={{ color: 'black', fontFamily: 'Optima-Bold', fontSize: 30, position: 'absolute', top: 300 }}>Account Setup</Text>
                 <Text h3 style={{ position: 'absolute', top: 350, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>First Name</Text>
                 <Input
-                    //placeholder='First Name'
                     inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 385, width: 350 }}
                 />
                 <Text h3 style={{ position: 'absolute', top: 475, left: 60, fontFamily: 'Optima-Bold', color: '#F28E00' }}>Last Name</Text>
                 <Input
-                    //placeholder='Last Name'
                     inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
                     containerStyle={{ borderWidth: 2, borderRadius: 50, borderColor: '#F28E00', height: 70, position: 'absolute', top: 510, width: 350 }}
                 />
@@ -53,8 +51,7 @@ class RegisterTwo extends Component {
                         <Text style={{position:'relative', fontFamily:'Optima-Bold', fontSize: 20, top:'33%', left: 20}}>{this.state.chosenDate.toDateString()}</Text>
                     </View>
                 </TouchableWithoutFeedback>
-
-                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this.setState({ isVisible: false })}>
+                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this.setState({ isVisible: false })} animationIn={'slideInRight'}>
                     <View style={{ flex: 1, justifyContent: 'center' }}>
                         <DatePickerIOS
                             mode={'date'}

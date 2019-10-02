@@ -27,6 +27,7 @@
     "react-native-modal": "^11.4.0",
     "react-native-modal-datetime-picker": "^7.6.0",
     "react-native-pages": "^0.7.0",
+    "react-native-picker-select": "^6.3.3",
     "react-native-progress": "^3.6.0",
     "react-native-swipe-gestures": "^1.0.3",
     "react-native-swipe-navigation": "^1.0.0-beta",
