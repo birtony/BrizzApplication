@@ -6,11 +6,14 @@ import RegisterComponent from './components/RegisterComponent';
 import RegisterTwo from './components/RegisterTwo';
 import RegisterThree from './components/RegisterThree';
 import FinalRegistration from './components/FinalRegistration';
+import ProgramsMatched from './components/ProgramsMatched';
+
 export default class App extends Component {
   render() {
     return <AppContainer/>;
   }
 }
+
 const AppSwitchNavigation = createSwitchNavigator(
   {
   LoginComponent: {
@@ -27,8 +30,12 @@ const AppSwitchNavigation = createSwitchNavigator(
   },
   FinalRegistration: {
     screen: FinalRegistration
+  },
+  ProgramsMatched: {
+    screen: ProgramsMatched
   }
-  });
+});
+
 const AppContainer = createAppContainer(AppSwitchNavigation);
 
 const styles = StyleSheet.create({
