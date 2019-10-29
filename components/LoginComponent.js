@@ -20,7 +20,6 @@ class LoginPage extends Component {
                         <Text style={{ top: 270, right: 30, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25, color: '#00000050' }}>Sign Up</Text>
                     </View>
                 </TouchableWithoutFeedback>
-
                 <Text h3 style={{ position: 'absolute', top: 365, left: 60, color: '#F28E00', fontFamily: 'Optima-Bold' }}>Email</Text>
                 <Input
                     placeholder='Email'
@@ -38,7 +37,8 @@ class LoginPage extends Component {
                 <Button
                     title='Log In'
                     titleStyle={{ fontSize: 40, fontFamily: 'Optima-Bold' }}
-                    buttonStyle={{ backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 280, borderColor: 'grey', borderWidth: 1 }}
+                    buttonStyle={{ backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 400, borderColor: 'grey', borderWidth: 1 }}
+                    onPress={() => this.props.navigation.navigate('ProgramsMatched')}
                 />
                 <Text style={{ top: 270, left: 40, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25 }}>Log In</Text>
                 <Text h5 style={{ position: 'absolute', top: 650, fontFamily: 'Optima-Bold', color: '#009EF2' }} onPress={() => this.props.navigation.navigate('RegisterComponent')}>Tap Me to Sign Up</Text>
