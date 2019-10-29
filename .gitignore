@@ -4,6 +4,7 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
 
 # Runtime data
 pids
@@ -68,3 +69,4 @@ a.out
 *.png
 package-lock.json
 package.json
+.DS_Store
