@@ -37,7 +37,7 @@ class LoginPage extends Component {
                 <Button
                     title='Log In'
                     titleStyle={{ fontSize: 40, fontFamily: 'Optima-Bold' }}
-                    buttonStyle={{ backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 400, borderColor: 'grey', borderWidth: 1 }}
+                    buttonStyle={{ backgroundColor: '#F28E00', width: 250, borderRadius: 50, height: 75, position: 'absolute', left: -120, top: 250, borderColor: 'grey', borderWidth: 1 }}
                     onPress={() => this.props.navigation.navigate('ProgramsMatched')}
                 />
                 <Text style={{ top: 270, left: 40, position: 'absolute', fontFamily: 'Optima-Bold', fontSize: 25 }}>Log In</Text>

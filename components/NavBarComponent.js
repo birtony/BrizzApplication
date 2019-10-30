@@ -6,14 +6,13 @@ class NavBarComponent extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.navbarRectangle}>
-                    <Image 
-                        style={styles.imageStyle}
-                        source={require('../assets/logo.png')}
-                    />
+                <View style={styles.navbarRectangle} />
                     <Text style={styles.brizzName}>BRIZZ</Text>
-                    <MenuButton/>
-                </View>
+                <Image 
+                    style={styles.imageStyle}
+                        source={require('../assets/logo.png')}
+                />
+                <MenuButton/>
             </View>
         )
     }
@@ -24,25 +23,31 @@ export default NavBarComponent;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        justifyContent: 'flex-start'
     },
     navbarRectangle: {
         width: 4000,
-        height: 75,
+        flex: 1,
+        height: '20%',
+        position: 'absolute',
         backgroundColor: 'white',
-        top: '10%'
     },
     imageStyle: {
-        top: '20%',
-        marginLeft: 5,
+        position: 'absolute',
+        flex: 1,
+        alignItems: 'center',
+        top: '5%',
+        left: "3%",
         width: 50,
         height: 50,
     },
     brizzName: {
+        position: 'absolute',
+        alignItems: 'center',
+        flex: 1,
         fontFamily: 'Optima-Bold',
-        color: '#000050',
+        top: '5%',
         fontSize: 40,
-        marginTop: -35,
-        marginLeft: 150
+        left: '42%'
     }
 });
