@@ -65,8 +65,4 @@ a.out
 *.exe
 *.obj
 *.o
-*.jpg
-*.png
-package-lock.json
-package.json
 .DS_Store
