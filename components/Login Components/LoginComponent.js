@@ -3,7 +3,8 @@ import {
   StyleSheet,
   View,
   Image,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -11,11 +12,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 class LoginPage extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Image
-          style={{ width: 150, height: 150, position: "absolute", top: 100 }}
+          style={styles.logoImage}
           source={require("../../assets/logo.png")}
-        ></Image>
+        />
         <View style={styles.backgroundCircle} />
         <View style={styles.roundedRectangle} />
         <View style={styles.LoginFlap} />
@@ -23,117 +24,50 @@ class LoginPage extends Component {
         <TouchableWithoutFeedback
           onPress={() => this.props.navigation.navigate("RegisterComponent")}
         >
-          <View style={{ position: "absolute", top: 0, right: 0 }}>
-            <Text
-              style={{
-                top: 270,
-                right: 30,
-                position: "absolute",
-                fontFamily: "Optima-Bold",
-                fontSize: 25,
-                color: "#00000050"
-              }}
-            >
-              Sign Up
-            </Text>
+          <View style={styles.signUpFlapView}>
+            <Text style={styles.signUpFlapViewText}>Sign Up</Text>
           </View>
         </TouchableWithoutFeedback>
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 365,
-            left: 60,
-            color: "#F28E00",
-            fontFamily: "Optima-Bold"
-          }}
-        >
+        <Text h3 style={styles.emailEnterTextH3}>
           Email
         </Text>
         <Input
           placeholder="Email"
           leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 400,
-            width: 350
-          }}
+          containerStyle={styles.EmailInput}
         />
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 490,
-            left: 60,
-            color: "#F28E00",
-            fontFamily: "Optima-Bold"
-          }}
-        >
+        <Text h3 style={styles.passwordEnterTextH3}>
           Password
         </Text>
         <Input
           placeholder="Password"
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
           leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 525,
-            width: 350
-          }}
+          containerStyle={styles.passwordInput}
         />
-        <Button
-          title="Log In"
-          titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
-          buttonStyle={{
-            backgroundColor: "#F28E00",
-            width: 250,
-            borderRadius: 50,
-            height: 75,
-            position: "absolute",
-            left: -120,
-            top: 250,
-            borderColor: "grey",
-            borderWidth: 1
-          }}
-          onPress={() => this.props.navigation.navigate("ProgramsMatched")}
-        />
-        <Text
-          style={{
-            top: 270,
-            left: 40,
-            position: "absolute",
-            fontFamily: "Optima-Bold",
-            fontSize: 25
-          }}
-        >
-          Log In
-        </Text>
+        <View style={styles.ButtonLogin}>
+          <Button
+            title="Log In"
+            titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
+            buttonStyle={styles.LoginButtonStyle}
+            onPress={() => this.props.navigation.navigate("ProgramsMatched")}
+          />
+        </View>
+        <Text style={styles.loginFlapText}>Log In</Text>
         <Text
           h5
-          style={{
-            position: "absolute",
-            top: 650,
-            fontFamily: "Optima-Bold",
-            color: "#009EF2"
-          }}
+          style={styles.blueTapMeText}
           onPress={() => this.props.navigation.navigate("RegisterComponent")}
         >
           Tap Me to Sign Up
         </Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }
 export default LoginPage;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -142,52 +76,118 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   roundedRectangle: {
-    width: 390,
-    height: 525,
+    width: "94%",
+    height: "60%",
     borderRadius: 100 / 5,
     backgroundColor: "white",
     position: "absolute",
-    top: 300,
+    top: "37%",
     shadowColor: "grey",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5
   },
   backgroundCircle: {
-    width: 425,
-    height: 600,
+    width: "105%",
+    height: "90%",
     borderRadius: 100 / 2,
     backgroundColor: "white",
     position: "absolute",
-    top: 350
+    top: "43%"
   },
   LoginFlap: {
-    width: 125,
-    height: 65,
+    width: "28%",
+    height: "10%",
     borderRadius: 100 / 5,
     backgroundColor: "white",
-    top: 270,
+    top: "33%",
     position: "absolute",
-    left: 12
+    left: "3%"
   },
   SignUpFlap: {
-    width: 125,
-    height: 65,
+    width: "28%",
+    height: "10%",
     position: "absolute",
-    top: 270,
-    right: 12,
+    top: "33%",
+    right: "3%",
     backgroundColor: "#FFFFFF50",
     opacity: 20,
     borderRadius: 100 / 5
   },
-  materialIconTextbox2: {
-    top: 25.29,
-    left: 0.1,
-    width: 287,
-    height: 58,
+  logoImage: {
+    width: "40%",
+    height: "20%",
     position: "absolute",
-    borderRadius: 43,
-    borderColor: "#ee8f00",
-    borderWidth: 4
+    top: "10%"
+  },
+  signUpFlapView: {
+    position: "absolute",
+    top: "33%",
+    right: "28%"
+  },
+  signUpFlapViewText: {
+    position: "absolute",
+    fontFamily: "Optima-Bold",
+    fontSize: 25,
+    color: "#00000050"
+  },
+  emailEnterTextH3: {
+    position: "absolute",
+    top: "44%",
+    left: "15%",
+    color: "#F28E00",
+    fontFamily: "Optima-Bold"
+  },
+  EmailInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "49%",
+    width: "85%"
+  },
+  passwordEnterTextH3: {
+    position: "absolute",
+    top: "59%",
+    left: "15%",
+    color: "#F28E00",
+    fontFamily: "Optima-Bold"
+  },
+  passwordInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "64%",
+    width: "85%"
+  },
+  LoginButtonStyle: {
+    backgroundColor: "#F28E00",
+    width: 250,
+    borderRadius: 50,
+    height: 75,
+    position: "absolute",
+    left: -120,
+    top: "5%",
+    borderColor: "grey",
+    borderWidth: 1
+  },
+  ButtonLogin: {
+    top: "30%"
+  },
+  loginFlapText: {
+    top: "32.5%",
+    left: "8%",
+    position: "absolute",
+    fontFamily: "Optima-Bold",
+    fontSize: 25
+  },
+  blueTapMeText: {
+    position: "absolute",
+    top: "75%",
+    fontFamily: "Optima-Bold",
+    color: "#009EF2"
   }
 });
