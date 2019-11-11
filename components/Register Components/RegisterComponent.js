@@ -4,16 +4,17 @@ import {
   View,
   Image,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 class RegisterComponent extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Image
-          style={{ width: 150, height: 150, position: "absolute", top: 100 }}
+          style={styles.logoImage}
           source={require("../../assets/logo.png")}
         ></Image>
         <View style={styles.backgroundCircle}></View>
@@ -23,127 +24,47 @@ class RegisterComponent extends Component {
         <TouchableWithoutFeedback
           onPress={() => this.props.navigation.navigate("LoginComponent")}
         >
-          <View style={{ position: "absolute", top: 0, left: 0 }}>
-            <Text
-              style={{
-                top: 270,
-                left: 40,
-                position: "absolute",
-                fontFamily: "Optima-Bold",
-                fontSize: 25,
-                color: "#00000050"
-              }}
-            >
-              Log In
-            </Text>
+          <View style={styles.logInFlapView}>
+            <Text style={styles.logInFlapViewText}>Log In</Text>
           </View>
         </TouchableWithoutFeedback>
-        <Text
-          style={{
-            top: 270,
-            right: 30,
-            position: "absolute",
-            fontFamily: "Optima-Bold",
-            fontSize: 25
-          }}
-        >
-          Sign Up
-        </Text>
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 340,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text style={styles.signupText}>Sign Up</Text>
+        <Text h3 style={styles.EmailText}>
           Email
         </Text>
         <Input
           placeholder="Email"
           leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 375,
-            width: 350
-          }}
+          containerStyle={styles.EmailInput}
         />
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 455,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text h3 style={styles.PasswordText}>
           Password
         </Text>
         <Input
           placeholder="Password"
           leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 490,
-            width: 350
-          }}
+          containerStyle={styles.passwordInput}
         />
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 565,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text h3 style={styles.ConfirmPasswordText}>
           Confirm Password
         </Text>
         <Input
           placeholder="Confirm Password"
           leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 600,
-            width: 350
-          }}
+          containerStyle={styles.ConfirmPasswordInput}
         />
-        <Button
-          title="Sign Up"
-          titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
-          onPress={() => this.handleRegister()}
-          buttonStyle={{
-            backgroundColor: "#F28E00",
-            width: 250,
-            borderRadius: 50,
-            height: 75,
-            position: "absolute",
-            left: -120,
-            top: 280,
-            borderColor: "grey",
-            borderWidth: 1
-          }}
-        />
-      </View>
+        <View style={styles.buttonSignUp}>
+          <Button
+            title="Sign Up"
+            titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
+            onPress={() => this.handleRegister()}
+            buttonStyle={styles.signUpButtonStyle}
+          />
+        </View>
+      </SafeAreaView>
     );
   }
   handleRegister = () => {
@@ -160,42 +81,130 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   roundedRectangle: {
-    width: 390,
-    height: 525,
+    width: "94%",
+    height: "60%",
     borderRadius: 100 / 5,
     backgroundColor: "white",
     position: "absolute",
-    top: 300,
+    top: "37%",
     shadowColor: "grey",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5
   },
   backgroundCircle: {
-    width: 425,
-    height: 600,
+    width: "105%",
+    height: "90%",
     borderRadius: 100 / 2,
     backgroundColor: "white",
     position: "absolute",
-    top: 350
+    top: "43%"
   },
   LoginFlap: {
-    width: 125,
-    height: 65,
+    width: "28%",
+    height: "10%",
     borderRadius: 100 / 5,
     backgroundColor: "#FFFFFF50",
-    top: 270,
+    top: "33%",
     position: "absolute",
-    left: 12
+    left: "3%"
   },
   SignUpFlap: {
-    width: 125,
-    height: 65,
+    width: "28%",
+    height: "10%",
     position: "absolute",
-    top: 270,
-    right: 12,
+    top: "33%",
+    right: "3%",
     backgroundColor: "white",
     opacity: 20,
     borderRadius: 100 / 5
+  },
+  logoImage: {
+    width: "40%",
+    height: "20%",
+    position: "absolute",
+    top: "10%"
+  },
+  logInFlapView: {
+    position: "absolute",
+    top: "33%",
+    left: "10%"
+  },
+  logInFlapViewText: {
+    //top: 270,
+    //left: 40,
+    position: "absolute",
+    fontFamily: "Optima-Bold",
+    fontSize: 25,
+    color: "#00000050"
+  },
+  signupText: {
+    top: "33%",
+    right: "6%",
+    position: "absolute",
+    fontFamily: "Optima-Bold",
+    fontSize: 25
+  },
+  EmailText: {
+    position: "absolute",
+    top: "38%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  EmailInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "43%",
+    width: "85%"
+  },
+  PasswordText: {
+    position: "absolute",
+    top: "52%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  passwordInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "57%",
+    width: "85%"
+  },
+  ConfirmPasswordText: {
+    position: "absolute",
+    top: "66%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  ConfirmPasswordInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "71%",
+    width: "85%"
+  },
+  signUpButtonStyle: {
+    backgroundColor: "#F28E00",
+    width: 250,
+    borderRadius: 50,
+    height: 75,
+    position: "absolute",
+    left: -120,
+    top: "5%",
+    borderColor: "grey",
+    borderWidth: 1
+  },
+  buttonSignUp: {
+    top: "30%"
   }
 });

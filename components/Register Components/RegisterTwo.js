@@ -4,7 +4,8 @@ import {
   View,
   TouchableWithoutFeedback,
   Image,
-  DatePickerIOS
+  DatePickerIOS,
+  SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -33,95 +34,34 @@ class RegisterTwo extends Component {
   };
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.backgroundCircle}></View>
-        <View style={styles.roundedRectangle}></View>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.backgroundCircle} />
+        <View style={styles.roundedRectangle} />
         <Image
-          style={{ width: 150, height: 150, position: "absolute", top: 100 }}
+          style={styles.logoImage}
           source={require("../../assets/logo.png")}
         ></Image>
-        <Text
-          style={{
-            color: "black",
-            fontFamily: "Optima-Bold",
-            fontSize: 30,
-            position: "absolute",
-            top: 300
-          }}
-        >
-          Account Setup
-        </Text>
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 350,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text style={styles.accountSetupText}>Account Setup</Text>
+        <Text h3 style={styles.FNameText}>
           First Name
         </Text>
         <Input
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 385,
-            width: 350
-          }}
+          containerStyle={styles.firstNameInput}
         />
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 475,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text h3 style={styles.LNameText}>
           Last Name
         </Text>
         <Input
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 510,
-            width: 350
-          }}
+          containerStyle={styles.LNameInput}
         />
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 600,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text h3 style={styles.dobText}>
           Date of Birth
         </Text>
         <TouchableWithoutFeedback onPress={this.toggleModal}>
           <View style={styles.orangeBorder}>
-            <Text
-              style={{
-                position: "relative",
-                fontFamily: "Optima-Bold",
-                fontSize: 20,
-                top: "33%",
-                left: 20
-              }}
-            >
+            <Text style={styles.dobModal}>
               {this.state.chosenDate.toDateString()}
             </Text>
           </View>
@@ -131,7 +71,13 @@ class RegisterTwo extends Component {
           onBackdropPress={() => this.setState({ isVisible: false })}
           animationIn={"slideInRight"}
         >
-          <View style={{ flex: 1, justifyContent: "center" }}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              backgroundColor: "white"
+            }}
+          >
             <DatePickerIOS
               mode={"date"}
               date={this.state.chosenDate}
@@ -144,8 +90,8 @@ class RegisterTwo extends Component {
           <Icon
             type="font-awesome"
             name="arrow-right"
-            size={50}
-            style={{ position: "absolute", top: 750, right: 20 }}
+            size={35}
+            style={styles.nextScreenButton}
           />
         </TouchableWithoutFeedback>
         <Progress.Bar
@@ -153,9 +99,9 @@ class RegisterTwo extends Component {
           width={200}
           color={"#F28E00"}
           position={"absolute"}
-          top={810}
+          top={"95%"}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -179,32 +125,97 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   roundedRectangle: {
-    width: 390,
-    height: 525,
+    width: "94%",
+    height: "60%",
     borderRadius: 100 / 5,
     backgroundColor: "white",
     position: "absolute",
-    top: 300,
+    top: "37%",
     shadowColor: "grey",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5
   },
   backgroundCircle: {
-    width: 425,
-    height: 600,
+    width: "105%",
+    height: "90%",
     borderRadius: 100 / 2,
     backgroundColor: "white",
     position: "absolute",
-    top: 350
+    top: "43%"
   },
   orangeBorder: {
-    width: 350,
+    width: "85%",
     position: "absolute",
     borderWidth: 2,
-    height: 70,
+    height: "8%",
     borderRadius: 100 / 2,
-    top: 635,
+    top: "80%",
     borderColor: "#F28E00"
+  },
+  logoImage: {
+    width: "40%",
+    height: "20%",
+    position: "absolute",
+    top: "10%"
+  },
+  accountSetupText: {
+    color: "black",
+    fontFamily: "Optima-Bold",
+    fontSize: 30,
+    position: "absolute",
+    top: "38%"
+  },
+  FNameText: {
+    position: "absolute",
+    top: "45%",
+    left: "15%",
+    //fontSize: 100,
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  firstNameInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "50%",
+    width: "85%"
+  },
+  LNameText: {
+    position: "absolute",
+    top: "60%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  LNameInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "65%",
+    width: "85%"
+  },
+  dobText: {
+    position: "absolute",
+    top: "75%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  dobModal: {
+    position: "absolute",
+    fontFamily: "Optima-Bold",
+    fontSize: 20,
+    top: "25%",
+    left: "10%"
+  },
+  nextScreenButton: {
+    position: "absolute",
+    top: "90%",
+    right: "8%"
   }
 });
