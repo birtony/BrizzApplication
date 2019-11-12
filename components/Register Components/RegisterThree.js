@@ -25,62 +25,24 @@ class RegisterTwo extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.backgroundCircle}></View>
         <View style={styles.roundedRectangle}></View>
         <Image
-          style={{ width: 150, height: 150, position: "absolute", top: 100 }}
+          style={styles.logoImage}
           source={require("../../assets/logo.png")}
         ></Image>
-        <Text
-          style={{
-            color: "black",
-            fontFamily: "Optima-Bold",
-            fontSize: 30,
-            position: "absolute",
-            top: 300
-          }}
-        >
-          Account Setup
-        </Text>
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 350,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text style={styles.accountSetupText}>Account Setup</Text>
+        <Text h3 style={styles.genderText}>
           Gender
         </Text>
         <Input
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 385,
-            width: 350
-          }}
+          containerStyle={styles.genderInput}
+          disabled
         />
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 475,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
-          City
-        </Text>
         <TouchableWithoutFeedback onPress={this.toggleModal}>
-          <View style={{ position: "absolute", top: "46%", left: "12%" }}>
+          <View style={{ position: "absolute", top: "53%", left: "12%" }}>
             <RNPickerSelect
               onValueChange={value => console.log(value)}
               items={[
@@ -91,42 +53,20 @@ class RegisterTwo extends Component {
             />
           </View>
         </TouchableWithoutFeedback>
+        <Text h3 style={styles.cityText}>
+          City
+        </Text>
         <Input
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 510,
-            width: 350
-          }}
+          containerStyle={styles.cityInput}
         />
-        <Text
-          h3
-          style={{
-            position: "absolute",
-            top: 600,
-            left: 60,
-            fontFamily: "Optima-Bold",
-            color: "#F28E00"
-          }}
-        >
+        <Text h3 style={styles.gpaText}>
           GPA
         </Text>
         <Input
           keyboardType={"numbers-and-punctuation"}
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={{
-            borderWidth: 2,
-            borderRadius: 50,
-            borderColor: "#F28E00",
-            height: 70,
-            position: "absolute",
-            top: 635,
-            width: 350
-          }}
+          containerStyle={styles.gpaInput}
         />
 
         <TouchableWithoutFeedback
@@ -135,8 +75,8 @@ class RegisterTwo extends Component {
           <Icon
             type="font-awesome"
             name="check"
-            size={50}
-            style={{ position: "absolute", top: 750, right: 20 }}
+            size={35}
+            style={styles.arrowRight}
           />
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
@@ -145,8 +85,8 @@ class RegisterTwo extends Component {
           <Icon
             type="font-awesome"
             name="arrow-left"
-            size={50}
-            style={{ position: "absolute", top: 750, left: 20 }}
+            size={35}
+            style={styles.arrowBack}
           />
         </TouchableWithoutFeedback>
         <Progress.Bar
@@ -154,9 +94,9 @@ class RegisterTwo extends Component {
           width={200}
           color={"#F28E00"}
           position={"absolute"}
-          top={810}
+          top={"95%"}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -170,23 +110,94 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   roundedRectangle: {
-    width: 390,
-    height: 525,
+    width: "94%",
+    height: "60%",
     borderRadius: 100 / 5,
     backgroundColor: "white",
     position: "absolute",
-    top: 300,
+    top: "37%",
     shadowColor: "grey",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5
   },
   backgroundCircle: {
-    width: 425,
-    height: 600,
+    width: "105%",
+    height: "90%",
     borderRadius: 100 / 2,
     backgroundColor: "white",
     position: "absolute",
-    top: 350
+    top: "43%"
+  },
+  logoImage: {
+    width: "40%",
+    height: "20%",
+    position: "absolute",
+    top: "10%"
+  },
+  accountSetupText: {
+    color: "black",
+    fontFamily: "Optima-Bold",
+    fontSize: 30,
+    position: "absolute",
+    top: "38%"
+  },
+  genderText: {
+    position: "absolute",
+    top: "45%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  genderInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "50%",
+    width: "85%"
+  },
+  cityText: {
+    position: "absolute",
+    top: "60%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  cityInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "65%",
+    width: "85%"
+  },
+  gpaText: {
+    position: "absolute",
+    top: "75%",
+    left: "15%",
+    fontFamily: "Optima-Bold",
+    color: "#F28E00"
+  },
+  gpaInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
+    position: "absolute",
+    top: "80%",
+    width: "85%"
+  },
+  arrowBack: {
+    position: "absolute",
+    top: "90%",
+    left: "8%"
+  },
+  arrowRight: {
+    position: "absolute",
+    top: "90%",
+    right: "8%"
   }
 });
