@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import Api from "./utils/api.js;"
 
 class LoginPage extends Component {
   [{ state }, setState] = useStateValue();
@@ -57,7 +58,8 @@ class LoginPage extends Component {
             title="Log In"
             titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
             buttonStyle={styles.LoginButtonStyle}
-            onPress={() => this.props.navigation.navigate("ProgramsMatched")}
+            /*onPress={() => this.props.navigation.navigate("ProgramsMatched")} */
+            onPress={Api.login}
           />
         </View>
         <Text style={styles.loginFlapText}>Log In</Text>

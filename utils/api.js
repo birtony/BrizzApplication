@@ -46,7 +46,14 @@ export const get_user_by_username = async (username, token) => {
 };
 
 export const login = async (dispatch, getState) => {
-  const { login_username, login_password } = StateContext.Consumer; // figure out a way to retrieve username and password form context
+  console.log(
+    "StateContext.Provider.value.username = " +
+      StateContext.Provider.value.username
+  );
+  const {
+    login_username,
+    login_password
+  } = StateContext.Provider.value.username; // figure out a way to retrieve username and password form context
   const url = `${HOST}/api/users/login`;
   const body = {
     username: login_username,

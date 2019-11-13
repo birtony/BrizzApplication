@@ -1,8 +1,8 @@
 {
+  "urlRandomness": "yh-zhi",
   "hostType": "tunnel",
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "ac-w25",
   "https": false
 }
