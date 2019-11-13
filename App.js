@@ -9,10 +9,10 @@ import FinalRegistration from "./components/Register Components/FinalRegistratio
 import ProgramsMatched from "./components/Programs Matched/ProgramsMatched";
 import UserProfile from "./components/User Profile Components/UserProfile";
 import ProgramDetails from "./components/ProgramDetails";
-import { StateProvider } from "../state";
+import { StateProvider } from "./utils/state";
 
-export default class App extends Component {
-  initialState = {
+const App = () => {
+  const initialState = {
     state: {
       programs: [],
       user: {
@@ -35,7 +35,7 @@ export default class App extends Component {
     }
   };
 
-  reducer = (state, action) => {
+  const reducer = (state, action) => {
     switch (action.type) {
       case "username_changed":
         return {
@@ -48,14 +48,12 @@ export default class App extends Component {
     }
   };
 
-  render() {
-    return (
-      <StateProvider initialState={initialState} reducer={reducer}>
-        <AppContainer />
-      </StateProvider>
-    );
-  }
-}
+  return (
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <AppContainer />
+    </StateProvider>
+  );
+};
 
 const AppSwitchNavigation = createSwitchNavigator({
   LoginComponent: {

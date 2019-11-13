@@ -8,72 +8,73 @@ import {
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import Api from "./utils/api.js;"
+import Api from "./utils/api.js;";
 
-class LoginPage extends Component {
-  [{ state }, setState] = useStateValue();
+const LoginPage = () => {
+  const [{ state }, setState] = useStateValue();
 
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Image
-          style={styles.logoImage}
-          source={require("../../assets/logo.png")}
-        />
-        <View style={styles.backgroundCircle} />
-        <View style={styles.roundedRectangle} />
-        <View style={styles.LoginFlap} />
-        <View style={styles.SignUpFlap} />
-        <TouchableWithoutFeedback
-          onPress={() => this.props.navigation.navigate("RegisterComponent")}
-        >
-          <View style={styles.signUpFlapView}>
-            <Text style={styles.signUpFlapViewText}>Sign Up</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <Text h3 style={styles.emailEnterTextH3}>
-          Email
-        </Text>
-        <Input
-          placeholder="Email"
-          leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={styles.EmailInput}
-          onChangeText={ (updatedEmail) => this.setState({
-            type: 'username_changed',
-            newUsername: updatedEmail
-          })}
-        />
-        <Text h3 style={styles.passwordEnterTextH3}>
-          Password
-        </Text>
-        <Input
-          placeholder="Password"
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
-          containerStyle={styles.passwordInput}
-        />
-        <View style={styles.ButtonLogin}>
-          <Button
-            title="Log In"
-            titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
-            buttonStyle={styles.LoginButtonStyle}
-            /*onPress={() => this.props.navigation.navigate("ProgramsMatched")} */
-            onPress={Api.login}
-          />
+  return (
+    <SafeAreaView style={styles.container}>
+      <Image
+        style={styles.logoImage}
+        source={require("../../assets/logo.png")}
+      />
+      <View style={styles.backgroundCircle} />
+      <View style={styles.roundedRectangle} />
+      <View style={styles.LoginFlap} />
+      <View style={styles.SignUpFlap} />
+      <TouchableWithoutFeedback
+        onPress={() => this.props.navigation.navigate("RegisterComponent")}
+      >
+        <View style={styles.signUpFlapView}>
+          <Text style={styles.signUpFlapViewText}>Sign Up</Text>
         </View>
-        <Text style={styles.loginFlapText}>Log In</Text>
-        <Text
-          h5
-          style={styles.blueTapMeText}
-          onPress={() => this.props.navigation.navigate("RegisterComponent")}
-        >
-          Tap Me to Sign Up
-        </Text>
-      </SafeAreaView>
-    );
-  }
-}
+      </TouchableWithoutFeedback>
+      <Text h3 style={styles.emailEnterTextH3}>
+        Email
+      </Text>
+      <Input
+        placeholder="Email"
+        leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        containerStyle={styles.EmailInput}
+        value={state.user.email}
+        onChangeText={updatedEmail =>
+          setState({
+            type: "username_changed",
+            newUsername: updatedEmail
+          })
+        }
+      />
+      <Text h3 style={styles.passwordEnterTextH3}>
+        Password
+      </Text>
+      <Input
+        placeholder="Password"
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
+        containerStyle={styles.passwordInput}
+      />
+      <View style={styles.ButtonLogin}>
+        <Button
+          title="Log In"
+          titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
+          buttonStyle={styles.LoginButtonStyle}
+          /*onPress={() => this.props.navigation.navigate("ProgramsMatched")} */
+          onPress={Api.login}
+        />
+      </View>
+      <Text style={styles.loginFlapText}>Log In</Text>
+      <Text
+        h5
+        style={styles.blueTapMeText}
+        onPress={() => this.props.navigation.navigate("RegisterComponent")}
+      >
+        Tap Me to Sign Up
+      </Text>
+    </SafeAreaView>
+  );
+};
 
 export default LoginPage;
 const styles = StyleSheet.create({
