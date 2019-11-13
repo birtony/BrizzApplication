@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import NavBarComponent from "../NavBar/NavBarComponent";
 import { Button } from "react-native-elements";
-import ResultsComponent from "../Programs Matched/ResultsComponent";
-import UserInformation from "../User Profile Components/UserInformation";
+import ResultsComponent from "../ProgramsMatched/ResultsComponent";
+import UserInformation from "../UserProfileComponents/UserInformation";
 export default class UserProfile extends Component {
   render() {
     return (

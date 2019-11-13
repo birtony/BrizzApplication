@@ -1,40 +1,17 @@
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
-import LoginComponent from "./components/Login Components/LoginComponent";
-import RegisterComponent from "./components/Register Components/RegisterComponent";
-import RegisterTwo from "./components/Register Components/RegisterTwo";
-import RegisterThree from "./components/Register Components/RegisterThree";
-import FinalRegistration from "./components/Register Components/FinalRegistration";
-import ProgramsMatched from "./components/Programs Matched/ProgramsMatched";
-import UserProfile from "./components/User Profile Components/UserProfile";
+import LoginComponent from "./components/LoginComponents/LoginComponent";
+import RegisterComponent from "./components/RegisterComponents/RegisterComponent";
+import RegisterTwo from "./components/RegisterComponents/RegisterTwo";
+import RegisterThree from "./components/RegisterComponents/RegisterThree";
+import FinalRegistration from "./components/RegisterComponents/FinalRegistration";
+import ProgramsMatched from "./components/ProgramsMatched/ProgramsMatched";
+import UserProfile from "./components/UserProfileComponents/UserProfile";
 import ProgramDetails from "./components/ProgramDetails";
 import { StateProvider } from "./utils/state";
 
-const App = () => {
-  const initialState = {
-    state: {
-      programs: [],
-      user: {
-        email: "",
-        password: "",
-        statusActivated: false,
-        activationCode: "",
-        firstName: "",
-        lastName: "",
-        birthDate: "",
-        gender: "",
-        complete: false,
-        lastUse: new Date(0),
-        interests: [],
-        ielts: -1,
-        international: false,
-        originCountry: "",
-        yearBudget: "UNDEFINED"
-      }
-    }
-  };
-
+export default () => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "username_changed":
