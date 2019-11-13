@@ -1,5 +1,6 @@
 import { get_config } from "../const/SERVER";
 import { get, post } from "./transport";
+import { StateContext } from "./state";
 
 const config = get_config();
 
@@ -45,7 +46,7 @@ export const get_user_by_username = async (username, token) => {
 };
 
 export const login = async (dispatch, getState) => {
-  const { login_username, login_password } = getState().auth; // figure out a way to retrieve username and password form context
+  const { login_username, login_password } = StateContext.Consumer; // figure out a way to retrieve username and password form context
   const url = `${HOST}/api/users/login`;
   const body = {
     username: login_username,

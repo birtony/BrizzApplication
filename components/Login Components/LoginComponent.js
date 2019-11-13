@@ -10,6 +10,8 @@ import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 class LoginPage extends Component {
+  [{ state }, setState] = useStateValue();
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -36,6 +38,10 @@ class LoginPage extends Component {
           leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
           containerStyle={styles.EmailInput}
+          onChangeText={ (updatedEmail) => this.setState({
+            type: 'username_changed',
+            newUsername: updatedEmail
+          })}
         />
         <Text h3 style={styles.passwordEnterTextH3}>
           Password

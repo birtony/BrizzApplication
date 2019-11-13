@@ -9,10 +9,51 @@ import FinalRegistration from "./components/Register Components/FinalRegistratio
 import ProgramsMatched from "./components/Programs Matched/ProgramsMatched";
 import UserProfile from "./components/User Profile Components/UserProfile";
 import ProgramDetails from "./components/ProgramDetails";
+import { StateProvider } from "../state";
 
 export default class App extends Component {
+  initialState = {
+    state: {
+      programs: [],
+      user: {
+        email: "",
+        password: "",
+        statusActivated: false,
+        activationCode: "",
+        firstName: "",
+        lastName: "",
+        birthDate: "",
+        gender: "",
+        complete: false,
+        lastUse: new Date(0),
+        interests: [],
+        ielts: -1,
+        international: false,
+        originCountry: "",
+        yearBudget: "UNDEFINED"
+      }
+    }
+  };
+
+  reducer = (state, action) => {
+    switch (action.type) {
+      case "username_changed":
+        return {
+          ...state,
+          username: action.newUsername
+        };
+
+      default:
+        return state;
+    }
+  };
+
   render() {
-    return <AppContainer />;
+    return (
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <AppContainer />
+      </StateProvider>
+    );
   }
 }
 
