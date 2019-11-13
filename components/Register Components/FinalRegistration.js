@@ -24,7 +24,7 @@ class FinalRegistration extends Component {
         <Text style={styles.line3Text}>ANSWER THE FOLLOWING</Text>
         <Text style={styles.line4Text}>QUESTIONS</Text>
         <TouchableWithoutFeedback
-          onPress={() => this.props.navigation.navigate("LoginComponent")}
+          onPress={() => this.props.navigation.navigate("QuestionnaireOne")}
         >
           <Icon
             type="font-awesome"
