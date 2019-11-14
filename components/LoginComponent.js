@@ -8,7 +8,7 @@ class LoginPage extends Component {
         return (
             <View style={styles.container}>
                 <Image
-                    style={{ width: 150, height: 150, position: 'absolute', top: 100 }} //test
+                    style={{ width: 150, height: 150, position: 'absolute', top: 100 }}
                     source={require('../assets/logo.png')}>
                 </Image>
                 <View style={styles.backgroundCircle} />
