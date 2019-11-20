@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TouchableWithoutFeedback } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableWithoutFeedback,
+  navigate
+} from "react-native";
 import { Text } from "react-native-elements";
+import { withNavigation } from "react-navigation";
 
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
