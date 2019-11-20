@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 57945,
+  "expoServerNgrokUrl": "https://gd-wi6.anonymous.brizzapplication.exp.direct",
+  "packagerNgrokUrl": "https://packager.gd-wi6.anonymous.brizzapplication.exp.direct",
+  "ngrokPid": 57955,
   "webpackServerPort": null
 }

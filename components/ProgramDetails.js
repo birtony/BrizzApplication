@@ -3,9 +3,10 @@ import {
   StyleSheet,
   View,
   Image,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  SafeAreaView
 } from "react-native";
-import { Input, Button, Text, SafeAreaView } from "react-native-elements";
+import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import NavBarComponent from "./NavBarComponent";
 import DetailsResults from "./DetailsResults";
