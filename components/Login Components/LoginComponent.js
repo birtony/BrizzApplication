@@ -8,6 +8,13 @@ import {
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useStateValue } from "../../utils/provider";
+import {
+  login_username_changed,
+  login_password_changed,
+  logged_in
+} from "../../actions/auth";
+import * as api from "../../api";
 
 class LoginPage extends Component {
   render() {
