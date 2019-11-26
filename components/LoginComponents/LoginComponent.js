@@ -8,8 +8,13 @@ import {
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import Api from "../../utils/api";
-import { StateContext } from "../../utils/state";
+import { useStateValue } from "../../utils/provider";
+import {
+  login_username_changed,
+  login_password_changed,
+  logged_in
+} from "../../actions/auth";
+import * as api from "../../api";
 
 const LoginPage = () => {
   const [{ state }, setState] = useStateValue();

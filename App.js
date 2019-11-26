@@ -9,28 +9,18 @@ import FinalRegistration from "./components/RegisterComponents/FinalRegistration
 import ProgramsMatched from "./components/ProgramsMatched/ProgramsMatched";
 import UserProfile from "./components/UserProfileComponents/UserProfile";
 import ProgramDetails from "./components/ProgramDetails";
-import { StateProvider } from "./utils/state";
+import { initialState, reducer } from "./utils/globalState";
+import { StateProvider } from "./utils/provider";
 
-export default () => {
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "username_changed":
-        return {
-          ...state,
-          username: action.newUsername
-        };
-
-      default:
-        return state;
-    }
-  };
-
-  return (
-    <StateProvider initialState={initialState} reducer={reducer}>
-      <AppContainer />
-    </StateProvider>
-  );
-};
+export default class App extends Component {
+  render() {
+    return (
+      <StateProvider reducer={reducer} initialState={initialState}>
+        <AppContainer />
+      </StateProvider>
+    );
+  }
+}
 
 const AppSwitchNavigation = createSwitchNavigator({
   LoginComponent: {
