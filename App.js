@@ -9,10 +9,16 @@ import FinalRegistration from "./components/Register Components/FinalRegistratio
 import ProgramsMatched from "./components/Programs Matched/ProgramsMatched";
 import UserProfile from "./components/User Profile Components/UserProfile";
 import ProgramDetails from "./components/ProgramDetails";
+import { initialState, reducer } from "./utils/globalState";
+import { StateProvider } from "./utils/provider";
 
 export default class App extends Component {
   render() {
-    return <AppContainer />;
+    return (
+      <StateProvider reducer={reducer} initialState={initialState}>
+        <AppContainer />
+      </StateProvider>
+    );
   }
 }
 
