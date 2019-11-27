@@ -10,7 +10,11 @@ export const login_password_changed = password => ({
   payload: password
 });
 
-export const logged_in = ({ token, complete }) => ({
+export const logged_in = ({ token, logged_in, complete }) => ({
   type: types.LOGGED_IN,
-  payload: { token, complete }
+  payload: { token, logged_in, complete }
+});
+
+export const logged_out = () => ({
+  type: types.LOGGED_OUT
 });

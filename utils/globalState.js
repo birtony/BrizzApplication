@@ -15,10 +15,20 @@ export const reducer = (state, action) => {
     case types.LOGGED_IN:
       return {
         ...state,
+        token: action.payload.token,
         user: {
           ...state.user,
-          token: action.payload.token,
-          complete: action.payload.complete
+          complete: action.payload.complete,
+          logged_in: true
+        }
+      };
+    case types.LOGGED_OUT:
+      return {
+        ...state,
+        token: "",
+        user: {
+          ...state.user,
+          logged_in: false
         }
       };
     default:
@@ -27,5 +37,10 @@ export const reducer = (state, action) => {
 };
 
 export const initialState = {
-  token: ""
+  token: "",
+  user: {
+    email: "",
+    password: "",
+    statusActivated: false
+  }
 };
