@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
 import NavBarComponent from "../NavBar/NavBarComponent";
-import ResultsComponent from "./ResultsComponent";
+import DetailsResults from "./DetailsResults";
 
-class ProgramsMatched extends Component {
+class ProgramDetails extends Component {
   render() {
     return (
-      <SafeAreaView style={{ flex: 1 }} style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <NavBarComponent />
-        <ResultsComponent />
+        <DetailsResults />
       </SafeAreaView>
     );
   }
 }
-export default ProgramsMatched;
-// Adding a button up there works, but adding button in resultscomponent fails.
-// Figure that out.
+export default ProgramDetails;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
