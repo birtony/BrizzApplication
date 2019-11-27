@@ -4,11 +4,15 @@ import {
   View,
   TouchableWithoutFeedback,
   Image,
+  KeyboardAvoidingView,
+  Keyboard,
   SafeAreaView
 } from "react-native";
-import { Input, Text } from "react-native-elements";
+import { Input, Button, Text } from "react-native-elements";
+import DateTimePicker from "react-native-modal-datetime-picker";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as Progress from "react-native-progress";
+import Modal from "react-native-modal";
 import RNPickerSelect from "react-native-picker-select";
 
 class RegisterTwo extends Component {
