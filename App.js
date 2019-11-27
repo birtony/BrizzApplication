@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
-import LoginComponent from "./components/login/Login";
-import RegisterComponent from "./components/register/RegisterComponent";
-import RegisterTwo from "./components/register/RegisterTwo";
-import RegisterThree from "./components/register/RegisterThree";
-import FinalRegistration from "./components/register/FinalRegistration";
-import ProgramsMatched from "./components/programsMatched/ProgramsMatched";
-import UserProfile from "./components/userProfile/UserProfile";
-import ProgramDetails from "./components/programDetails/ProgramDetails";
-import DetailsResults from "./components/programDetails/DetailsResults";
+import LoginComponent from "./components/Login Components/LoginComponent";
+import RegisterComponent from "./components/Register Components/RegisterComponent";
+import RegisterTwo from "./components/Register Components/RegisterTwo";
+import RegisterThree from "./components/Register Components/RegisterThree";
+import FinalRegistration from "./components/Register Components/FinalRegistration";
+import ProgramsMatched from "./components/Programs Matched/ProgramsMatched";
+import UserProfile from "./components/User Profile Components/UserProfile";
+import ProgramDetails from "./components/ProgramDetails";
 
 export default class App extends Component {
   render() {
@@ -41,9 +40,6 @@ const AppSwitchNavigation = createSwitchNavigator({
   },
   ProgramDetails: {
     screen: ProgramDetails
-  },
-  DetailsResults: {
-    screen: DetailsResults
   }
 });
 
