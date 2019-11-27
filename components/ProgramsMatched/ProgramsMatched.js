@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, View, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 import NavBarComponent from "../NavBar/NavBarComponent";
 import ResultsComponent from "./ResultsComponent";
-import { Button } from "react-native-elements";
 
 class ProgramsMatched extends Component {
   render() {

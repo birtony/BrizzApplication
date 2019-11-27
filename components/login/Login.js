@@ -4,32 +4,30 @@ import {
   View,
   Image,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView,
   SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
-class RegisterComponent extends Component {
+
+class LoginPage extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <Image
           style={styles.logoImage}
           source={require("../../assets/logo.png")}
-        ></Image>
-        <View style={styles.backgroundCircle}></View>
-        <View style={styles.roundedRectangle}></View>
-        <View style={styles.LoginFlap}></View>
-        <View style={styles.SignUpFlap}></View>
+        />
+        <View style={styles.backgroundCircle} />
+        <View style={styles.roundedRectangle} />
+        <View style={styles.LoginFlap} />
+        <View style={styles.SignUpFlap} />
         <TouchableWithoutFeedback
-          onPress={() => this.props.navigation.navigate("LoginComponent")}
+          onPress={() => this.props.navigation.navigate("RegisterComponent")}
         >
-          <View style={styles.logInFlapView}>
-            <Text style={styles.logInFlapViewText}>Log In</Text>
+          <View style={styles.signUpFlapView}>
+            <Text style={styles.signUpFlapViewText}>Sign Up</Text>
           </View>
         </TouchableWithoutFeedback>
-        <Text style={styles.signupText}>Sign Up</Text>
-        <Text h3 style={styles.EmailText}>
+        <Text h3 style={styles.emailEnterTextH3}>
           Email
         </Text>
         <Input
@@ -38,41 +36,37 @@ class RegisterComponent extends Component {
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
           containerStyle={styles.EmailInput}
         />
-        <Text h3 style={styles.PasswordText}>
+        <Text h3 style={styles.passwordEnterTextH3}>
           Password
         </Text>
         <Input
           placeholder="Password"
-          leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
           inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+          leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
           containerStyle={styles.passwordInput}
         />
-        <Text h3 style={styles.ConfirmPasswordText}>
-          Confirm Password
-        </Text>
-        <Input
-          placeholder="Confirm Password"
-          leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={styles.ConfirmPasswordInput}
-        />
-        <View style={styles.buttonSignUp}>
+        <View style={styles.ButtonLogin}>
           <Button
-            title="Sign Up"
+            title="Log In"
             titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
-            onPress={() => this.handleRegister()}
-            buttonStyle={styles.signUpButtonStyle}
+            buttonStyle={styles.LoginButtonStyle}
+            onPress={() => this.props.navigation.navigate("ProgramsMatched")}
           />
         </View>
+        <Text style={styles.loginFlapText}>Log In</Text>
+        <Text
+          h5
+          style={styles.blueTapMeText}
+          onPress={() => this.props.navigation.navigate("RegisterComponent")}
+        >
+          Tap Me to Sign Up
+        </Text>
       </SafeAreaView>
     );
   }
-  handleRegister = () => {
-    this.props.navigation.navigate("RegisterTwo");
-  };
 }
 
-export default RegisterComponent;
+export default LoginPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -104,7 +98,7 @@ const styles = StyleSheet.create({
     width: "28%",
     height: "10%",
     borderRadius: 100 / 5,
-    backgroundColor: "#FFFFFF50",
+    backgroundColor: "white",
     top: "33%",
     position: "absolute",
     left: "3%"
@@ -115,7 +109,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "33%",
     right: "3%",
-    backgroundColor: "white",
+    backgroundColor: "#FFFFFF50",
     opacity: 20,
     borderRadius: 100 / 5
   },
@@ -125,32 +119,23 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "10%"
   },
-  logInFlapView: {
+  signUpFlapView: {
     position: "absolute",
     top: "33%",
-    left: "10%"
+    right: "28%"
   },
-  logInFlapViewText: {
-    //top: 270,
-    //left: 40,
+  signUpFlapViewText: {
     position: "absolute",
     fontFamily: "Optima-Bold",
     fontSize: 25,
     color: "#00000050"
   },
-  signupText: {
-    top: "33%",
-    right: "6%",
+  emailEnterTextH3: {
     position: "absolute",
-    fontFamily: "Optima-Bold",
-    fontSize: 25
-  },
-  EmailText: {
-    position: "absolute",
-    top: "38%",
+    top: "44%",
     left: "15%",
-    fontFamily: "Optima-Bold",
-    color: "#F28E00"
+    color: "#F28E00",
+    fontFamily: "Optima-Bold"
   },
   EmailInput: {
     borderWidth: 2,
@@ -158,15 +143,15 @@ const styles = StyleSheet.create({
     borderColor: "#F28E00",
     height: "8%",
     position: "absolute",
-    top: "43%",
+    top: "49%",
     width: "85%"
   },
-  PasswordText: {
+  passwordEnterTextH3: {
     position: "absolute",
-    top: "52%",
+    top: "59%",
     left: "15%",
-    fontFamily: "Optima-Bold",
-    color: "#F28E00"
+    color: "#F28E00",
+    fontFamily: "Optima-Bold"
   },
   passwordInput: {
     borderWidth: 2,
@@ -174,26 +159,10 @@ const styles = StyleSheet.create({
     borderColor: "#F28E00",
     height: "8%",
     position: "absolute",
-    top: "57%",
+    top: "64%",
     width: "85%"
   },
-  ConfirmPasswordText: {
-    position: "absolute",
-    top: "66%",
-    left: "15%",
-    fontFamily: "Optima-Bold",
-    color: "#F28E00"
-  },
-  ConfirmPasswordInput: {
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: "#F28E00",
-    height: "8%",
-    position: "absolute",
-    top: "71%",
-    width: "85%"
-  },
-  signUpButtonStyle: {
+  LoginButtonStyle: {
     backgroundColor: "#F28E00",
     width: 250,
     borderRadius: 50,
@@ -204,7 +173,20 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     borderWidth: 1
   },
-  buttonSignUp: {
+  ButtonLogin: {
     top: "30%"
+  },
+  loginFlapText: {
+    top: "32.5%",
+    left: "8%",
+    position: "absolute",
+    fontFamily: "Optima-Bold",
+    fontSize: 25
+  },
+  blueTapMeText: {
+    position: "absolute",
+    top: "75%",
+    fontFamily: "Optima-Bold",
+    color: "#009EF2"
   }
 });
