@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import NavBarComponent from "../NavBar/NavBarComponent";
-import { Button } from "react-native-elements";
-import ResultsComponent from "../Programs Matched/ResultsComponent";
-import UserInformation from "../User Profile Components/UserInformation";
+import UserInformation from "../userProfile/UserInformation";
 export default class UserProfile extends Component {
   render() {
     return (
-      <SafeAreaView style={{ flex: 1 }} style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <NavBarComponent />
         <UserInformation />
       </SafeAreaView>

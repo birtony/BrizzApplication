@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SafeAreaView, StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, View, Image, Text } from "react-native";
 
 export default class UserInformation extends Component {
   render() {
