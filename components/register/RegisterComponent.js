@@ -4,11 +4,9 @@ import {
   View,
   Image,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView,
   SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
 class RegisterComponent extends Component {
   render() {
     return (

@@ -7,6 +7,7 @@ import {
   SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
+<<<<<<< HEAD:components/Login Components/LoginComponent.js
 import { useStateValue } from "../../utils/provider";
 import {
   login_username_changed,
@@ -14,6 +15,8 @@ import {
   logged_in
 } from "../../actions/auth";
 import * as api from "../../api";
+=======
+>>>>>>> cd4a54133c6caf629619c94e7f9a378a26032dc6:components/login/Login.js
 
 const LoginPage = () => {
   const [{ user }, dispatch] = useStateValue();
