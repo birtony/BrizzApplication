@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -7,70 +7,70 @@ import {
   SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
-class RegisterComponent extends Component {
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Image
-          style={styles.logoImage}
-          source={require("../../assets/logo.png")}
-        ></Image>
-        <View style={styles.backgroundCircle}></View>
-        <View style={styles.roundedRectangle}></View>
-        <View style={styles.LoginFlap}></View>
-        <View style={styles.SignUpFlap}></View>
-        <TouchableWithoutFeedback
-          onPress={() => this.props.navigation.navigate("LoginComponent")}
-        >
-          <View style={styles.logInFlapView}>
-            <Text style={styles.logInFlapViewText}>Log In</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <Text style={styles.signupText}>Sign Up</Text>
-        <Text h3 style={styles.EmailText}>
-          Email
-        </Text>
-        <Input
-          placeholder="Email"
-          leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={styles.EmailInput}
-        />
-        <Text h3 style={styles.PasswordText}>
-          Password
-        </Text>
-        <Input
-          placeholder="Password"
-          leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={styles.passwordInput}
-        />
-        <Text h3 style={styles.ConfirmPasswordText}>
-          Confirm Password
-        </Text>
-        <Input
-          placeholder="Confirm Password"
-          leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={styles.ConfirmPasswordInput}
-        />
-        <View style={styles.buttonSignUp}>
-          <Button
-            title="Sign Up"
-            titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
-            onPress={() => this.handleRegister()}
-            buttonStyle={styles.signUpButtonStyle}
-          />
-        </View>
-      </SafeAreaView>
-    );
-  }
-  handleRegister = () => {
-    this.props.navigation.navigate("RegisterTwo");
-  };
-}
 
-export default RegisterComponent;
+export default Signup = ({ navigation }) => {
+  handleRegister = () => {
+    navigation.navigate("RegisterTwo");
+  };
+  return (
+    <SafeAreaView style={styles.container}>
+      <Image
+        style={styles.logoImage}
+        source={require("../../assets/logo.png")}
+      ></Image>
+      <View style={styles.backgroundCircle}></View>
+      <View style={styles.roundedRectangle}></View>
+      <View style={styles.LoginFlap}></View>
+      <View style={styles.SignUpFlap}></View>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate("Login")}>
+        <View style={styles.logInFlapView}>
+          <Text style={styles.logInFlapViewText}>Log In</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <Text style={styles.signupText}>Sign Up</Text>
+      <Text h3 style={styles.EmailText}>
+        Email
+      </Text>
+      <Input
+        placeholder="Email"
+        leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        containerStyle={styles.EmailInput}
+      />
+      <Text h3 style={styles.PasswordText}>
+        Password
+      </Text>
+      <Input
+        placeholder="Password"
+        leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        containerStyle={styles.passwordInput}
+      />
+      <Text h3 style={styles.ConfirmPasswordText}>
+        Confirm Password
+      </Text>
+      <Input
+        placeholder="Confirm Password"
+        leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        containerStyle={styles.ConfirmPasswordInput}
+      />
+      <View style={styles.buttonSignUp}>
+        <Button
+          title="Sign Up"
+          titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
+          onPress={() => handleRegister()}
+          buttonStyle={styles.signUpButtonStyle}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+Signup.navigationOptions = () => {
+  ("Signup");
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

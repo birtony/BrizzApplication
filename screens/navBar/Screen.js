@@ -1,36 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
   Text,
-  SafeAreaView,
   Image,
   TouchableWithoutFeedback
 } from "react-native";
 import MenuButton from "./MenuButton/menuButton";
 import { withNavigation } from "react-navigation";
 
-class NavBarComponent extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.navbarRectangle} />
-        <Text style={styles.brizzName}>BRIZZ</Text>
-        <TouchableWithoutFeedback
-          onPress={() => this.props.navigation.navigate("ProgramsMatched")}
-        >
-          <Image
-            style={styles.imageStyle}
-            source={require("../../assets/logo.png")}
-          />
-        </TouchableWithoutFeedback>
-        <MenuButton />
-      </View>
-    );
-  }
-}
+const NavBar = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.navbarRectangle} />
+      <Text style={styles.brizzName}>BRIZZ</Text>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("ProgramsMatched")}
+      >
+        <Image
+          style={styles.imageStyle}
+          source={require("../../assets/logo.png")}
+        />
+      </TouchableWithoutFeedback>
+      <MenuButton />
+    </View>
+  );
+};
 
-export default withNavigation(NavBarComponent);
+NavBar.navigationOptions = () => {
+  ("NavBar");
+};
+
+export default withNavigation(NavBar);
 
 const styles = StyleSheet.create({
   container: {

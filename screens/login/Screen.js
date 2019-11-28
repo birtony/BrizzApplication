@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -7,7 +7,6 @@ import {
   SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
-<<<<<<< HEAD:components/Login Components/LoginComponent.js
 import { useStateValue } from "../../utils/provider";
 import {
   login_username_changed,
@@ -15,10 +14,8 @@ import {
   logged_in
 } from "../../actions/auth";
 import * as api from "../../api";
-=======
->>>>>>> cd4a54133c6caf629619c94e7f9a378a26032dc6:components/login/Login.js
 
-const LoginPage = () => {
+export default Login = ({ navigation }) => {
   const [{ user }, dispatch] = useStateValue();
 
   return (
@@ -31,9 +28,7 @@ const LoginPage = () => {
       <View style={styles.roundedRectangle} />
       <View style={styles.LoginFlap} />
       <View style={styles.SignUpFlap} />
-      <TouchableWithoutFeedback
-        onPress={() => this.props.navigation.navigate("RegisterComponent")}
-      >
+      <TouchableWithoutFeedback onPress={() => navigation.navigate("Signup")}>
         <View style={styles.signUpFlapView}>
           <Text style={styles.signUpFlapViewText}>Sign Up</Text>
         </View>
@@ -82,7 +77,7 @@ const LoginPage = () => {
       <Text
         h5
         style={styles.blueTapMeText}
-        onPress={() => this.props.navigation.navigate("RegisterComponent")}
+        onPress={() => navigation.navigate("Signup")}
       >
         Tap Me to Sign Up
       </Text>
@@ -90,7 +85,10 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+Login.navigationOptions = () => {
+  ("Login");
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

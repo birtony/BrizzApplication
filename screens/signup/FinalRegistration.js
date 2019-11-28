@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -8,37 +8,35 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-class FinalRegistration extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.backgroundCircle}></View>
-        <View style={styles.roundedRectangle}></View>
-        <Image
-          style={styles.logoImage}
-          source={require("../../assets/logo.png")}
-        ></Image>
-        <Text style={styles.accountSetupText}>Account Setup</Text>
-        <Text style={styles.line1Text}>TO BETTER FIND WHAT</Text>
-        <Text style={styles.line2Text}>PROGRAM YOU WANT, PLEASE</Text>
-        <Text style={styles.line3Text}>ANSWER THE FOLLOWING</Text>
-        <Text style={styles.line4Text}>QUESTIONS</Text>
-        <TouchableWithoutFeedback
-          onPress={() => this.props.navigation.navigate("LoginComponent")}
-        >
-          <Icon
-            type="font-awesome"
-            name="arrow-circle-right"
-            size={50}
-            style={{ position: "absolute", top: "70%" }}
-          />
-        </TouchableWithoutFeedback>
-      </View>
-    );
-  }
-}
+export default FinalRegistration = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.backgroundCircle}></View>
+      <View style={styles.roundedRectangle}></View>
+      <Image
+        style={styles.logoImage}
+        source={require("../../assets/logo.png")}
+      ></Image>
+      <Text style={styles.accountSetupText}>Account Setup</Text>
+      <Text style={styles.line1Text}>TO BETTER FIND WHAT</Text>
+      <Text style={styles.line2Text}>PROGRAM YOU WANT, PLEASE</Text>
+      <Text style={styles.line3Text}>ANSWER THE FOLLOWING</Text>
+      <Text style={styles.line4Text}>QUESTIONS</Text>
+      <TouchableWithoutFeedback /*onPress={() => navigation.navigate("")}*/>
+        <Icon
+          type="font-awesome"
+          name="arrow-circle-right"
+          size={50}
+          style={{ position: "absolute", top: "70%" }}
+        />
+      </TouchableWithoutFeedback>
+    </View>
+  );
+};
 
-export default FinalRegistration;
+FinalRegistration.navigationOptions = () => {
+  ("FinalRegistration");
+};
 
 const styles = StyleSheet.create({
   container: {
