@@ -14,18 +14,20 @@ import Modal from "react-native-modal";
 
 export default RegisterTwo = ({ navigation }) => {
   const initialState = {
-    chosenDate: Date.now(),
+    chosenDate: new Date(),
     isModalVisible: false
   };
 
   const [state, setState] = useState(initialState);
+
+  const { chosenDate, isModalVisible } = state;
 
   const setDate = newDate => {
     setState({ chosenDate: newDate });
   };
 
   const toggleModal = () => {
-    setState({ isModalVisible: !state.isModalVisible });
+    setState({ isModalVisible: !isModalVisible });
   };
 
   const NextScreen = () => {
@@ -60,12 +62,14 @@ export default RegisterTwo = ({ navigation }) => {
       </Text>
       <TouchableWithoutFeedback onPress={toggleModal}>
         <View style={styles.orangeBorder}>
-          <Text style={styles.dobModal}>{state.chosenDate.toDateString()}</Text>
+          <Text style={styles.dobModal}>
+            {chosenDate.toLocaleDateString("en-US")}
+          </Text>
         </View>
       </TouchableWithoutFeedback>
       <Modal
-        isVisible={state.isModalVisible}
-        onBackdropPress={() => setState({ isVisible: false })}
+        isVisible={isModalVisible}
+        onBackdropPress={() => setState({ isModalVisible: false })}
         animationIn={"slideInRight"}
       >
         <View
@@ -77,10 +81,10 @@ export default RegisterTwo = ({ navigation }) => {
         >
           <DatePickerIOS
             mode={"date"}
-            date={state.chosenDate}
+            date={chosenDate}
             onDateChange={setDate}
           />
-          <Button title="Done" onPress={toggleModal} />
+          <Button title="Done" onPress={(setDate, toggleModal)} />
         </View>
       </Modal>
       <TouchableWithoutFeedback onPress={NextScreen}>

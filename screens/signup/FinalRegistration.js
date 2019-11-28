@@ -22,7 +22,9 @@ export default FinalRegistration = ({ navigation }) => {
       <Text style={styles.line2Text}>PROGRAM YOU WANT, PLEASE</Text>
       <Text style={styles.line3Text}>ANSWER THE FOLLOWING</Text>
       <Text style={styles.line4Text}>QUESTIONS</Text>
-      <TouchableWithoutFeedback /*onPress={() => navigation.navigate("")}*/>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("ProgramsMatched")}
+      >
         <Icon
           type="font-awesome"
           name="arrow-circle-right"

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
 import { Text, Button } from "react-native-elements";
 import NavBar from "../navBar/Screen";
 
@@ -8,67 +8,70 @@ import NavBar from "../navBar/Screen";
 
 export default ProgramsMatched = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeArevViewContainer}>
       <NavBar />
-      <View style={styles.background} />
-      <ScrollView style={styles.ResultTile}>
-        <View style={styles.resultBox}>
-          <Text style={styles.programName}> Program Name </Text>
-          <Text style={styles.description}> Lorem Ipsum </Text>
-          <Button
-            title="More Info"
-            onPress={() => navigation.navigate("ProgramDetails")}
-          ></Button>
+      <View style={styles.container}>
+        <View style={styles.background}>
+          <ScrollView style={styles.ResultTile}>
+            <View style={styles.resultBox}>
+              <Text style={styles.programName}> Program Name </Text>
+              <Text style={styles.description}> Lorem Ipsum </Text>
+              <Button
+                title="More Info"
+                onPress={() => navigation.navigate("ProgramDetails")}
+              ></Button>
+            </View>
+            <View style={styles.resultBox}>
+              <Text style={styles.programName}> Program Name </Text>
+              <Text style={styles.description}> Lorem Ipsum</Text>
+              <Button
+                title="More Info"
+                onPress={() => navigation.navigate("ProgramDetails")}
+              ></Button>
+            </View>
+            <View style={styles.resultBox}>
+              <Text style={styles.programName}> Program Name </Text>
+              <Text style={styles.description}> Lorem Ipsum</Text>
+              <Button
+                title="More Info"
+                onPress={() => navigation.navigate("ProgramDetails")}
+              />
+            </View>
+            <View style={styles.resultBox}>
+              <Text style={styles.programName}> Program Name </Text>
+              <Text style={styles.description}> Lorem Ipsum</Text>
+              <Button
+                title="More Info"
+                onPress={() => navigation.navigate("ProgramDetails")}
+              />
+            </View>
+            <View style={styles.resultBox}>
+              <Text style={styles.programName}> Program Name </Text>
+              <Text style={styles.description}> Lorem Ipsum</Text>
+              <Button
+                title="More Info"
+                onPress={() => navigation.navigate("ProgramDetails")}
+              />
+            </View>
+            <View style={styles.resultBox}>
+              <Text style={styles.programName}> Program Name </Text>
+              <Text style={styles.description}> Lorem Ipsum</Text>
+              <Button
+                title="More Info"
+                onPress={() => navigation.navigate("ProgramDetails")}
+              />
+            </View>
+            <View style={styles.resultBox}>
+              <Text style={styles.programName}> Program Name </Text>
+              <Text style={styles.description}> Lorem Ipsum</Text>
+              <Button
+                title="More Info"
+                onPress={() => navigation.navigate("ProgramDetails")}
+              />
+            </View>
+          </ScrollView>
         </View>
-        <View style={styles.resultBox}>
-          <Text style={styles.programName}> Program Name </Text>
-          <Text style={styles.description}> Lorem Ipsum</Text>
-          <Button
-            title="More Info"
-            onPress={() => navigation.navigate("ProgramDetails")}
-          ></Button>
-        </View>
-        <View style={styles.resultBox}>
-          <Text style={styles.programName}> Program Name </Text>
-          <Text style={styles.description}> Lorem Ipsum</Text>
-          <Button
-            title="More Info"
-            onPress={() => navigation.navigate("ProgramDetails")}
-          />
-        </View>
-        <View style={styles.resultBox}>
-          <Text style={styles.programName}> Program Name </Text>
-          <Text style={styles.description}> Lorem Ipsum</Text>
-          <Button
-            title="More Info"
-            onPress={() => navigation.navigate("ProgramDetails")}
-          />
-        </View>
-        <View style={styles.resultBox}>
-          <Text style={styles.programName}> Program Name </Text>
-          <Text style={styles.description}> Lorem Ipsum</Text>
-          <Button
-            title="More Info"
-            onPress={() => navigation.navigate("ProgramDetails")}
-          />
-        </View>
-        <View style={styles.resultBox}>
-          <Text style={styles.programName}> Program Name </Text>
-          <Text style={styles.description}> Lorem Ipsum</Text>
-          <Button
-            title="More Info"
-            onPress={() => navigation.navigate("ProgramDetails")}
-          />
-        </View>
-        <View style={styles.resultBox}>
-          <Text style={styles.programName}> Program Name </Text>
-          <Text style={styles.description}> Lorem Ipsum</Text>
-          <Button
-            title="More Info"
-            onPress={() => navigation.navigate("ProgramDetails")}
-          />
-        </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -78,12 +81,14 @@ ProgramsMatched.navigationOptions = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safeArevViewContainer: {
     flex: 1,
     backgroundColor: "#F28E00"
   },
+  container: {
+    flex: 1
+  },
   background: {
-    flex: 1,
     position: "absolute",
     backgroundColor: "white",
     height: "180%",
@@ -97,8 +102,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: "170%",
     width: "80%",
-    top: "-65%",
-    left: "10%",
     alignSelf: "center",
     borderRadius: 20
   },

@@ -8,31 +8,34 @@ import NavBar from "../navBar/Screen";
 
 export default ProgramDetails = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeAreaViewContainer}>
       <NavBar />
-      <View style={styles.background} />
-      <Text style={styles.programName}> SOFTWARE DEVELOPMENT </Text>
-      <Text style={styles.descriptionHeading}>DESCRIPTION</Text>
-      <Text style={styles.description}>
-        This four-year honours bachelor degree will provide you with extensive
-        knowledge and technical skills in software development languages. This
-        program also covers topics in operating systems, web applications,
-        multimedia interfaces, information security, databases, system analysis
-        and design principles. You will also develop communication skills to
-        effectively present technical ideas.
-      </Text>
-      <Text style={styles.offeredAtHeading}>OFFERED AT</Text>
-      <Text style={styles.offeredAt}>Seneca College</Text>
-      <Text style={styles.tuitionCostHeading}>TUITION COST</Text>
-      <Text style={styles.tuitionCost}>$8000.00 / year</Text>
-      <Text style={styles.startDateHeading}>START DATE</Text>
-      <Text style={styles.startDate}>September 2019</Text>
-      <Text
-        style={styles.backButton}
-        onPress={() => navigation.navigate("ProgramsMatched")}
-      >
-        Go Back
-      </Text>
+      <View style={styles.container}>
+        <View style={styles.background}>
+          <Text style={styles.programName}> SOFTWARE DEVELOPMENT </Text>
+          <Text style={styles.descriptionHeading}>DESCRIPTION</Text>
+          <Text style={styles.description}>
+            This four-year honours bachelor degree will provide you with
+            extensive knowledge and technical skills in software development
+            languages. This program also covers topics in operating systems, web
+            applications, multimedia interfaces, information security,
+            databases, system analysis and design principles. You will also
+            develop communication skills to effectively present technical ideas.
+          </Text>
+          <Text style={styles.offeredAtHeading}>OFFERED AT</Text>
+          <Text style={styles.offeredAt}>Seneca College</Text>
+          <Text style={styles.tuitionCostHeading}>TUITION COST</Text>
+          <Text style={styles.tuitionCost}>$8000.00 / year</Text>
+          <Text style={styles.startDateHeading}>START DATE</Text>
+          <Text style={styles.startDate}>September 2019</Text>
+          <Text
+            style={styles.backButton}
+            onPress={() => navigation.navigate("ProgramsMatched")}
+          >
+            Go Back
+          </Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -42,18 +45,19 @@ ProgramDetails.navigationOptions = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safeAreaViewContainer: {
     flex: 1,
-    backgroundColor: "#F28E00"
+    backgroundColor: "orange"
+  },
+  container: {
+    flex: 1
   },
   background: {
     flex: 1,
     position: "absolute",
-    backgroundColor: "white",
-    height: "180%",
+    backgroundColor: "orange",
+    height: "100%",
     width: "92%",
-    left: "4%",
-    top: "-75%",
     borderRadius: 20
   },
   goBackButton: {
