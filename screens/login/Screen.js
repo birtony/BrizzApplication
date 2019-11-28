@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -7,66 +7,88 @@ import {
   SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
+import { useStateValue } from "../../utils/provider";
+import {
+  login_username_changed,
+  login_password_changed,
+  logged_in
+} from "../../actions/auth";
+import * as api from "../../api";
 
-class LoginPage extends Component {
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Image
-          style={styles.logoImage}
-          source={require("../../assets/logo.png")}
-        />
-        <View style={styles.backgroundCircle} />
-        <View style={styles.roundedRectangle} />
-        <View style={styles.LoginFlap} />
-        <View style={styles.SignUpFlap} />
-        <TouchableWithoutFeedback
-          onPress={() => this.props.navigation.navigate("RegisterComponent")}
-        >
-          <View style={styles.signUpFlapView}>
-            <Text style={styles.signUpFlapViewText}>Sign Up</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <Text h3 style={styles.emailEnterTextH3}>
-          Email
-        </Text>
-        <Input
-          placeholder="Email"
-          leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          containerStyle={styles.EmailInput}
-        />
-        <Text h3 style={styles.passwordEnterTextH3}>
-          Password
-        </Text>
-        <Input
-          placeholder="Password"
-          inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-          leftIcon={{ type: "font-awesome", name: "key", left: -14, size: 35 }}
-          containerStyle={styles.passwordInput}
-        />
-        <View style={styles.ButtonLogin}>
-          <Button
-            title="Log In"
-            titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
-            buttonStyle={styles.LoginButtonStyle}
-            onPress={() => this.props.navigation.navigate("ProgramsMatched")}
-          />
+export default Login = ({ navigation }) => {
+  const [{ user }, dispatch] = useStateValue();
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Image
+        style={styles.logoImage}
+        source={require("../../assets/logo.png")}
+      />
+      <View style={styles.backgroundCircle} />
+      <View style={styles.roundedRectangle} />
+      <View style={styles.LoginFlap} />
+      <View style={styles.SignUpFlap} />
+      <TouchableWithoutFeedback onPress={() => navigation.navigate("Signup")}>
+        <View style={styles.signUpFlapView}>
+          <Text style={styles.signUpFlapViewText}>Sign Up</Text>
         </View>
-        <Text style={styles.loginFlapText}>Log In</Text>
-        <Text
-          h5
-          style={styles.blueTapMeText}
-          onPress={() => this.props.navigation.navigate("RegisterComponent")}
-        >
-          Tap Me to Sign Up
-        </Text>
-      </SafeAreaView>
-    );
-  }
-}
+      </TouchableWithoutFeedback>
+      <Text h3 style={styles.emailEnterTextH3}>
+        Email
+      </Text>
+      <Input
+        placeholder="Email"
+        leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        containerStyle={styles.EmailInput}
+        onChangeText={text => dispatch(login_username_changed(text))}
+        value={user.email}
+      />
+      <Text h3 style={styles.passwordEnterTextH3}>
+        Password
+      </Text>
+      <Input
+        placeholder="Password"
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        leftIcon={{
+          type: "font-awesome",
+          name: "key",
+          left: -14,
+          size: 35
+        }}
+        containerStyle={styles.passwordInput}
+        onChangeText={text => dispatch(login_password_changed(text))}
+        value={user.password}
+      />
+      <View style={styles.ButtonLogin}>
+        <Button
+          title="Log In"
+          titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
+          buttonStyle={styles.LoginButtonStyle}
+          onPress={async () => {
+            const result = await api.login(user);
+            if (result) {
+              () => dispatch(logged_in(...result));
+            }
+          }}
+        />
+      </View>
+      <Text style={styles.loginFlapText}>Log In</Text>
+      <Text
+        h5
+        style={styles.blueTapMeText}
+        onPress={() => navigation.navigate("Signup")}
+      >
+        Tap Me to Sign Up
+      </Text>
+    </SafeAreaView>
+  );
+};
 
-export default LoginPage;
+Login.navigationOptions = () => {
+  ("Login");
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
