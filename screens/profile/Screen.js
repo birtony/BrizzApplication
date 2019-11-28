@@ -4,29 +4,32 @@ import NavBar from "../navBar/Screen";
 
 export default UserProfile = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeAreaViewContainer}>
       <NavBar />
-      <View style={styles.background} />
-      <Image
-        style={styles.profilePhoto}
-        source={require("../../assets/ProfilePhoto.png")}
-      />
-      <Text style={styles.FName}>First Name</Text>
-      <Text style={styles.LName}>Last Name</Text>
-      <Text style={styles.BDay}>Date of Birth: 00/00/0000</Text>
-      <Text style={styles.gender}>Gender: M</Text>
-      <Text style={styles.city}>City: Aurora</Text>
-      <Text style={styles.qAnswerLbl}>Questionnaire Answers</Text>
-      <Text style={styles.a1}>Answer 1: Blah</Text>
-      <Text style={styles.a2}>Answer 2: Blah</Text>
-      <Text style={styles.a3}>Answer 3: Blah</Text>
-      <Text style={styles.a4}>Answer 4: Blah</Text>
-      <Text style={styles.a5}>Answer 5: Blah</Text>
-      <Text style={styles.a6}>Answer 6: Blah</Text>
-      <Text style={styles.a7}>Answer 7: Blah</Text>
-      <Text style={styles.a8}>Answer 8: Blah</Text>
-      <Text style={styles.a9}>Answer 9: Blah</Text>
-      <Text style={styles.a10}>Answer 10: Blah</Text>
+      <View style={styles.container}>
+        <View style={styles.background}>
+          <Image
+            style={styles.profilePhoto}
+            source={require("../../assets/ProfilePhoto.png")}
+          />
+          <Text style={styles.FName}>First Name</Text>
+          <Text style={styles.LName}>Last Name</Text>
+          <Text style={styles.BDay}>Date of Birth: 00/00/0000</Text>
+          <Text style={styles.gender}>Gender: M</Text>
+          <Text style={styles.city}>City: Aurora</Text>
+          <Text style={styles.qAnswerLbl}>Questionnaire Answers</Text>
+          <Text style={styles.a1}>Answer 1: Blah</Text>
+          <Text style={styles.a2}>Answer 2: Blah</Text>
+          <Text style={styles.a3}>Answer 3: Blah</Text>
+          <Text style={styles.a4}>Answer 4: Blah</Text>
+          <Text style={styles.a5}>Answer 5: Blah</Text>
+          <Text style={styles.a6}>Answer 6: Blah</Text>
+          <Text style={styles.a7}>Answer 7: Blah</Text>
+          <Text style={styles.a8}>Answer 8: Blah</Text>
+          <Text style={styles.a9}>Answer 9: Blah</Text>
+          <Text style={styles.a10}>Answer 10: Blah</Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -36,18 +39,21 @@ UserProfile.navigationOptions = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safeAreaViewContainer: {
     flex: 1,
     backgroundColor: "#F28E00"
+  },
+  container: {
+    flex: 1
   },
   background: {
     flex: 1,
     position: "absolute",
     backgroundColor: "white",
-    height: "180%",
+    height: "80%",
     width: "92%",
     left: "4%",
-    top: "-75%",
+    alignSelf: "center",
     borderRadius: 20
   },
   profilePhoto: {
