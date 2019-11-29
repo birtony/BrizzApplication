@@ -10,8 +10,9 @@ import { Input, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as Progress from "react-native-progress";
 import RNPickerSelect from "react-native-picker-select";
+import logo from "../../../assets/logo.png";
 
-export default RegisterThree = ({ navigation }) => {
+export default AccountSetup2 = ({ navigation }) => {
   toggleModal = () => {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   };
@@ -23,10 +24,7 @@ export default RegisterThree = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.backgroundCircle}></View>
       <View style={styles.roundedRectangle}></View>
-      <Image
-        style={styles.logoImage}
-        source={require("../../assets/logo.png")}
-      ></Image>
+      <Image style={styles.logoImage} source={logo}></Image>
       <Text style={styles.accountSetupText}>Account Setup</Text>
       <Text h3 style={styles.genderText}>
         Gender
@@ -65,7 +63,7 @@ export default RegisterThree = ({ navigation }) => {
       />
 
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("FinalRegistration")}
+        onPress={() => navigation.navigate("AccountSetup3")}
       >
         <Icon
           type="font-awesome"
@@ -75,7 +73,7 @@ export default RegisterThree = ({ navigation }) => {
         />
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("RegisterTwo")}
+        onPress={() => navigation.navigate("AccountSetup1")}
       >
         <Icon
           type="font-awesome"
@@ -95,8 +93,8 @@ export default RegisterThree = ({ navigation }) => {
   );
 };
 
-RegisterThree.navigationOptions = () => {
-  ("RegisterThree");
+AccountSetup2.navigationOptions = () => {
+  ("AccountSetup2");
 };
 
 const styles = StyleSheet.create({

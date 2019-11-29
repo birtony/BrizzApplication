@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import MenuButton from "./MenuButton/menuButton";
 import { withNavigation } from "react-navigation";
+import logo from "../../assets/logo.png";
 
 const NavBar = ({ navigation }) => {
   return (
@@ -17,10 +18,7 @@ const NavBar = ({ navigation }) => {
       <TouchableWithoutFeedback
         onPress={() => navigation.navigate("ProgramsMatched")}
       >
-        <Image
-          style={styles.imageStyle}
-          source={require("../../assets/logo.png")}
-        />
+        <Image style={styles.imageStyle} source={logo} />
       </TouchableWithoutFeedback>
       <MenuButton />
     </View>

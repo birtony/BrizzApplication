@@ -7,16 +7,14 @@ import {
   Image
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import logo from "../../../assets/logo.png";
 
-export default FinalRegistration = ({ navigation }) => {
+export default AccountSetup3 = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.backgroundCircle}></View>
       <View style={styles.roundedRectangle}></View>
-      <Image
-        style={styles.logoImage}
-        source={require("../../assets/logo.png")}
-      ></Image>
+      <Image style={styles.logoImage} source={logo}></Image>
       <Text style={styles.accountSetupText}>Account Setup</Text>
       <Text style={styles.line1Text}>TO BETTER FIND WHAT</Text>
       <Text style={styles.line2Text}>PROGRAM YOU WANT, PLEASE</Text>
@@ -36,8 +34,8 @@ export default FinalRegistration = ({ navigation }) => {
   );
 };
 
-FinalRegistration.navigationOptions = () => {
-  ("FinalRegistration");
+AccountSetup3.navigationOptions = () => {
+  ("AccountSetup3");
 };
 
 const styles = StyleSheet.create({
