@@ -1,12 +1,12 @@
-import React from "react";
-import { StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
-import { Text, Button } from "react-native-elements";
-import NavBar from "../navBar/Screen";
+import React from 'react';
+import {StyleSheet, View, SafeAreaView, ScrollView} from 'react-native';
+import {Text, Button} from 'react-native-elements';
+import NavBar from '../navBar/Screen';
 
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
-export default ProgramsMatched = ({ navigation }) => {
+export default ProgramsMatched = ({navigation}) => {
   return (
     <SafeAreaView style={styles.safeArevViewContainer}>
       <NavBar />
@@ -18,7 +18,7 @@ export default ProgramsMatched = ({ navigation }) => {
               <Text style={styles.description}> Lorem Ipsum </Text>
               <Button
                 title="More Info"
-                onPress={() => navigation.navigate("ProgramDetails")}
+                onPress={() => navigation.navigate('ProgramDetails')}
               ></Button>
             </View>
             <View style={styles.resultBox}>
@@ -26,7 +26,7 @@ export default ProgramsMatched = ({ navigation }) => {
               <Text style={styles.description}> Lorem Ipsum</Text>
               <Button
                 title="More Info"
-                onPress={() => navigation.navigate("ProgramDetails")}
+                onPress={() => navigation.navigate('ProgramDetails')}
               ></Button>
             </View>
             <View style={styles.resultBox}>
@@ -34,7 +34,7 @@ export default ProgramsMatched = ({ navigation }) => {
               <Text style={styles.description}> Lorem Ipsum</Text>
               <Button
                 title="More Info"
-                onPress={() => navigation.navigate("ProgramDetails")}
+                onPress={() => navigation.navigate('ProgramDetails')}
               />
             </View>
             <View style={styles.resultBox}>
@@ -42,7 +42,7 @@ export default ProgramsMatched = ({ navigation }) => {
               <Text style={styles.description}> Lorem Ipsum</Text>
               <Button
                 title="More Info"
-                onPress={() => navigation.navigate("ProgramDetails")}
+                onPress={() => navigation.navigate('ProgramDetails')}
               />
             </View>
             <View style={styles.resultBox}>
@@ -50,7 +50,7 @@ export default ProgramsMatched = ({ navigation }) => {
               <Text style={styles.description}> Lorem Ipsum</Text>
               <Button
                 title="More Info"
-                onPress={() => navigation.navigate("ProgramDetails")}
+                onPress={() => navigation.navigate('ProgramDetails')}
               />
             </View>
             <View style={styles.resultBox}>
@@ -58,7 +58,7 @@ export default ProgramsMatched = ({ navigation }) => {
               <Text style={styles.description}> Lorem Ipsum</Text>
               <Button
                 title="More Info"
-                onPress={() => navigation.navigate("ProgramDetails")}
+                onPress={() => navigation.navigate('ProgramDetails')}
               />
             </View>
             <View style={styles.resultBox}>
@@ -66,7 +66,7 @@ export default ProgramsMatched = ({ navigation }) => {
               <Text style={styles.description}> Lorem Ipsum</Text>
               <Button
                 title="More Info"
-                onPress={() => navigation.navigate("ProgramDetails")}
+                onPress={() => navigation.navigate('ProgramDetails')}
               />
             </View>
           </ScrollView>
@@ -77,54 +77,54 @@ export default ProgramsMatched = ({ navigation }) => {
 };
 
 ProgramsMatched.navigationOptions = () => {
-  ("ProgramsMatched");
+  ('ProgramsMatched');
 };
 
 const styles = StyleSheet.create({
   safeArevViewContainer: {
     flex: 1,
-    backgroundColor: "#F28E00"
+    backgroundColor: '#F28E00',
   },
   container: {
-    flex: 1
+    flex: 1,
   },
   background: {
-    position: "absolute",
-    backgroundColor: "white",
-    height: "180%",
-    width: "92%",
-    left: "4%",
-    top: "-75%",
-    borderRadius: 20
+    position: 'absolute',
+    backgroundColor: 'white',
+    height: '180%',
+    width: '92%',
+    left: '4%',
+    top: '-75%',
+    borderRadius: 20,
   },
   ResultTile: {
     flex: 1,
-    position: "absolute",
-    height: "170%",
-    width: "80%",
-    alignSelf: "center",
-    borderRadius: 20
+    position: 'absolute',
+    height: '170%',
+    width: '80%',
+    alignSelf: 'center',
+    borderRadius: 20,
   },
   resultBox: {
     flex: 4,
-    height: "100%",
-    marginBottom: "50%",
-    backgroundColor: "white",
+    height: '100%',
+    marginBottom: '50%',
+    backgroundColor: 'white',
     borderRadius: 20,
-    shadowColor: "grey",
-    shadowOffset: { width: 0, height: 2 },
+    shadowColor: 'grey',
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
-    shadowRadius: 5
+    shadowRadius: 5,
   },
   programName: {
     flex: 1,
-    fontFamily: "Optima-Bold",
+    fontFamily: 'Optima-Bold',
     fontSize: 25,
-    textAlign: "center"
+    textAlign: 'center',
   },
   description: {
     flex: 1,
-    position: "relative",
-    height: "50%"
-  }
+    position: 'relative',
+    height: '50%',
+  },
 });

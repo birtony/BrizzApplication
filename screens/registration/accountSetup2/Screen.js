@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
   TouchableWithoutFeedback,
   Image,
-  SafeAreaView
-} from "react-native";
-import { Input, Text } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
-import * as Progress from "react-native-progress";
-import RNPickerSelect from "react-native-picker-select";
-import logo from "../../../assets/logo.png";
+  SafeAreaView,
+} from 'react-native';
+import {Input, Text} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Progress from 'react-native-progress';
+import RNPickerSelect from 'react-native-picker-select';
+import logo from '../../../assets/logo.png';
 
-export default AccountSetup2 = ({ navigation }) => {
+export default AccountSetup2 = ({navigation}) => {
   toggleModal = () => {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
+    this.setState({isModalVisible: !this.state.isModalVisible});
   };
   state = {
-    isModalVisible: false
+    isModalVisible: false,
   };
 
   return (
@@ -30,18 +30,18 @@ export default AccountSetup2 = ({ navigation }) => {
         Gender
       </Text>
       <Input
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
         containerStyle={styles.genderInput}
         disabled
       />
       <TouchableWithoutFeedback onPress={this.toggleModal}>
-        <View style={{ position: "absolute", top: "53%", left: "12%" }}>
+        <View style={{position: 'absolute', top: '53%', left: '12%'}}>
           <RNPickerSelect
-            onValueChange={value => console.log(value)}
+            onValueChange={(value) => console.log(value)}
             items={[
-              { label: "Male", value: "male" },
-              { label: "Female", value: "female" },
-              { label: "Other", value: "other" }
+              {label: 'Male', value: 'male'},
+              {label: 'Female', value: 'female'},
+              {label: 'Other', value: 'other'},
             ]}
           />
         </View>
@@ -50,20 +50,20 @@ export default AccountSetup2 = ({ navigation }) => {
         City
       </Text>
       <Input
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
         containerStyle={styles.cityInput}
       />
       <Text h3 style={styles.gpaText}>
         GPA
       </Text>
       <Input
-        keyboardType={"numbers-and-punctuation"}
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        keyboardType={'numbers-and-punctuation'}
+        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
         containerStyle={styles.gpaInput}
       />
 
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("AccountSetup3")}
+        onPress={() => navigation.navigate('AccountSetup3')}
       >
         <Icon
           type="font-awesome"
@@ -73,7 +73,7 @@ export default AccountSetup2 = ({ navigation }) => {
         />
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("AccountSetup1")}
+        onPress={() => navigation.navigate('AccountSetup1')}
       >
         <Icon
           type="font-awesome"
@@ -85,114 +85,114 @@ export default AccountSetup2 = ({ navigation }) => {
       <Progress.Bar
         progress={1}
         width={200}
-        color={"#F28E00"}
-        position={"absolute"}
-        top={"95%"}
+        color={'#F28E00'}
+        position={'absolute'}
+        top={'95%'}
       />
     </SafeAreaView>
   );
 };
 
 AccountSetup2.navigationOptions = () => {
-  ("AccountSetup2");
+  ('AccountSetup2');
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F28E00",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#F28E00',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   roundedRectangle: {
-    width: "94%",
-    height: "60%",
+    width: '94%',
+    height: '60%',
     borderRadius: 100 / 5,
-    backgroundColor: "white",
-    position: "absolute",
-    top: "37%",
-    shadowColor: "grey",
-    shadowOffset: { width: 0, height: 2 },
+    backgroundColor: 'white',
+    position: 'absolute',
+    top: '37%',
+    shadowColor: 'grey',
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
-    shadowRadius: 5
+    shadowRadius: 5,
   },
   backgroundCircle: {
-    width: "105%",
-    height: "90%",
+    width: '105%',
+    height: '90%',
     borderRadius: 100 / 2,
-    backgroundColor: "white",
-    position: "absolute",
-    top: "43%"
+    backgroundColor: 'white',
+    position: 'absolute',
+    top: '43%',
   },
   logoImage: {
-    width: "40%",
-    height: "20%",
-    position: "absolute",
-    top: "10%"
+    width: '40%',
+    height: '20%',
+    position: 'absolute',
+    top: '10%',
   },
   accountSetupText: {
-    color: "black",
-    fontFamily: "Optima-Bold",
+    color: 'black',
+    fontFamily: 'Optima-Bold',
     fontSize: 30,
-    position: "absolute",
-    top: "38%"
+    position: 'absolute',
+    top: '38%',
   },
   genderText: {
-    position: "absolute",
-    top: "45%",
-    left: "15%",
-    fontFamily: "Optima-Bold",
-    color: "#F28E00"
+    position: 'absolute',
+    top: '45%',
+    left: '15%',
+    fontFamily: 'Optima-Bold',
+    color: '#F28E00',
   },
   genderInput: {
     borderWidth: 2,
     borderRadius: 50,
-    borderColor: "#F28E00",
-    height: "8%",
-    position: "absolute",
-    top: "50%",
-    width: "85%"
+    borderColor: '#F28E00',
+    height: '8%',
+    position: 'absolute',
+    top: '50%',
+    width: '85%',
   },
   cityText: {
-    position: "absolute",
-    top: "60%",
-    left: "15%",
-    fontFamily: "Optima-Bold",
-    color: "#F28E00"
+    position: 'absolute',
+    top: '60%',
+    left: '15%',
+    fontFamily: 'Optima-Bold',
+    color: '#F28E00',
   },
   cityInput: {
     borderWidth: 2,
     borderRadius: 50,
-    borderColor: "#F28E00",
-    height: "8%",
-    position: "absolute",
-    top: "65%",
-    width: "85%"
+    borderColor: '#F28E00',
+    height: '8%',
+    position: 'absolute',
+    top: '65%',
+    width: '85%',
   },
   gpaText: {
-    position: "absolute",
-    top: "75%",
-    left: "15%",
-    fontFamily: "Optima-Bold",
-    color: "#F28E00"
+    position: 'absolute',
+    top: '75%',
+    left: '15%',
+    fontFamily: 'Optima-Bold',
+    color: '#F28E00',
   },
   gpaInput: {
     borderWidth: 2,
     borderRadius: 50,
-    borderColor: "#F28E00",
-    height: "8%",
-    position: "absolute",
-    top: "80%",
-    width: "85%"
+    borderColor: '#F28E00',
+    height: '8%',
+    position: 'absolute',
+    top: '80%',
+    width: '85%',
   },
   arrowBack: {
-    position: "absolute",
-    top: "90%",
-    left: "8%"
+    position: 'absolute',
+    top: '90%',
+    left: '8%',
   },
   arrowRight: {
-    position: "absolute",
-    top: "90%",
-    right: "8%"
-  }
+    position: 'absolute',
+    top: '90%',
+    right: '8%',
+  },
 });
