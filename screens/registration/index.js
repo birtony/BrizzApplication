@@ -1,4 +1,4 @@
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 import Signup from "./signup/Screen";
 import AccountSetup1 from "./accountSetup1/Screen";
 import AccountSetup2 from "./accountSetup2/Screen";

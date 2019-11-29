@@ -11,6 +11,7 @@ import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as Progress from "react-native-progress";
 import Modal from "react-native-modal";
+import logo from "../../../assets/logo.png";
 
 export default AccountSetup1 = ({ navigation }) => {
   const initialState = {
@@ -38,10 +39,7 @@ export default AccountSetup1 = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.backgroundCircle} />
       <View style={styles.roundedRectangle} />
-      <Image
-        style={styles.logoImage}
-        source={require("../../assets/logo.png")}
-      ></Image>
+      <Image style={styles.logoImage} source={logo}></Image>
       <Text style={styles.accountSetupText}>Account Setup</Text>
       <Text h3 style={styles.FNameText}>
         First Name

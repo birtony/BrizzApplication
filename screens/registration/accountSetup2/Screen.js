@@ -10,6 +10,7 @@ import { Input, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as Progress from "react-native-progress";
 import RNPickerSelect from "react-native-picker-select";
+import logo from "../../../assets/logo.png";
 
 export default AccountSetup2 = ({ navigation }) => {
   toggleModal = () => {
@@ -23,10 +24,7 @@ export default AccountSetup2 = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.backgroundCircle}></View>
       <View style={styles.roundedRectangle}></View>
-      <Image
-        style={styles.logoImage}
-        source={require("../../assets/logo.png")}
-      ></Image>
+      <Image style={styles.logoImage} source={logo}></Image>
       <Text style={styles.accountSetupText}>Account Setup</Text>
       <Text h3 style={styles.genderText}>
         Gender

@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, View, Image, Text } from "react-native";
 import NavBar from "../navBar/Screen";
+import logo from "../../assets/logo.png";
 
 export default UserProfile = ({ navigation }) => {
   return (
@@ -8,10 +9,7 @@ export default UserProfile = ({ navigation }) => {
       <NavBar />
       <View style={styles.container}>
         <View style={styles.background}>
-          <Image
-            style={styles.profilePhoto}
-            source={require("../../assets/ProfilePhoto.png")}
-          />
+          <Image style={styles.profilePhoto} source={logo} />
           <Text style={styles.FName}>First Name</Text>
           <Text style={styles.LName}>Last Name</Text>
           <Text style={styles.BDay}>Date of Birth: 00/00/0000</Text>

@@ -7,17 +7,15 @@ import {
   SafeAreaView
 } from "react-native";
 import { Input, Button, Text } from "react-native-elements";
+import logo from "../../../assets/logo.png";
 
 export default Signup = ({ navigation }) => {
   handleRegister = () => {
-    navigation.navigate("RegisterTwo");
+    navigation.navigate("AccountSetup1");
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Image
-        style={styles.logoImage}
-        source={require("../../assets/logo.png")}
-      ></Image>
+      <Image style={styles.logoImage} source={logo}></Image>
       <View style={styles.backgroundCircle}></View>
       <View style={styles.roundedRectangle}></View>
       <View style={styles.LoginFlap}></View>

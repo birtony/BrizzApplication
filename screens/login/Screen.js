@@ -14,16 +14,14 @@ import {
   logged_in
 } from "../../actions/auth";
 import * as api from "../../api";
+import logo from "../../assets/logo.png";
 
 export default Login = ({ navigation }) => {
   const [{ user }, dispatch] = useStateValue();
 
   return (
     <SafeAreaView style={styles.container}>
-      <Image
-        style={styles.logoImage}
-        source={require("../../assets/logo.png")}
-      />
+      <Image style={styles.logoImage} source={logo} />
       <View style={styles.backgroundCircle} />
       <View style={styles.roundedRectangle} />
       <View style={styles.LoginFlap} />
