@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default FinalRegistration = ({ navigation }) => {
+export default AccountSetup3 = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.backgroundCircle}></View>
@@ -36,8 +36,8 @@ export default FinalRegistration = ({ navigation }) => {
   );
 };
 
-FinalRegistration.navigationOptions = () => {
-  ("FinalRegistration");
+AccountSetup3.navigationOptions = () => {
+  ("AccountSetup3");
 };
 
 const styles = StyleSheet.create({

@@ -1,102 +1,91 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
   TouchableWithoutFeedback,
   Image,
-  DatePickerIOS,
   SafeAreaView
 } from "react-native";
-import { Input, Button, Text } from "react-native-elements";
+import { Input, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as Progress from "react-native-progress";
-import Modal from "react-native-modal";
+import RNPickerSelect from "react-native-picker-select";
 
-export default RegisterTwo = ({ navigation }) => {
-  const initialState = {
-    chosenDate: new Date(),
+export default AccountSetup2 = ({ navigation }) => {
+  toggleModal = () => {
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+  };
+  state = {
     isModalVisible: false
-  };
-
-  const [state, setState] = useState(initialState);
-
-  const { chosenDate, isModalVisible } = state;
-
-  const setDate = newDate => {
-    setState({ chosenDate: newDate });
-  };
-
-  const toggleModal = () => {
-    setState({ isModalVisible: !isModalVisible });
-  };
-
-  const NextScreen = () => {
-    navigation.navigate("RegisterThree");
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.backgroundCircle} />
-      <View style={styles.roundedRectangle} />
+      <View style={styles.backgroundCircle}></View>
+      <View style={styles.roundedRectangle}></View>
       <Image
         style={styles.logoImage}
         source={require("../../assets/logo.png")}
       ></Image>
       <Text style={styles.accountSetupText}>Account Setup</Text>
-      <Text h3 style={styles.FNameText}>
-        First Name
+      <Text h3 style={styles.genderText}>
+        Gender
       </Text>
       <Input
         inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.firstNameInput}
+        containerStyle={styles.genderInput}
+        disabled
       />
-      <Text h3 style={styles.LNameText}>
-        Last Name
-      </Text>
-      <Input
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.LNameInput}
-      />
-      <Text h3 style={styles.dobText}>
-        Date of Birth
-      </Text>
-      <TouchableWithoutFeedback onPress={toggleModal}>
-        <View style={styles.orangeBorder}>
-          <Text style={styles.dobModal}>
-            {chosenDate.toLocaleDateString("en-US")}
-          </Text>
+      <TouchableWithoutFeedback onPress={this.toggleModal}>
+        <View style={{ position: "absolute", top: "53%", left: "12%" }}>
+          <RNPickerSelect
+            onValueChange={value => console.log(value)}
+            items={[
+              { label: "Male", value: "male" },
+              { label: "Female", value: "female" },
+              { label: "Other", value: "other" }
+            ]}
+          />
         </View>
       </TouchableWithoutFeedback>
-      <Modal
-        isVisible={isModalVisible}
-        onBackdropPress={() => setState({ isModalVisible: false })}
-        animationIn={"slideInRight"}
+      <Text h3 style={styles.cityText}>
+        City
+      </Text>
+      <Input
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        containerStyle={styles.cityInput}
+      />
+      <Text h3 style={styles.gpaText}>
+        GPA
+      </Text>
+      <Input
+        keyboardType={"numbers-and-punctuation"}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        containerStyle={styles.gpaInput}
+      />
+
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("AccountSetup3")}
       >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            backgroundColor: "white"
-          }}
-        >
-          <DatePickerIOS
-            mode={"date"}
-            date={chosenDate}
-            onDateChange={setDate}
-          />
-          <Button title="Done" onPress={(setDate, toggleModal)} />
-        </View>
-      </Modal>
-      <TouchableWithoutFeedback onPress={NextScreen}>
         <Icon
           type="font-awesome"
-          name="arrow-right"
+          name="check"
           size={35}
-          style={styles.nextScreenButton}
+          style={styles.arrowRight}
+        />
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("AccountSetup1")}
+      >
+        <Icon
+          type="font-awesome"
+          name="arrow-left"
+          size={35}
+          style={styles.arrowBack}
         />
       </TouchableWithoutFeedback>
       <Progress.Bar
-        progress={0.5}
+        progress={1}
         width={200}
         color={"#F28E00"}
         position={"absolute"}
@@ -106,24 +95,14 @@ export default RegisterTwo = ({ navigation }) => {
   );
 };
 
-RegisterTwo.navigationOptions = () => {
-  ("RegisterTwo");
+AccountSetup2.navigationOptions = () => {
+  ("AccountSetup2");
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F28E00",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  datePicker: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  Setup: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -147,15 +126,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "43%"
   },
-  orangeBorder: {
-    width: "85%",
-    position: "absolute",
-    borderWidth: 2,
-    height: "8%",
-    borderRadius: 100 / 2,
-    top: "80%",
-    borderColor: "#F28E00"
-  },
   logoImage: {
     width: "40%",
     height: "20%",
@@ -169,15 +139,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "38%"
   },
-  FNameText: {
+  genderText: {
     position: "absolute",
     top: "45%",
     left: "15%",
-    //fontSize: 100,
     fontFamily: "Optima-Bold",
     color: "#F28E00"
   },
-  firstNameInput: {
+  genderInput: {
     borderWidth: 2,
     borderRadius: 50,
     borderColor: "#F28E00",
@@ -186,14 +155,14 @@ const styles = StyleSheet.create({
     top: "50%",
     width: "85%"
   },
-  LNameText: {
+  cityText: {
     position: "absolute",
     top: "60%",
     left: "15%",
     fontFamily: "Optima-Bold",
     color: "#F28E00"
   },
-  LNameInput: {
+  cityInput: {
     borderWidth: 2,
     borderRadius: 50,
     borderColor: "#F28E00",
@@ -202,21 +171,28 @@ const styles = StyleSheet.create({
     top: "65%",
     width: "85%"
   },
-  dobText: {
+  gpaText: {
     position: "absolute",
     top: "75%",
     left: "15%",
     fontFamily: "Optima-Bold",
     color: "#F28E00"
   },
-  dobModal: {
+  gpaInput: {
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#F28E00",
+    height: "8%",
     position: "absolute",
-    fontFamily: "Optima-Bold",
-    fontSize: 20,
-    top: "25%",
-    left: "10%"
+    top: "80%",
+    width: "85%"
   },
-  nextScreenButton: {
+  arrowBack: {
+    position: "absolute",
+    top: "90%",
+    left: "8%"
+  },
+  arrowRight: {
     position: "absolute",
     top: "90%",
     right: "8%"
