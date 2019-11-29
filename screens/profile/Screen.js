@@ -1,9 +1,9 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, View, Image, Text } from "react-native";
-import NavBar from "../navBar/Screen";
-import logo from "../../assets/logo.png";
+import React from 'react';
+import {SafeAreaView, StyleSheet, View, Image, Text} from 'react-native';
+import NavBar from '../navBar/Screen';
+import logo from '../../assets/logo.png';
 
-export default UserProfile = ({ navigation }) => {
+export default UserProfile = ({navigation}) => {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <NavBar />
@@ -33,175 +33,175 @@ export default UserProfile = ({ navigation }) => {
 };
 
 UserProfile.navigationOptions = () => {
-  ("UserInformation");
+  ('UserInformation');
 };
 
 const styles = StyleSheet.create({
   safeAreaViewContainer: {
     flex: 1,
-    backgroundColor: "#F28E00"
+    backgroundColor: '#F28E00',
   },
   container: {
-    flex: 1
+    flex: 1,
   },
   background: {
     flex: 1,
-    position: "absolute",
-    backgroundColor: "white",
-    height: "80%",
-    width: "92%",
-    left: "4%",
-    alignSelf: "center",
-    borderRadius: 20
+    position: 'absolute',
+    backgroundColor: 'white',
+    height: '80%',
+    width: '92%',
+    left: '4%',
+    alignSelf: 'center',
+    borderRadius: 20,
   },
   profilePhoto: {
     flex: 1,
-    position: "absolute",
-    top: "-70%",
-    left: "8%",
-    width: "30%",
-    height: "30%"
+    position: 'absolute',
+    top: '-70%',
+    left: '8%',
+    width: '30%',
+    height: '30%',
   },
   FName: {
     flex: 1,
-    position: "absolute",
-    left: "45%",
-    top: "-65%",
+    position: 'absolute',
+    left: '45%',
+    top: '-65%',
     fontSize: 40,
-    fontFamily: "Optima-Bold"
+    fontFamily: 'Optima-Bold',
   },
   LName: {
     flex: 1,
-    position: "absolute",
-    left: "52%",
-    top: "-50%",
+    position: 'absolute',
+    left: '52%',
+    top: '-50%',
     fontSize: 30,
-    fontFamily: "Optima-Bold"
+    fontFamily: 'Optima-Bold',
   },
   BDay: {
     flex: 1,
-    position: "absolute",
-    left: "12%",
-    top: "-25%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '12%',
+    top: '-25%',
+    fontFamily: 'Optima-Bold',
     fontSize: 30,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   gender: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "-12%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '-12%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   city: {
     flex: 1,
-    position: "absolute",
-    left: "60%",
-    top: "-12%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '60%',
+    top: '-12%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   qAnswerLbl: {
     flex: 1,
-    position: "absolute",
-    left: "28%",
-    top: "-5%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '28%',
+    top: '-5%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a1: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "3%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '3%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a2: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "11%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '11%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a3: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "19%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '19%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a4: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "27%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '27%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a5: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "35%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '35%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a6: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "43%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '43%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a7: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "51%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '51%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a8: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "59%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '59%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a9: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "67%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '67%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline',
   },
   a10: {
     flex: 1,
-    position: "absolute",
-    left: "16%",
-    top: "75%",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    left: '16%',
+    top: '75%',
+    fontFamily: 'Optima-Bold',
     fontSize: 20,
-    textDecorationLine: "underline"
-  }
+    textDecorationLine: 'underline',
+  },
 });

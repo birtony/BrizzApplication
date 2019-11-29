@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
   Image,
   TouchableWithoutFeedback,
-  SafeAreaView
-} from "react-native";
-import { Input, Button, Text } from "react-native-elements";
-import { useStateValue } from "../../utils/provider";
+  SafeAreaView,
+} from 'react-native';
+import {Input, Button, Text} from 'react-native-elements';
+import {useStateValue} from '../../utils/provider';
 import {
   login_username_changed,
   login_password_changed,
-  logged_in
-} from "../../actions/auth";
-import * as api from "../../api";
-import logo from "../../assets/logo.png";
+  logged_in,
+} from '../../actions/auth';
+import * as api from '../../api';
+import logo from '../../assets/logo.png';
 
-export default Login = ({ navigation }) => {
-  const [{ user }, dispatch] = useStateValue();
+export default Login = ({navigation}) => {
+  const [{user}, dispatch] = useStateValue();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -26,7 +26,7 @@ export default Login = ({ navigation }) => {
       <View style={styles.roundedRectangle} />
       <View style={styles.LoginFlap} />
       <View style={styles.SignUpFlap} />
-      <TouchableWithoutFeedback onPress={() => navigation.navigate("Signup")}>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
         <View style={styles.signUpFlapView}>
           <Text style={styles.signUpFlapViewText}>Sign Up</Text>
         </View>
@@ -36,10 +36,10 @@ export default Login = ({ navigation }) => {
       </Text>
       <Input
         placeholder="Email"
-        leftIcon={{ type: "font-awesome", name: "at", left: -14, size: 35 }}
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        leftIcon={{type: 'font-awesome', name: 'at', left: -14, size: 35}}
+        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
         containerStyle={styles.EmailInput}
-        onChangeText={text => dispatch(login_username_changed(text))}
+        onChangeText={(text) => dispatch(login_username_changed(text))}
         value={user.email}
       />
       <Text h3 style={styles.passwordEnterTextH3}>
@@ -47,21 +47,21 @@ export default Login = ({ navigation }) => {
       </Text>
       <Input
         placeholder="Password"
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
         leftIcon={{
-          type: "font-awesome",
-          name: "key",
+          type: 'font-awesome',
+          name: 'key',
           left: -14,
-          size: 35
+          size: 35,
         }}
         containerStyle={styles.passwordInput}
-        onChangeText={text => dispatch(login_password_changed(text))}
+        onChangeText={(text) => dispatch(login_password_changed(text))}
         value={user.password}
       />
       <View style={styles.ButtonLogin}>
         <Button
           title="Log In"
-          titleStyle={{ fontSize: 40, fontFamily: "Optima-Bold" }}
+          titleStyle={{fontSize: 40, fontFamily: 'Optima-Bold'}}
           buttonStyle={styles.LoginButtonStyle}
           onPress={async () => {
             const result = await api.login(user);
@@ -75,7 +75,7 @@ export default Login = ({ navigation }) => {
       <Text
         h5
         style={styles.blueTapMeText}
-        onPress={() => navigation.navigate("Signup")}
+        onPress={() => navigation.navigate('Signup')}
       >
         Tap Me to Sign Up
       </Text>
@@ -84,129 +84,129 @@ export default Login = ({ navigation }) => {
 };
 
 Login.navigationOptions = () => {
-  ("Login");
+  ('Login');
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F28E00",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#F28E00',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   roundedRectangle: {
-    width: "94%",
-    height: "60%",
+    width: '94%',
+    height: '60%',
     borderRadius: 100 / 5,
-    backgroundColor: "white",
-    position: "absolute",
-    top: "37%",
-    shadowColor: "grey",
-    shadowOffset: { width: 0, height: 2 },
+    backgroundColor: 'white',
+    position: 'absolute',
+    top: '37%',
+    shadowColor: 'grey',
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
-    shadowRadius: 5
+    shadowRadius: 5,
   },
   backgroundCircle: {
-    width: "105%",
-    height: "90%",
+    width: '105%',
+    height: '90%',
     borderRadius: 100 / 2,
-    backgroundColor: "white",
-    position: "absolute",
-    top: "43%"
+    backgroundColor: 'white',
+    position: 'absolute',
+    top: '43%',
   },
   LoginFlap: {
-    width: "28%",
-    height: "10%",
+    width: '28%',
+    height: '10%',
     borderRadius: 100 / 5,
-    backgroundColor: "white",
-    top: "33%",
-    position: "absolute",
-    left: "3%"
+    backgroundColor: 'white',
+    top: '33%',
+    position: 'absolute',
+    left: '3%',
   },
   SignUpFlap: {
-    width: "28%",
-    height: "10%",
-    position: "absolute",
-    top: "33%",
-    right: "3%",
-    backgroundColor: "#FFFFFF50",
+    width: '28%',
+    height: '10%',
+    position: 'absolute',
+    top: '33%',
+    right: '3%',
+    backgroundColor: '#FFFFFF50',
     opacity: 20,
-    borderRadius: 100 / 5
+    borderRadius: 100 / 5,
   },
   logoImage: {
-    width: "40%",
-    height: "20%",
-    position: "absolute",
-    top: "10%"
+    width: '40%',
+    height: '20%',
+    position: 'absolute',
+    top: '10%',
   },
   signUpFlapView: {
-    position: "absolute",
-    top: "33%",
-    right: "28%"
+    position: 'absolute',
+    top: '33%',
+    right: '28%',
   },
   signUpFlapViewText: {
-    position: "absolute",
-    fontFamily: "Optima-Bold",
+    position: 'absolute',
+    fontFamily: 'Optima-Bold',
     fontSize: 25,
-    color: "#00000050"
+    color: '#00000050',
   },
   emailEnterTextH3: {
-    position: "absolute",
-    top: "44%",
-    left: "15%",
-    color: "#F28E00",
-    fontFamily: "Optima-Bold"
+    position: 'absolute',
+    top: '44%',
+    left: '15%',
+    color: '#F28E00',
+    fontFamily: 'Optima-Bold',
   },
   EmailInput: {
     borderWidth: 2,
     borderRadius: 50,
-    borderColor: "#F28E00",
-    height: "8%",
-    position: "absolute",
-    top: "49%",
-    width: "85%"
+    borderColor: '#F28E00',
+    height: '8%',
+    position: 'absolute',
+    top: '49%',
+    width: '85%',
   },
   passwordEnterTextH3: {
-    position: "absolute",
-    top: "59%",
-    left: "15%",
-    color: "#F28E00",
-    fontFamily: "Optima-Bold"
+    position: 'absolute',
+    top: '59%',
+    left: '15%',
+    color: '#F28E00',
+    fontFamily: 'Optima-Bold',
   },
   passwordInput: {
     borderWidth: 2,
     borderRadius: 50,
-    borderColor: "#F28E00",
-    height: "8%",
-    position: "absolute",
-    top: "64%",
-    width: "85%"
+    borderColor: '#F28E00',
+    height: '8%',
+    position: 'absolute',
+    top: '64%',
+    width: '85%',
   },
   LoginButtonStyle: {
-    backgroundColor: "#F28E00",
+    backgroundColor: '#F28E00',
     width: 250,
     borderRadius: 50,
     height: 75,
-    position: "absolute",
+    position: 'absolute',
     left: -120,
-    top: "5%",
-    borderColor: "grey",
-    borderWidth: 1
+    top: '5%',
+    borderColor: 'grey',
+    borderWidth: 1,
   },
   ButtonLogin: {
-    top: "30%"
+    top: '30%',
   },
   loginFlapText: {
-    top: "32.5%",
-    left: "8%",
-    position: "absolute",
-    fontFamily: "Optima-Bold",
-    fontSize: 25
+    top: '32.5%',
+    left: '8%',
+    position: 'absolute',
+    fontFamily: 'Optima-Bold',
+    fontSize: 25,
   },
   blueTapMeText: {
-    position: "absolute",
-    top: "75%",
-    fontFamily: "Optima-Bold",
-    color: "#009EF2"
-  }
+    position: 'absolute',
+    top: '75%',
+    fontFamily: 'Optima-Bold',
+    color: '#009EF2',
+  },
 });

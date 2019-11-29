@@ -1,39 +1,39 @@
-import { Alert } from "react-native";
-import { SERVER_URL } from "./const/SERVER";
+import {Alert} from 'react-native';
+import {SERVER_URL} from './const/SERVER';
 
-export const login = async user => {
+export const login = async (user) => {
   const url = `${SERVER_URL}/api/users/login`;
   const body = {
     username: user.email,
-    password: user.password
+    password: user.password,
   };
   console.log(`Sending to ${url}`);
   try {
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     });
-    console.log("Dispatching event...");
+    console.log('Dispatching event...');
     const data = await response.json();
     console.log(data);
-    const { token, complete } = data;
+    const {token, complete} = data;
     if (token) {
-      return { token, complete };
+      return {token, complete};
     } else {
       Alert.alert(
-        "Error",
-        "Bad username/password. Please double check and try again"
+        'Error',
+        'Bad username/password. Please double check and try again',
       );
     }
   } catch (e) {
     console.log(e);
     Alert.alert(
-      "Error",
-      "Bad username/password. Please double check and try again"
+      'Error',
+      'Bad username/password. Please double check and try again',
     );
   }
 };

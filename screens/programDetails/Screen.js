@@ -1,12 +1,12 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import { Text } from "react-native-elements";
-import NavBar from "../navBar/Screen";
+import React from 'react';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {Text} from 'react-native-elements';
+import NavBar from '../navBar/Screen';
 
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
-export default ProgramDetails = ({ navigation }) => {
+export default ProgramDetails = ({navigation}) => {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <NavBar />
@@ -30,7 +30,7 @@ export default ProgramDetails = ({ navigation }) => {
           <Text style={styles.startDate}>September 2019</Text>
           <Text
             style={styles.backButton}
-            onPress={() => navigation.navigate("ProgramsMatched")}
+            onPress={() => navigation.navigate('ProgramsMatched')}
           >
             Go Back
           </Text>
@@ -41,117 +41,117 @@ export default ProgramDetails = ({ navigation }) => {
 };
 
 ProgramDetails.navigationOptions = () => {
-  ("ProgramDetails");
+  ('ProgramDetails');
 };
 
 const styles = StyleSheet.create({
   safeAreaViewContainer: {
     flex: 1,
-    backgroundColor: "orange"
+    backgroundColor: 'orange',
   },
   container: {
-    flex: 1
+    flex: 1,
   },
   background: {
     flex: 1,
-    position: "absolute",
-    backgroundColor: "orange",
-    height: "100%",
-    width: "92%",
-    borderRadius: 20
+    position: 'absolute',
+    backgroundColor: 'orange',
+    height: '100%',
+    width: '92%',
+    borderRadius: 20,
   },
   goBackButton: {
     flex: 1,
-    position: "absolute",
-    bottom: "12%",
-    right: "7%",
-    fontWeight: "bold"
+    position: 'absolute',
+    bottom: '12%',
+    right: '7%',
+    fontWeight: 'bold',
   },
   programName: {
     flex: 1,
-    position: "absolute",
-    bottom: "160%",
-    left: "14%",
+    position: 'absolute',
+    bottom: '160%',
+    left: '14%',
     fontSize: 20,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   descriptionHeading: {
     flex: 1,
-    position: "relative",
-    position: "absolute",
-    bottom: "150%",
-    left: "5%",
+    position: 'relative',
+    position: 'absolute',
+    bottom: '150%',
+    left: '5%',
     fontSize: 18,
-    fontWeight: "bold",
-    textDecorationLine: "underline"
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
   description: {
     flex: 1,
-    position: "relative",
-    position: "absolute",
-    bottom: "90%",
-    left: "5%",
-    right: "5%",
-    fontSize: 16
+    position: 'relative',
+    position: 'absolute',
+    bottom: '90%',
+    left: '5%',
+    right: '5%',
+    fontSize: 16,
   },
   offeredAtHeading: {
     flex: 1,
-    position: "relative",
-    position: "absolute",
-    bottom: "80%",
-    left: "5%",
+    position: 'relative',
+    position: 'absolute',
+    bottom: '80%',
+    left: '5%',
     fontSize: 18,
-    fontWeight: "bold",
-    textDecorationLine: "underline"
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
   offeredAt: {
     flex: 1,
-    position: "relative",
-    position: "absolute",
-    bottom: "73%",
-    left: "5%",
-    right: "5%",
-    fontSize: 16
+    position: 'relative',
+    position: 'absolute',
+    bottom: '73%',
+    left: '5%',
+    right: '5%',
+    fontSize: 16,
   },
   tuitionCostHeading: {
-    position: "absolute",
-    bottom: "63%",
-    left: "5%",
+    position: 'absolute',
+    bottom: '63%',
+    left: '5%',
     fontSize: 18,
-    fontWeight: "bold",
-    textDecorationLine: "underline"
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
   tuitionCost: {
     flex: 1,
-    position: "relative",
-    position: "absolute",
-    bottom: "56%",
-    left: "5%",
-    right: "5%",
-    fontSize: 16
+    position: 'relative',
+    position: 'absolute',
+    bottom: '56%',
+    left: '5%',
+    right: '5%',
+    fontSize: 16,
   },
   startDateHeading: {
-    position: "absolute",
-    bottom: "46%",
-    left: "5%",
+    position: 'absolute',
+    bottom: '46%',
+    left: '5%',
     fontSize: 18,
-    fontWeight: "bold",
-    textDecorationLine: "underline"
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
   startDate: {
     flex: 1,
-    position: "relative",
-    position: "absolute",
-    bottom: "39%",
-    left: "5%",
-    right: "5%",
-    fontSize: 16
+    position: 'relative',
+    position: 'absolute',
+    bottom: '39%',
+    left: '5%',
+    right: '5%',
+    fontSize: 16,
   },
   backButton: {
-    position: "absolute",
+    position: 'absolute',
     top: 100,
     right: 63,
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });

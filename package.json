@@ -5,7 +5,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "eslint": "eslint --ignore-path .gitignore .",
+    "eslint-fix": "eslint --fix --ignore-path .gitignore ."
   },
   "dependencies": {
     "@99xt/first-born": "^1.1.8",
@@ -16,6 +18,7 @@
     "create-react-class": "^15.6.3",
     "expo": "^35.0.0",
     "native-base": "^2.13.8",
+    "prettier": "^1.19.1",
     "react": "16.8.3",
     "react-datepicker": "^2.9.6",
     "react-dom": "16.8.3",
@@ -44,7 +47,18 @@
     "react-navigation-tabs": "^2.5.5"
   },
   "devDependencies": {
-    "babel-preset-expo": "^7.0.0"
+    "babel-eslint": "^10.0.3",
+    "babel-preset-expo": "^7.0.0",
+    "eslint": "^6.7.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-flowtype": "^4.5.2",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0"
   },
   "rnpm": {
     "assets": [
