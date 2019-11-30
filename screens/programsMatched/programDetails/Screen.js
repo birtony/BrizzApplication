@@ -1,26 +1,23 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
-import NavBar from '../navBar/Screen';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { Text } from 'react-native-elements';
 
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
-export default ProgramDetails = ({navigation}) => {
+export default ProgramDetails = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
-      <NavBar />
       <View style={styles.container}>
         <View style={styles.background}>
           <Text style={styles.programName}> SOFTWARE DEVELOPMENT </Text>
           <Text style={styles.descriptionHeading}>DESCRIPTION</Text>
           <Text style={styles.description}>
-            This four-year honours bachelor degree will provide you with
-            extensive knowledge and technical skills in software development
-            languages. This program also covers topics in operating systems, web
-            applications, multimedia interfaces, information security,
-            databases, system analysis and design principles. You will also
-            develop communication skills to effectively present technical ideas.
+            This four-year honours bachelor degree will provide you with extensive knowledge and
+            technical skills in software development languages. This program also covers topics in
+            operating systems, web applications, multimedia interfaces, information security,
+            databases, system analysis and design principles. You will also develop communication
+            skills to effectively present technical ideas.
           </Text>
           <Text style={styles.offeredAtHeading}>OFFERED AT</Text>
           <Text style={styles.offeredAt}>Seneca College</Text>
@@ -28,10 +25,7 @@ export default ProgramDetails = ({navigation}) => {
           <Text style={styles.tuitionCost}>$8000.00 / year</Text>
           <Text style={styles.startDateHeading}>START DATE</Text>
           <Text style={styles.startDate}>September 2019</Text>
-          <Text
-            style={styles.backButton}
-            onPress={() => navigation.navigate('ProgramsMatched')}
-          >
+          <Text style={styles.backButton} onPress={() => navigation.navigate('ProgramsMatched')}>
             Go Back
           </Text>
         </View>

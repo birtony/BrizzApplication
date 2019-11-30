@@ -1,15 +1,13 @@
 import React from 'react';
-import {StyleSheet, View, SafeAreaView, ScrollView} from 'react-native';
-import {Text, Button} from 'react-native-elements';
-import NavBar from '../navBar/Screen';
+import { StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
+import { Text, Button } from 'react-native-elements';
 
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
-export default ProgramsMatched = ({navigation}) => {
+export default ProgramsMatched = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeArevViewContainer}>
-      <NavBar />
       <View style={styles.container}>
         <View style={styles.background}>
           <ScrollView style={styles.ResultTile}>
@@ -32,42 +30,27 @@ export default ProgramsMatched = ({navigation}) => {
             <View style={styles.resultBox}>
               <Text style={styles.programName}> Program Name </Text>
               <Text style={styles.description}> Lorem Ipsum</Text>
-              <Button
-                title="More Info"
-                onPress={() => navigation.navigate('ProgramDetails')}
-              />
+              <Button title="More Info" onPress={() => navigation.navigate('ProgramDetails')} />
             </View>
             <View style={styles.resultBox}>
               <Text style={styles.programName}> Program Name </Text>
               <Text style={styles.description}> Lorem Ipsum</Text>
-              <Button
-                title="More Info"
-                onPress={() => navigation.navigate('ProgramDetails')}
-              />
+              <Button title="More Info" onPress={() => navigation.navigate('ProgramDetails')} />
             </View>
             <View style={styles.resultBox}>
               <Text style={styles.programName}> Program Name </Text>
               <Text style={styles.description}> Lorem Ipsum</Text>
-              <Button
-                title="More Info"
-                onPress={() => navigation.navigate('ProgramDetails')}
-              />
+              <Button title="More Info" onPress={() => navigation.navigate('ProgramDetails')} />
             </View>
             <View style={styles.resultBox}>
               <Text style={styles.programName}> Program Name </Text>
               <Text style={styles.description}> Lorem Ipsum</Text>
-              <Button
-                title="More Info"
-                onPress={() => navigation.navigate('ProgramDetails')}
-              />
+              <Button title="More Info" onPress={() => navigation.navigate('ProgramDetails')} />
             </View>
             <View style={styles.resultBox}>
               <Text style={styles.programName}> Program Name </Text>
               <Text style={styles.description}> Lorem Ipsum</Text>
-              <Button
-                title="More Info"
-                onPress={() => navigation.navigate('ProgramDetails')}
-              />
+              <Button title="More Info" onPress={() => navigation.navigate('ProgramDetails')} />
             </View>
           </ScrollView>
         </View>
@@ -112,7 +95,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
     shadowColor: 'grey',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5,
   },
