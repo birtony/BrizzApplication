@@ -1,14 +1,12 @@
-import {createSwitchNavigator} from 'react-navigation';
+import { createSwitchNavigator } from 'react-navigation';
 import Login from './screens/login/Screen';
-import Registration from './screens/registration/';
-import ProgramsMatched from './screens/programsMatched/Screen';
+import RegistrationNavigator from './screens/registration/';
 import UserProfile from './screens/profile/Screen';
-import ProgramDetails from './screens/programDetails/Screen';
+import ProgramsMatchedNavigator from './screens/programsMatched';
 
 export default navigator = createSwitchNavigator({
   Login,
-  Registration,
-  ProgramsMatched,
+  RegistrationNavigator,
+  ProgramsMatchedNavigator,
   UserProfile,
-  ProgramDetails,
 });
