@@ -1,15 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Image, Text} from 'react-native';
-import NavBar from '../navBar/Screen';
-import logo from '../../assets/logo.png';
+import { SafeAreaView, StyleSheet, View, Image, Text } from 'react-native';
 
-export default UserProfile = ({navigation}) => {
+export default UserProfile = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
-      <NavBar />
       <View style={styles.container}>
         <View style={styles.background}>
-          <Image style={styles.profilePhoto} source={logo} />
           <Text style={styles.FName}>First Name</Text>
           <Text style={styles.LName}>Last Name</Text>
           <Text style={styles.BDay}>Date of Birth: 00/00/0000</Text>
@@ -33,7 +29,7 @@ export default UserProfile = ({navigation}) => {
 };
 
 UserProfile.navigationOptions = () => {
-  ('UserInformation');
+  ('UserProfile');
 };
 
 const styles = StyleSheet.create({
