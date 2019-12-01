@@ -3,139 +3,129 @@ import { StyleSheet, View, Image, TouchableWithoutFeedback, SafeAreaView } from 
 import { Input, Button, Text } from 'react-native-elements';
 import { useStateValue } from '../../utils/provider';
 import { login_username_changed, login_password_changed, logged_in } from '../../actions/auth';
+import { Col, Row, Grid } from 'react-native-easy-grid';
+import WhiteCard from '../../common/components/WhiteCard';
+import InputComponent from '../../common/components/InputComponent';
+
 import * as api from '../../api';
-import logo from '../../assets/logo.png';
 
 export default function Login({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Image style={styles.logoImage} source={logo} />
-      <View style={styles.backgroundCircle} />
-      <View style={styles.roundedRectangle} />
-      <View style={styles.LoginFlap} />
-      <View style={styles.SignUpFlap} />
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
-        <View style={styles.signUpFlapView}>
-          <Text style={styles.signUpFlapViewText}>Sign Up</Text>
-        </View>
-      </TouchableWithoutFeedback>
-      <Text h3 style={styles.emailEnterTextH3}>
-        Email
-      </Text>
-      <Input
-        placeholder="Email"
-        leftIcon={{ type: 'font-awesome', name: 'at', left: -14, size: 35 }}
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.EmailInput}
-        onChangeText={(text) => dispatch(login_username_changed(text))}
-        value={user.email}
-      />
-      <Text h3 style={styles.passwordEnterTextH3}>
-        Password
-      </Text>
-      <Input
-        placeholder="Password"
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        leftIcon={{
-          type: 'font-awesome',
-          name: 'key',
-          left: -14,
-          size: 35,
-        }}
-        containerStyle={styles.passwordInput}
-        onChangeText={(text) => dispatch(login_password_changed(text))}
-        value={user.password}
-      />
-      <View style={styles.ButtonLogin}>
-        <Button
-          title="Log In"
-          titleStyle={{ fontSize: 40, fontFamily: 'Optima-Bold' }}
-          buttonStyle={styles.LoginButtonStyle}
-          onPress={async () => {
-            const result = await api.login(user);
-            if (result) {
-              dispatch(logged_in(...result));
-            }
-          }}
-        />
+    <WhiteCard style={styles.container}>
+      <View style={styles.back}>
+        <Grid style={styles.grid}>
+          <Row style={styles.flapsRow}>
+            <Col>
+              <View style={styles.LoginFlap}>
+                <Text style={styles.loginFlapText}>Log In</Text>
+              </View>
+            </Col>
+            <Col></Col>
+            <Col>
+              <View style={styles.SignUpFlap}>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
+                  <Text style={styles.signUpFlapText}>Sign Up</Text>
+                </TouchableWithoutFeedback>
+              </View>
+            </Col>
+          </Row>
+          <Row size={2}>
+            <InputComponent
+              title={'Email'}
+              onChangeAction={login_username_changed}
+              property={user.email}
+              iconName={'at'}
+            ></InputComponent>
+          </Row>
+          <Row size={2}>
+            <InputComponent
+              title={'Password'}
+              onChangeAction={login_password_changed}
+              property={user.password}
+              iconName={'key'}
+            ></InputComponent>
+          </Row>
+          <Row size={0.5}></Row>
+          <Row>
+            <Col size={1}></Col>
+            <Col size={2}>
+              <Button
+                title="Log In"
+                titleStyle={styles.LoginButtonTitle}
+                buttonStyle={styles.LoginButtonStyle}
+                onPress={async () => {
+                  const result = await api.login(user);
+                  if (result) {
+                    () => dispatch(logged_in(...result));
+                  }
+                }}
+              />
+            </Col>
+            <Col size={1}></Col>
+          </Row>
+          <Row size={0.5}></Row>
+        </Grid>
       </View>
-      <Text style={styles.loginFlapText}>Log In</Text>
-      <Text h5 style={styles.blueTapMeText} onPress={() => navigation.navigate('Signup')}>
-        Tap Me to Sign Up
-      </Text>
-    </SafeAreaView>
+    </WhiteCard>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  back: {
+    height: '100%',
+    width: '100%',
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    backgroundColor: 'white',
+  },
+  grid: {
     flex: 1,
-    backgroundColor: '#F28E00',
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
   },
-  roundedRectangle: {
-    width: '94%',
-    height: '60%',
-    borderRadius: 100 / 5,
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: '37%',
-    shadowColor: 'grey',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
-  },
-  backgroundCircle: {
-    width: '105%',
-    height: '90%',
-    borderRadius: 100 / 2,
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: '43%',
+  flapsRow: {
+    top: '-8%',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    borderRadius: 20,
   },
   LoginFlap: {
-    width: '28%',
-    height: '10%',
-    borderRadius: 100 / 5,
+    top: '2%',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
     backgroundColor: 'white',
-    top: '33%',
-    position: 'absolute',
-    left: '3%',
+    height: '100%',
+  },
+  loginFlapText: {
+    fontFamily: 'Optima-Bold',
+    fontSize: 20,
   },
   SignUpFlap: {
-    width: '28%',
-    height: '10%',
-    position: 'absolute',
-    top: '33%',
-    right: '3%',
-    backgroundColor: '#FFFFFF50',
+    top: '2%',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    height: '100%',
     opacity: 20,
-    borderRadius: 100 / 5,
   },
-  logoImage: {
-    width: '40%',
-    height: '20%',
-    position: 'absolute',
-    top: '10%',
-  },
-  signUpFlapView: {
-    position: 'absolute',
-    top: '33%',
-    right: '28%',
-  },
-  signUpFlapViewText: {
-    position: 'absolute',
+  signUpFlapText: {
     fontFamily: 'Optima-Bold',
-    fontSize: 25,
+    fontSize: 20,
     color: '#00000050',
   },
   emailEnterTextH3: {
-    position: 'absolute',
-    top: '44%',
-    left: '15%',
+    alignContent: 'flex-start',
+    justifyContent: 'center',
     color: '#F28E00',
     fontFamily: 'Optima-Bold',
   },
@@ -143,15 +133,12 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 50,
     borderColor: '#F28E00',
-    height: '8%',
-    position: 'absolute',
-    top: '49%',
-    width: '85%',
+    height: '50%',
+    width: '100%',
   },
   passwordEnterTextH3: {
-    position: 'absolute',
-    top: '59%',
-    left: '15%',
+    alignContent: 'flex-start',
+    justifyContent: 'center',
     color: '#F28E00',
     fontFamily: 'Optima-Bold',
   },
@@ -159,36 +146,22 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 50,
     borderColor: '#F28E00',
-    height: '8%',
-    position: 'absolute',
-    top: '64%',
-    width: '85%',
+    height: '50%',
+    width: '100%',
   },
   LoginButtonStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#F28E00',
-    width: 250,
     borderRadius: 50,
-    height: 75,
-    position: 'absolute',
-    left: -120,
-    top: '5%',
     borderColor: 'grey',
     borderWidth: 1,
   },
-  ButtonLogin: {
-    top: '30%',
-  },
-  loginFlapText: {
-    top: '32.5%',
-    left: '8%',
-    position: 'absolute',
-    fontFamily: 'Optima-Bold',
+  LoginButtonTitle: {
     fontSize: 25,
-  },
-  blueTapMeText: {
-    position: 'absolute',
-    top: '75%',
     fontFamily: 'Optima-Bold',
-    color: '#009EF2',
+    alignContent: 'center',
+    justifyContent: 'center',
+    height: '100%',
   },
 });
