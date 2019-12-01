@@ -1,23 +1,22 @@
-import React from 'react';
-import {
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
-  Image,
-  SafeAreaView,
-} from 'react-native';
-import {Input, Text} from 'react-native-elements';
+import React, { useState } from 'react';
+import { StyleSheet, View, TouchableWithoutFeedback, Image, SafeAreaView } from 'react-native';
+import { Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Progress from 'react-native-progress';
 import RNPickerSelect from 'react-native-picker-select';
 import logo from '../../../assets/logo.png';
 
-export default AccountSetup2 = ({navigation}) => {
-  toggleModal = () => {
-    this.setState({isModalVisible: !this.state.isModalVisible});
-  };
-  state = {
+export default function AccountSetup2({ navigation }) {
+  const initialState = {
     isModalVisible: false,
+  };
+
+  const [state, setState] = useState(initialState);
+
+  const { isModalVisible } = state;
+
+  const toggleModal = () => {
+    setState({ isModalVisible: !isModalVisible });
   };
 
   return (
@@ -30,18 +29,18 @@ export default AccountSetup2 = ({navigation}) => {
         Gender
       </Text>
       <Input
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.genderInput}
         disabled
       />
-      <TouchableWithoutFeedback onPress={this.toggleModal}>
-        <View style={{position: 'absolute', top: '53%', left: '12%'}}>
+      <TouchableWithoutFeedback onPress={toggleModal}>
+        <View style={{ position: 'absolute', top: '53%', left: '12%' }}>
           <RNPickerSelect
-            onValueChange={(value) => console.log(value)}
+            onValueChange={value => console.log(value)}
             items={[
-              {label: 'Male', value: 'male'},
-              {label: 'Female', value: 'female'},
-              {label: 'Other', value: 'other'},
+              { label: 'Male', value: 'male' },
+              { label: 'Female', value: 'female' },
+              { label: 'Other', value: 'other' },
             ]}
           />
         </View>
@@ -50,7 +49,7 @@ export default AccountSetup2 = ({navigation}) => {
         City
       </Text>
       <Input
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.cityInput}
       />
       <Text h3 style={styles.gpaText}>
@@ -58,44 +57,20 @@ export default AccountSetup2 = ({navigation}) => {
       </Text>
       <Input
         keyboardType={'numbers-and-punctuation'}
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.gpaInput}
       />
 
-      <TouchableWithoutFeedback
-        onPress={() => navigation.navigate('AccountSetup3')}
-      >
-        <Icon
-          type="font-awesome"
-          name="check"
-          size={35}
-          style={styles.arrowRight}
-        />
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountSetup3')}>
+        <Icon type="font-awesome" name="check" size={35} style={styles.arrowRight} />
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback
-        onPress={() => navigation.navigate('AccountSetup1')}
-      >
-        <Icon
-          type="font-awesome"
-          name="arrow-left"
-          size={35}
-          style={styles.arrowBack}
-        />
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountSetup1')}>
+        <Icon type="font-awesome" name="arrow-left" size={35} style={styles.arrowBack} />
       </TouchableWithoutFeedback>
-      <Progress.Bar
-        progress={1}
-        width={200}
-        color={'#F28E00'}
-        position={'absolute'}
-        top={'95%'}
-      />
+      <Progress.Bar progress={1} width={200} color={'#F28E00'} position={'absolute'} top={'95%'} />
     </SafeAreaView>
   );
-};
-
-AccountSetup2.navigationOptions = () => {
-  ('AccountSetup2');
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -112,7 +87,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '37%',
     shadowColor: 'grey',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5,
   },

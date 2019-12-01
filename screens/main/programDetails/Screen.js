@@ -5,7 +5,7 @@ import { Text } from 'react-native-elements';
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
-export default ProgramDetails = ({ navigation }) => {
+export default function ProgramDetails({ navigation }) {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <View style={styles.container}>
@@ -32,11 +32,7 @@ export default ProgramDetails = ({ navigation }) => {
       </View>
     </SafeAreaView>
   );
-};
-
-ProgramDetails.navigationOptions = () => {
-  ('ProgramDetails');
-};
+}
 
 const styles = StyleSheet.create({
   safeAreaViewContainer: {
@@ -71,7 +67,6 @@ const styles = StyleSheet.create({
   },
   descriptionHeading: {
     flex: 1,
-    position: 'relative',
     position: 'absolute',
     bottom: '150%',
     left: '5%',
@@ -81,7 +76,6 @@ const styles = StyleSheet.create({
   },
   description: {
     flex: 1,
-    position: 'relative',
     position: 'absolute',
     bottom: '90%',
     left: '5%',
@@ -90,7 +84,6 @@ const styles = StyleSheet.create({
   },
   offeredAtHeading: {
     flex: 1,
-    position: 'relative',
     position: 'absolute',
     bottom: '80%',
     left: '5%',
@@ -100,7 +93,6 @@ const styles = StyleSheet.create({
   },
   offeredAt: {
     flex: 1,
-    position: 'relative',
     position: 'absolute',
     bottom: '73%',
     left: '5%',
@@ -117,7 +109,6 @@ const styles = StyleSheet.create({
   },
   tuitionCost: {
     flex: 1,
-    position: 'relative',
     position: 'absolute',
     bottom: '56%',
     left: '5%',
@@ -134,7 +125,6 @@ const styles = StyleSheet.create({
   },
   startDate: {
     flex: 1,
-    position: 'relative',
     position: 'absolute',
     bottom: '39%',
     left: '5%',

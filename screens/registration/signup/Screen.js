@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Image, TouchableWithoutFeedback, SafeAreaView} from 'react-native';
-import {Input, Button, Text} from 'react-native-elements';
+import { StyleSheet, View, Image, TouchableWithoutFeedback, SafeAreaView } from 'react-native';
+import { Input, Button, Text } from 'react-native-elements';
 import logo from '../../../assets/logo.png';
 
-export default Signup = ({navigation}) => {
-  const handleRegister = () => {
+export default function Signup({ navigation }) {
+  function handleRegister() {
     navigation.navigate('AccountSetup1');
-  };
+  }
   return (
     <SafeAreaView style={styles.container}>
       <Image style={styles.logoImage} source={logo}></Image>
@@ -25,8 +25,8 @@ export default Signup = ({navigation}) => {
       </Text>
       <Input
         placeholder="Email"
-        leftIcon={{type: 'font-awesome', name: 'at', left: -14, size: 35}}
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        leftIcon={{ type: 'font-awesome', name: 'at', left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.EmailInput}
       />
       <Text h3 style={styles.PasswordText}>
@@ -34,8 +34,8 @@ export default Signup = ({navigation}) => {
       </Text>
       <Input
         placeholder="Password"
-        leftIcon={{type: 'font-awesome', name: 'key', left: -14, size: 35}}
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.passwordInput}
       />
       <Text h3 style={styles.ConfirmPasswordText}>
@@ -43,25 +43,21 @@ export default Signup = ({navigation}) => {
       </Text>
       <Input
         placeholder="Confirm Password"
-        leftIcon={{type: 'font-awesome', name: 'key', left: -14, size: 35}}
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35 }}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.ConfirmPasswordInput}
       />
       <View style={styles.buttonSignUp}>
         <Button
           title="Sign Up"
-          titleStyle={{fontSize: 40, fontFamily: 'Optima-Bold'}}
+          titleStyle={{ fontSize: 40, fontFamily: 'Optima-Bold' }}
           onPress={() => handleRegister()}
           buttonStyle={styles.signUpButtonStyle}
         />
       </View>
     </SafeAreaView>
   );
-};
-
-Signup.navigationOptions = () => {
-  ('Signup');
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -78,7 +74,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '37%',
     shadowColor: 'grey',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5,
   },

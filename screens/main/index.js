@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { Icon } from 'react-native-elements';
 import ProgramsMatched from './programsMatched/Screen';
 import ProgramDetails from './programDetails/Screen';
-import UserProfile from './userProfile/Screen';
+import SettingsNavigator from './settings';
 
 const navigator = createStackNavigator(
   {
@@ -23,7 +23,7 @@ const navigator = createStackNavigator(
           <Icon
             name="account-circle"
             size={40}
-            onPress={() => navigation.navigate('UserProfile')}
+            onPress={() => navigation.navigate('SettingsNavigator')}
           />
         ),
         headerRightContainerStyle: {
@@ -47,7 +47,7 @@ const navigator = createStackNavigator(
           <Icon
             name="account-circle"
             size={40}
-            onPress={() => navigation.navigate('UserProfile')}
+            onPress={() => navigation.navigate('SettingsNavigator')}
           />
         ),
         headerRightContainerStyle: {
@@ -55,8 +55,8 @@ const navigator = createStackNavigator(
         },
       }),
     },
-    UserProfile: {
-      screen: UserProfile,
+    SettingsNavigator: {
+      screen: SettingsNavigator,
       navigationOptions: () => ({
         headerStyle: {
           backgroundColor: 'white',
@@ -74,7 +74,7 @@ const navigator = createStackNavigator(
       }),
     },
   },
-  { initialRouteName: 'ProgramsMatched' }
+  { initialRouteName: 'ProgramsMatched' },
 );
 
 export default navigator;

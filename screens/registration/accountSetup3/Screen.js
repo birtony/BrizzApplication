@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  Image,
-} from 'react-native';
+import { StyleSheet, View, Text, TouchableWithoutFeedback, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import logo from '../../../assets/logo.png';
 
-export default AccountSetup3 = ({navigation}) => {
+export default function AccountSetup3({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.backgroundCircle}></View>
@@ -20,23 +14,17 @@ export default AccountSetup3 = ({navigation}) => {
       <Text style={styles.line2Text}>PROGRAM YOU WANT, PLEASE</Text>
       <Text style={styles.line3Text}>ANSWER THE FOLLOWING</Text>
       <Text style={styles.line4Text}>QUESTIONS</Text>
-      <TouchableWithoutFeedback
-        onPress={() => navigation.navigate('ProgramsMatched')}
-      >
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('ProgramsMatched')}>
         <Icon
           type="font-awesome"
           name="arrow-circle-right"
           size={50}
-          style={{position: 'absolute', top: '70%'}}
+          style={{ position: 'absolute', top: '70%' }}
         />
       </TouchableWithoutFeedback>
     </View>
   );
-};
-
-AccountSetup3.navigationOptions = () => {
-  ('AccountSetup3');
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -53,7 +41,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '37%',
     shadowColor: 'grey',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5,
   },

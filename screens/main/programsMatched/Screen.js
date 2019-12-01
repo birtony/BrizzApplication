@@ -5,7 +5,7 @@ import { Text, Button } from 'react-native-elements';
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
-export default ProgramsMatched = ({ navigation }) => {
+export default function ProgramsMatched({ navigation }) {
   return (
     <SafeAreaView style={styles.safeArevViewContainer}>
       <View style={styles.container}>
@@ -57,11 +57,7 @@ export default ProgramsMatched = ({ navigation }) => {
       </View>
     </SafeAreaView>
   );
-};
-
-ProgramsMatched.navigationOptions = () => {
-  ('ProgramsMatched');
-};
+}
 
 const styles = StyleSheet.create({
   safeArevViewContainer: {

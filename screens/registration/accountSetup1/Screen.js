@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -7,13 +7,13 @@ import {
   DatePickerIOS,
   SafeAreaView,
 } from 'react-native';
-import {Input, Button, Text} from 'react-native-elements';
+import { Input, Button, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Progress from 'react-native-progress';
 import Modal from 'react-native-modal';
 import logo from '../../../assets/logo.png';
 
-export default AccountSetup1 = ({navigation}) => {
+export default function AccountSetup1({ navigation }) {
   const initialState = {
     chosenDate: new Date(),
     isModalVisible: false,
@@ -21,14 +21,14 @@ export default AccountSetup1 = ({navigation}) => {
 
   const [state, setState] = useState(initialState);
 
-  const {chosenDate, isModalVisible} = state;
+  const { chosenDate, isModalVisible } = state;
 
   const setDate = (newDate) => {
-    setState({chosenDate: newDate});
+    setState({ chosenDate: newDate });
   };
 
   const toggleModal = () => {
-    setState({isModalVisible: !isModalVisible});
+    setState({ isModalVisible: !isModalVisible });
   };
 
   const NextScreen = () => {
@@ -45,14 +45,14 @@ export default AccountSetup1 = ({navigation}) => {
         First Name
       </Text>
       <Input
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.firstNameInput}
       />
       <Text h3 style={styles.LNameText}>
         Last Name
       </Text>
       <Input
-        inputContainerStyle={{borderBottomWidth: 0, top: 13}}
+        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
         containerStyle={styles.LNameInput}
       />
       <Text h3 style={styles.dobText}>
@@ -60,14 +60,12 @@ export default AccountSetup1 = ({navigation}) => {
       </Text>
       <TouchableWithoutFeedback onPress={toggleModal}>
         <View style={styles.orangeBorder}>
-          <Text style={styles.dobModal}>
-            {chosenDate.toLocaleDateString('en-US')}
-          </Text>
+          <Text style={styles.dobModal}>{chosenDate.toLocaleDateString('en-US')}</Text>
         </View>
       </TouchableWithoutFeedback>
       <Modal
         isVisible={isModalVisible}
-        onBackdropPress={() => setState({isModalVisible: false})}
+        onBackdropPress={() => setState({ isModalVisible: false })}
         animationIn={'slideInRight'}
       >
         <View
@@ -77,21 +75,12 @@ export default AccountSetup1 = ({navigation}) => {
             backgroundColor: 'white',
           }}
         >
-          <DatePickerIOS
-            mode={'date'}
-            date={chosenDate}
-            onDateChange={setDate}
-          />
+          <DatePickerIOS mode={'date'} date={chosenDate} onDateChange={setDate} />
           <Button title="Done" onPress={(setDate, toggleModal)} />
         </View>
       </Modal>
       <TouchableWithoutFeedback onPress={NextScreen}>
-        <Icon
-          type="font-awesome"
-          name="arrow-right"
-          size={35}
-          style={styles.nextScreenButton}
-        />
+        <Icon type="font-awesome" name="arrow-right" size={35} style={styles.nextScreenButton} />
       </TouchableWithoutFeedback>
       <Progress.Bar
         progress={0.5}
@@ -102,11 +91,7 @@ export default AccountSetup1 = ({navigation}) => {
       />
     </SafeAreaView>
   );
-};
-
-AccountSetup1.navigationOptions = () => {
-  ('AccountSetup1');
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -133,7 +118,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '37%',
     shadowColor: 'grey',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 5,
   },
