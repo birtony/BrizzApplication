@@ -24,16 +24,10 @@ export const login = async (user) => {
     if (token) {
       return { token, complete };
     } else {
-      Alert.alert(
-        'Error',
-        'Bad username/password. Please double check and try again',
-      );
+      Alert.alert('Error', 'Bad username/password. Please double check and try again');
     }
   } catch (e) {
     console.log(e);
-    Alert.alert(
-      'Error',
-      'Bad username/password. Please double check and try again',
-    );
+    Alert.alert('Error', 'Bad username/password. Please double check and try again');
   }
 };

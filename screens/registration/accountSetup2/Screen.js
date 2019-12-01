@@ -36,7 +36,7 @@ export default function AccountSetup2({ navigation }) {
       <TouchableWithoutFeedback onPress={toggleModal}>
         <View style={{ position: 'absolute', top: '53%', left: '12%' }}>
           <RNPickerSelect
-            onValueChange={value => console.log(value)}
+            onValueChange={(value) => console.log(value)}
             items={[
               { label: 'Male', value: 'male' },
               { label: 'Female', value: 'female' },
