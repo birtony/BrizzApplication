@@ -1,17 +1,9 @@
-import React from "react";
-import { StyleSheet, View, Image, SafeAreaView } from "react-native";
-import { Input, Button, Text } from "react-native-elements";
-import { Col, Row, Grid } from "react-native-easy-grid";
-import { useStateValue } from "../../utils/provider";
-import { AuthSession } from "expo";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { Input, Text } from 'react-native-elements';
+import { Col, Grid } from 'react-native-easy-grid';
 
-export default InputComponent = ({
-  title,
-  onChangeAction,
-  property,
-  iconName
-}) => {
-  const [{ user }, dispatch] = useStateValue();
+export default function InputComponent({ title, onChangeAction, property, iconName }) {
   return (
     <Grid>
       <Col size={1}></Col>
@@ -23,38 +15,38 @@ export default InputComponent = ({
           placeholder={title}
           inputContainerStyle={{ borderBottomWidth: 0 }}
           leftIcon={{
-            type: "font-awesome",
+            type: 'font-awesome',
             name: `${iconName}`,
             left: -14,
-            size: 35
+            size: 35,
           }}
           containerStyle={styles.Input}
-          onChangeText={text => dispatch(`${onChangeAction}`(text))}
+          onChangeText={(text) => onChangeAction(text)}
           value={property}
         />
       </Col>
       <Col size={1}></Col>
     </Grid>
   );
-};
+}
 
 const styles = StyleSheet.create({
   grid: {
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-    width: "100%"
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    width: '100%',
   },
   TextH3: {
-    alignContent: "flex-start",
-    justifyContent: "center",
-    color: "#F28E00",
-    fontFamily: "Optima-Bold"
+    alignContent: 'flex-start',
+    justifyContent: 'center',
+    color: '#F28E00',
+    fontFamily: 'Optima-Bold',
   },
   Input: {
     borderWidth: 2,
     borderRadius: 50,
-    borderColor: "#F28E00",
-    width: "100%"
-  }
+    borderColor: '#F28E00',
+    width: '100%',
+  },
 });

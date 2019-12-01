@@ -1,12 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Image, SafeAreaView, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, SafeAreaView } from 'react-native';
 import { Row, Grid } from 'react-native-easy-grid';
 import logo from '../../assets/logo.png';
-import { AuthSession } from 'expo';
 
-let ScreenHeight = Dimensions.get('window').height;
-
-export default whiteCard = ({ children }) => {
+export default function whiteCard({ children }) {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <Grid style={styles.grid}>
@@ -19,7 +16,7 @@ export default whiteCard = ({ children }) => {
       </Grid>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   safeAreaViewContainer: {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableWithoutFeedback, SafeAreaView } from 'react-native';
-import { Input, Button, Text } from 'react-native-elements';
+import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
+import { Button, Text } from 'react-native-elements';
 import { useStateValue } from '../../utils/provider';
 import { login_username_changed, login_password_changed, logged_in } from '../../actions/auth';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -34,7 +34,7 @@ export default function Login({ navigation }) {
           <Row size={2}>
             <InputComponent
               title={'Email'}
-              onChangeAction={login_username_changed}
+              onChangeAction={() => dispatch(login_username_changed())}
               property={user.email}
               iconName={'at'}
             ></InputComponent>
@@ -42,7 +42,7 @@ export default function Login({ navigation }) {
           <Row size={2}>
             <InputComponent
               title={'Password'}
-              onChangeAction={login_password_changed}
+              onChangeAction={() => dispatch(login_password_changed())}
               property={user.password}
               iconName={'key'}
             ></InputComponent>
@@ -58,7 +58,7 @@ export default function Login({ navigation }) {
                 onPress={async () => {
                   const result = await api.login(user);
                   if (result) {
-                    () => dispatch(logged_in(...result));
+                    dispatch(logged_in(...result));
                   }
                 }}
               />
