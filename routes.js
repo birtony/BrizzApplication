@@ -3,8 +3,10 @@ import Login from './screens/login/Screen';
 import RegistrationStackNavigator from './screens/registration/';
 import mainStackNavigator from './screens/main';
 
-export default navigator = createSwitchNavigator({
+const navigator = createSwitchNavigator({
   Login,
   RegistrationStackNavigator,
   mainStackNavigator,
 });
+
+export default navigator;

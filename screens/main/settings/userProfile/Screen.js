@@ -1,7 +1,7 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View, Image, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
 
-export default UserProfile = ({ navigation }) => {
+export default function UserProfile({ navigation }) {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <View style={styles.container}>
@@ -26,11 +26,7 @@ export default UserProfile = ({ navigation }) => {
       </View>
     </SafeAreaView>
   );
-};
-
-UserProfile.navigationOptions = () => {
-  ('UserProfile');
-};
+}
 
 const styles = StyleSheet.create({
   safeAreaViewContainer: {

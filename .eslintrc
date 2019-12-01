@@ -22,8 +22,9 @@
     "indent": ["error", 2],
     "semi": ["error", "always"],
     "camelcase": [0, { "properties": "never" }],
-    "max-len": ["error", 120],
+    "max-len": ["error", 150],
     "linebreak-style": ["error", "unix"],
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "object-curly-spacing": [2, "always"]
   }
 }

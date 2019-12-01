@@ -1,5 +1,5 @@
-import {Alert} from 'react-native';
-import {SERVER_URL} from './const/SERVER';
+import { Alert } from 'react-native';
+import { SERVER_URL } from './const/SERVER';
 
 export const login = async (user) => {
   const url = `${SERVER_URL}/api/users/login`;
@@ -20,9 +20,9 @@ export const login = async (user) => {
     console.log('Dispatching event...');
     const data = await response.json();
     console.log(data);
-    const {token, complete} = data;
+    const { token, complete } = data;
     if (token) {
-      return {token, complete};
+      return { token, complete };
     } else {
       Alert.alert(
         'Error',

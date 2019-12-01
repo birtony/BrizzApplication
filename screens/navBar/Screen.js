@@ -1,32 +1,20 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import MenuButton from './MenuButton/menuButton';
-import {withNavigation} from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 import logo from '../../assets/logo.png';
 
-const NavBar = ({navigation}) => {
+const NavBar = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.navbarRectangle} />
       <Text style={styles.brizzName}>BRIZZ</Text>
-      <TouchableWithoutFeedback
-        onPress={() => navigation.navigate('ProgramsMatched')}
-      >
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('ProgramsMatched')}>
         <Image style={styles.imageStyle} source={logo} />
       </TouchableWithoutFeedback>
       <MenuButton />
     </View>
   );
-};
-
-NavBar.navigationOptions = () => {
-  ('NavBar');
 };
 
 export default withNavigation(NavBar);

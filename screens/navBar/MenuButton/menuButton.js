@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
-import {withNavigation} from 'react-navigation';
+import { StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { withNavigation } from 'react-navigation';
 
-const MenuButton = ({navigation}) => {
+const MenuButton = ({ navigation }) => {
   return (
     <Ionicons
       name="md-contact"

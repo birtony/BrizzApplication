@@ -31,7 +31,7 @@ const navigator = createStackNavigator(
       },
     },
   },
-  { initialRouteName: 'Signup' }
+  { initialRouteName: 'Signup' },
 );
 
 export default navigator;
