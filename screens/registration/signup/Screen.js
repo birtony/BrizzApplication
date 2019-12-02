@@ -7,14 +7,8 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import WhiteCard from '../../../common/components/WhiteCard';
 import InputComponent from '../../../common/components/InputComponent';
 
-import * as api from '../../../api';
-
 export default function Signup({ navigation }) {
-  function handleRegister() {
-    navigation.navigate('AccountSetup1');
-  }
   const [{ user }, dispatch] = useStateValue();
-
   return (
     <WhiteCard style={styles.container}>
       <View style={styles.back}>
@@ -36,7 +30,7 @@ export default function Signup({ navigation }) {
           </Row>
           <Row size={2}>
             <InputComponent
-              title={"Email"}
+              title={'Email'}
               onChangeAction={() => dispatch(login_username_changed())}
               property={user.email}
               iconName={'at'}
@@ -44,7 +38,7 @@ export default function Signup({ navigation }) {
           </Row>
           <Row size={2}>
             <InputComponent
-              title={"Password"}
+              title={'Password'}
               onChangeAction={() => dispatch(login_password_changed())}
               property={user.password}
               iconName={'key'}
@@ -52,7 +46,7 @@ export default function Signup({ navigation }) {
           </Row>
           <Row size={2}>
             <InputComponent
-              title={"Confirm Password"}
+              title={'Confirm Password'}
               onChangeAction={() => dispatch(login_password_changed())}
               property={user.confirmPass}
               iconName={'key'}
@@ -155,7 +149,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     backgroundColor: 'rgba(255,255,255,0.5)',
     height: '100%',
-    opacity: 20
+    opacity: 20,
   },
   loginFlapText: {
     fontFamily: 'Optima-Bold',
