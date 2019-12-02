@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import { Col, Grid } from 'react-native-easy-grid';
-import { RFPercentage } from "react-native-responsive-fontsize";
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 export default function InputComponent({ title, onChangeText, property, iconName, isSecure }) {
   return (
@@ -28,14 +28,14 @@ export default function InputComponent({ title, onChangeText, property, iconName
             value={property}
           />
         ) : (
-            <Input
-              placeholder={title}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={styles.Input}
-              onChangeText={onChangeText}
-              value={property}
-            />
-          )}
+          <Input
+            placeholder={title}
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            containerStyle={styles.Input}
+            onChangeText={onChangeText}
+            value={property}
+          />
+        )}
       </Col>
       <Col size={1}></Col>
     </Grid>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     color: '#F28E00',
     fontFamily: 'Optima-Bold',
-    fontSize: RFPercentage(4.5)
+    fontSize: RFPercentage(4.5),
   },
   Input: {
     borderWidth: 2,
