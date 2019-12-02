@@ -5,7 +5,6 @@ const config = get_config();
 
 export const login = async (user) => {
   const url = `${config.SERVER_URL}/api/users/login`;
-  console.log('user = ' + JSON.stringify(user));
   const data = {
     email: user.email,
     password: user.password,

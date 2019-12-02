@@ -12,17 +12,21 @@ export default function AccountSetup3({ navigation }) {
       <Grid style={styles.grid}>
         <Row style={styles.accountSetupTextRow}>
           <Col style={styles.accountSetupTextCol}>
-            <Text h2 style={styles.accountSetupText}>Account Setup</Text>
+            <Text h2 style={styles.accountSetupText}>
+              Account Setup
+            </Text>
           </Col>
         </Row>
         <Row style={styles.labelRow}>
           <Col style={styles.labelCol}>
-            <Text h5 style={styles.labelText}>{label}</Text>
+            <Text h5 style={styles.labelText}>
+              {label}
+            </Text>
           </Col>
         </Row>
         <Row style={styles.NextButtonCol}>
           <Col style={styles.NextButtonRow}>
-            <TouchableWithoutFeedback onPress={() => navigation.navigate('Question1')}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('QuestionnaireNavigator')}>
               <Icon
                 type="font-awesome"
                 name="arrow-circle-right"

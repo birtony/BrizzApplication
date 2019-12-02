@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { Col, Row } from 'react-native-easy-grid';
@@ -13,15 +13,16 @@ const radio_props = [
   { label: 'No', value: 1 },
 ];
 export default function Question1({ navigation }) {
-  state = { value: null };
-  console.log(state);
+  const [value, setValue] = useState(null);
   return (
     <WhiteCard>
       <View style={styles.grid}>
         <Row style={styles.questionnaireRow}>
           <Col style={styles.questionnaireCol}>
             <View style={styles.questionLabelView}>
-              <Text h3 style={styles.questionnaireLabel}>Questionnaire</Text>
+              <Text h3 style={styles.questionnaireLabel}>
+                Questionnaire
+              </Text>
             </View>
           </Col>
         </Row>
@@ -41,8 +42,8 @@ export default function Question1({ navigation }) {
                 buttonColor={'#F28E00'}
                 selectedButtonColor={'#F28E00'}
                 buttonInnerColor={'#F28E00'}
-                onPress={(value) => {
-                  this.setState({ value: this.value });
+                onPress={(newValue) => {
+                  setValue({ value: newValue });
                 }}
               />
             </View>
@@ -51,14 +52,16 @@ export default function Question1({ navigation }) {
         <Row>
           <Col>
             <View>
-              <Button style={styles.nextButton} onPress={() => navigation.navigate('Question2')}>Next Question</Button>
+              <Button style={styles.nextButton} onPress={() => navigation.navigate('Question2')}>
+                Next Question
+              </Button>
             </View>
           </Col>
         </Row>
       </View>
     </WhiteCard>
   );
-};
+}
 
 const styles = StyleSheet.create({
   grid: {
