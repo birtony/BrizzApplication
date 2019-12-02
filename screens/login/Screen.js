@@ -58,6 +58,7 @@ export default function Login({ navigation }) {
                   const result = await api.login(user);
                   if (result) {
                     dispatch(logged_in(...result));
+                    navigation.navigate('ProgramsMatched');
                   }
                 }}
               />

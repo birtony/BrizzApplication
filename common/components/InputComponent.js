@@ -11,19 +11,29 @@ export default function InputComponent({ title, onChangeText, property, iconName
         <Text h3 style={styles.TextH3}>
           {title}
         </Text>
-        <Input
-          placeholder={title}
-          inputContainerStyle={{ borderBottomWidth: 0 }}
-          leftIcon={{
-            type: 'font-awesome',
-            name: `${iconName}`,
-            left: -14,
-            size: 35,
-          }}
-          containerStyle={styles.Input}
-          onChangeText={onChangeText}
-          value={property}
-        />
+        {iconName ? (
+          <Input
+            placeholder={title}
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            leftIcon={{
+              type: 'font-awesome',
+              name: `${iconName}`,
+              left: -14,
+              size: 35,
+            }}
+            containerStyle={styles.Input}
+            onChangeText={onChangeText}
+            value={property}
+          />
+        ) : (
+          <Input
+            placeholder={title}
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            containerStyle={styles.Input}
+            onChangeText={onChangeText}
+            value={property}
+          />
+        )}
       </Col>
       <Col size={1}></Col>
     </Grid>

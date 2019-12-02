@@ -4,9 +4,9 @@ import { Button, Text } from 'react-native-elements';
 import { useStateValue } from '../../../utils/provider';
 import {
   login_username_changed,
-  login_password_changed,
+  signup_password_changed,
   signup_passwordConf_changed,
-  logged_in,
+  signed_up,
 } from '../../../actions/auth';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import WhiteCard from '../../../common/components/WhiteCard';
@@ -46,8 +46,8 @@ export default function Signup({ navigation }) {
           <Row size={2}>
             <InputComponent
               title={'Password'}
-              onChangeText={(text) => dispatch(login_password_changed(text))}
-              property={user.password}
+              onChangeText={(text) => dispatch(signup_password_changed(text))}
+              property={user.signup_password}
               iconName={'key'}
             />
           </Row>
@@ -55,7 +55,7 @@ export default function Signup({ navigation }) {
             <InputComponent
               title={'Confirm Password'}
               onChangeText={(text) => dispatch(signup_passwordConf_changed(text))}
-              property={user.confirmPass}
+              property={user.signup_passwordConf}
               iconName={'key'}
             />
           </Row>
@@ -70,10 +70,9 @@ export default function Signup({ navigation }) {
                 onPress={async () => {
                   const result = await api.signup(user);
                   if (result) {
-                    dispatch(logged_in(...result));
-                    // navigation.navigate('AccountSetup1');
+                    dispatch(signed_up(...result));
+                    navigation.navigate('AccountSetup1');
                   }
-                  navigation.navigate('AccountSetup1'); // Remove this navigation once signup works
                 }}
               />
             </Col>

@@ -10,14 +10,24 @@ export const login_password_changed = (password) => ({
   payload: password,
 });
 
+export const logged_in = ({ token, logged_in }) => ({
+  type: types.LOGGED_IN,
+  payload: { token, logged_in },
+});
+
+export const signup_password_changed = (password) => ({
+  type: types.SIGNUP_PASSWORD_CHANGED,
+  payload: password,
+});
+
 export const signup_passwordConf_changed = (passwordConf) => ({
   type: types.SIGNUP_PASSWORDCONF_CHANGED,
   payload: passwordConf,
 });
 
-export const logged_in = ({ token, logged_in, complete }) => ({
-  type: types.LOGGED_IN,
-  payload: { token, logged_in, complete },
+export const signed_up = ({ token, signed_up }) => ({
+  type: types.SIGNED_UP,
+  payload: { token, signed_up },
 });
 
 export const logged_out = () => ({

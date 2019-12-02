@@ -6,10 +6,7 @@ const PRODUCTION = {
 };
 
 const DEVELOPMENT = {
-  SERVER_URL:
-    typeof manifest.packagerOpts === 'object' && manifest.packagerOpts.dev ?
-      `http://${manifest.debuggerHost.split(':')[0]}:8080` :
-      'localhost:8080',
+  SERVER_URL: 'http://192.168.0.16:8080',
 };
 
 // eslint-disable-next-line no-undef
