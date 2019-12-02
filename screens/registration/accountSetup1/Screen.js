@@ -1,95 +1,119 @@
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
-  Image,
-  DatePickerIOS,
-  SafeAreaView,
-} from 'react-native';
-import { Input, Button, Text } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from 'react';
+import { StyleSheet, TouchableWithoutFeedback, View, DatePickerIOS } from 'react-native';
+import { Button, Text } from 'react-native-elements';
 import * as Progress from 'react-native-progress';
+import WhiteCard from '../../../common/components/WhiteCard';
+import InputComponent from '../../../common/components/InputComponent';
+import { useStateValue } from '../../../utils/provider';
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import Modal from 'react-native-modal';
-import logo from '../../../assets/logo.png';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function AccountSetup1({ navigation }) {
-  const initialState = {
-    chosenDate: new Date(),
-    isModalVisible: false,
+  let chosenDate = new Date();
+  let isModalVisible = false;
+
+  function setDate(newDate) {
+    // this.setState({ chosenDate: newDate });
+    chosenDate = newDate;
+  }
+  function toggleModal() {
+    isModalVisible = false;
+    // this.setState({ isModalVisible: !isModalVisible });
   };
-
-  const [state, setState] = useState(initialState);
-
-  const { chosenDate, isModalVisible } = state;
-
-  const setDate = (newDate) => {
-    setState({ chosenDate: newDate });
-  };
-
-  const toggleModal = () => {
-    setState({ isModalVisible: !isModalVisible });
-  };
-
-  const NextScreen = () => {
-    navigation.navigate('AccountSetup2');
-  };
-
+  const [{ user }, dispatch] = useStateValue();
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.backgroundCircle} />
-      <View style={styles.roundedRectangle} />
-      <Image style={styles.logoImage} source={logo}></Image>
-      <Text style={styles.accountSetupText}>Account Setup</Text>
-      <Text h3 style={styles.FNameText}>
-        First Name
-      </Text>
-      <Input
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.firstNameInput}
-      />
-      <Text h3 style={styles.LNameText}>
-        Last Name
-      </Text>
-      <Input
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.LNameInput}
-      />
-      <Text h3 style={styles.dobText}>
-        Date of Birth
-      </Text>
-      <TouchableWithoutFeedback onPress={toggleModal}>
-        <View style={styles.orangeBorder}>
-          <Text style={styles.dobModal}>{chosenDate.toLocaleDateString('en-US')}</Text>
-        </View>
-      </TouchableWithoutFeedback>
-      <Modal
-        isVisible={isModalVisible}
-        onBackdropPress={() => setState({ isModalVisible: false })}
-        animationIn={'slideInRight'}
-      >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            backgroundColor: 'white',
-          }}
-        >
-          <DatePickerIOS mode={'date'} date={chosenDate} onDateChange={setDate} />
-          <Button title="Done" onPress={(setDate, toggleModal)} />
-        </View>
-      </Modal>
-      <TouchableWithoutFeedback onPress={NextScreen}>
-        <Icon type="font-awesome" name="arrow-right" size={35} style={styles.nextScreenButton} />
-      </TouchableWithoutFeedback>
-      <Progress.Bar
-        progress={0.5}
-        width={200}
-        color={'#F28E00'}
-        position={'absolute'}
-        top={'95%'}
-      />
-    </SafeAreaView>
+    <WhiteCard>
+      <Grid style={styles.grid}>
+        <Row style={styles.QuestionnaireTextLabelRow}>
+          <Col style={styles.QuestionnaireTextLabelCol}>
+            <Text h3 style={styles.QuestionnaireTextLabel}>
+              AccountSetup
+            </Text>
+          </Col>
+        </Row>
+        <Row size={2}>
+          <Col>
+            <InputComponent
+              title={'First Name'}
+              onChangeAction={() => dispatch(register_fname_changed())}
+              property={user.fname}
+              iconName={'at'}
+            />
+          </Col>
+        </Row>
+        <Row size={2}>
+          <Col>
+            <InputComponent
+              title={'Last Name'}
+              onChangeAction={() => dispatch(register_lname_changed())}
+              property={user.lname}
+              iconName={'at'}
+            />
+          </Col>
+        </Row>
+        <Row size={2} style={styles.dobTextRow}>
+          <Col style={styles.dobTextCol}>
+            <Text h3 style={styles.dobText}>
+              Date of Birth
+            </Text>
+          </Col>
+        </Row>
+        <Row style={styles.dateofBirthInputRow} size={2}>
+          <Col style={styles.dateofBirthInputCol}>
+            <TouchableWithoutFeedback onPress={toggleModal()}>
+              <View style={styles.orangeBorder}>
+                <Text style={styles.dobModal}>
+                  {chosenDate.toDateString()}
+                </Text>
+              </View>
+            </TouchableWithoutFeedback>
+            <Modal
+              isVisible={isModalVisible}
+              onBackdropPress={() => isVisible = false}
+              animationIn={'slideInRight'}
+            >
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  backgroundColor: 'white',
+                }}
+              >
+                <DatePickerIOS
+                  mode={'date'}
+                  date={chosenDate}
+                  onDateChange={setDate}
+                />
+                <Button title="Done" onPress={toggleModal()} />
+              </View>
+            </Modal>
+          </Col>
+        </Row>
+        <Row style={styles.buttonRow}>
+          <Col style={styles.buttonCol}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountSetup2')}>
+              <Icon
+                type="font-awesome"
+                name="arrow-circle-right"
+                size={50}
+                style={styles.nextButton}
+              />
+            </TouchableWithoutFeedback>
+          </Col>
+        </Row>
+        <Row style={styles.progressBarRow}>
+          <Col style={styles.progressBarCol}>
+            <Progress.Bar
+              progress={0.5}
+              width={200}
+              color={'#F28E00'}
+              style={styles.progressBar}
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </WhiteCard >
   );
 }
 
@@ -100,108 +124,96 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  grid: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
   datePicker: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  Setup: {
-    flex: 1,
+  orangeBorder: {
+    width: '70%',
+    alignSelf: 'flex-start',
+    position: 'absolute',
+    left: '15%',
+    borderWidth: 2,
+    height: '90%',
+    top: '70%',
+    borderRadius: 100 / 2,
+    borderColor: '#F28E00',
+  },
+  dobTextRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: '-3%',
+  },
+  dobTextCol: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  roundedRectangle: {
-    width: '94%',
-    height: '60%',
-    borderRadius: 100 / 5,
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: '37%',
-    shadowColor: 'grey',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
-  },
-  backgroundCircle: {
-    width: '105%',
-    height: '90%',
-    borderRadius: 100 / 2,
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: '43%',
-  },
-  orangeBorder: {
-    width: '85%',
-    position: 'absolute',
-    borderWidth: 2,
-    height: '8%',
-    borderRadius: 100 / 2,
-    top: '80%',
-    borderColor: '#F28E00',
-  },
-  logoImage: {
-    width: '40%',
-    height: '20%',
-    position: 'absolute',
-    top: '10%',
-  },
-  accountSetupText: {
-    color: 'black',
-    fontFamily: 'Optima-Bold',
-    fontSize: 30,
-    position: 'absolute',
-    top: '38%',
-  },
-  FNameText: {
-    position: 'absolute',
-    top: '45%',
-    left: '15%',
-    // fontSize: 100,
-    fontFamily: 'Optima-Bold',
-    color: '#F28E00',
-  },
-  firstNameInput: {
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: '#F28E00',
-    height: '8%',
-    position: 'absolute',
-    top: '50%',
-    width: '85%',
-  },
-  LNameText: {
-    position: 'absolute',
-    top: '60%',
-    left: '15%',
-    fontFamily: 'Optima-Bold',
-    color: '#F28E00',
-  },
-  LNameInput: {
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: '#F28E00',
-    height: '8%',
-    position: 'absolute',
-    top: '65%',
-    width: '85%',
-  },
   dobText: {
-    position: 'absolute',
-    top: '75%',
-    left: '15%',
+    left: '-11%',
+    top: '-18%',
+    alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     color: '#F28E00',
   },
   dobModal: {
     position: 'absolute',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
+    color: '#B8B8B8',
+    fontSize: 15,
     top: '25%',
     left: '10%',
   },
+  dateofBirthInputRow: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    top: '-30%',
+  },
+  dateofBirthInputCol: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  QuestionnaireTextLabelRow: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  QuestionnaireTextLabelCol: {
+    alignItems: 'center',
+    alignContent: 'center',
+  },
+  QuestionnaireTextLabel: {
+    fontFamily: 'Optima-Bold',
+    textDecorationLine: 'underline',
+  },
+  progressBarRow: {
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  progressBarCol: {
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  progressBar: {
+    alignSelf: 'center',
+  },
+  buttonRow: {
+    flex: 1,
+    alignItems: 'center',
+    top: '2%',
+    justifyContent: 'center',
+  },
+  buttonCol: {
+    alignItems: 'flex-end',
+    right: '30%',
+    justifyContent: 'center',
+  },
   nextScreenButton: {
-    position: 'absolute',
-    top: '90%',
-    right: '8%',
   },
 });

@@ -3,6 +3,7 @@ import Signup from './signup/Screen';
 import AccountSetup1 from './accountSetup1/Screen';
 import AccountSetup2 from './accountSetup2/Screen';
 import AccountSetup3 from './accountSetup3/Screen';
+import Questionnaire from './questionnaire/Screen';
 
 const navigator = createStackNavigator(
   {
@@ -26,6 +27,12 @@ const navigator = createStackNavigator(
     },
     AccountSetup3: {
       screen: AccountSetup3,
+      navigationOptions: {
+        headerShown: false,
+      },
+    },
+    Questionnaire: {
+      screen: Questionnaire,
       navigationOptions: {
         headerShown: false,
       },
