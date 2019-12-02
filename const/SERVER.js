@@ -3,7 +3,7 @@ const PRODUCTION = {
 };
 
 const DEVELOPMENT = {
-  SERVER_URL: 'http://192.168.0.16:8080',
+  SERVER_URL: 'http://172.20.10.3:8080',
 };
 
 // eslint-disable-next-line no-undef

@@ -9,10 +9,12 @@ import { Grid, Row, Col } from 'react-native-easy-grid';
 import { useStateValue } from '../../../utils/provider';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { city_changed, gpa_changed, gender_changed } from '../../../actions/user';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 // eslint-disable-next-line max-lines-per-function
 export default function AccountSetup2({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
+  // eslint-disable-next-line no-unused-vars
   const [isModalVisible, setIsModalVisible] = useState(false);
   function toggleModal(value) {
     setIsModalVisible({ isModalVisible: value });
@@ -27,35 +29,33 @@ export default function AccountSetup2({ navigation }) {
             </Text>
           </Col>
         </Row>
-        <Row size={2}>
+        <Row size={3}>
           <Col>
             <InputComponent
               title={'City'}
               onChangeText={(value) => dispatch(city_changed(value))}
               property={user.city}
               iconName={'home'}
+              isSecure={false}
             />
           </Col>
         </Row>
-        <Row size={2}>
+        <Row size={3}>
           <Col>
             <InputComponent
               title={'GPA'}
               onChangeText={(value) => dispatch(gpa_changed(value))}
               property={user.gpa}
               iconName={'calculator'}
+              isSecure={false}
             />
           </Col>
         </Row>
-        <Row size={2} style={styles.genderRow}>
+        <Row size={0} style={styles.genderRow}>
           <Col style={styles.genderCol}>
             <Text h3 style={styles.genderText}>
               Gender
             </Text>
-          </Col>
-        </Row>
-        <Row style={styles.genderRow2}>
-          <Col style={styles.genderCol2}>
             <View style={styles.orangeBorder} />
             <Input
               inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
@@ -83,7 +83,7 @@ export default function AccountSetup2({ navigation }) {
               <Icon
                 type="font-awesome"
                 name="arrow-circle-right"
-                size={50}
+                size={40}
                 style={styles.nextButton}
               />
             </TouchableWithoutFeedback>
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
   },
   genderRow: {
     alignItems: 'flex-start',
+    top: '5%',
   },
   genderCol: {
     justifyContent: 'center',
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
     left: '15%',
     color: '#F28E00',
     fontFamily: 'Optima-Bold',
+    fontSize: RFPercentage(4.5),
   },
   progressBarRow: {
     alignContent: 'center',
@@ -146,16 +148,12 @@ const styles = StyleSheet.create({
   buttonRow: {
     flex: 1,
     alignItems: 'center',
-    top: '2%',
     justifyContent: 'center',
   },
   buttonCol: {
     alignItems: 'flex-end',
     right: '30%',
     justifyContent: 'center',
-  },
-  nextScreenButton: {
-    alignSelf: 'center',
   },
   genderRow2: {
     alignItems: 'center',
@@ -177,8 +175,8 @@ const styles = StyleSheet.create({
     borderColor: '#F28E00',
   },
   picker: {
-    top: '-40%',
-    left: '-15%',
+    top: '-58%',
+    left: '20%',
   },
   pickerStyle: {
     fontFamily: 'Optima-Bold',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { Col, Row } from 'react-native-easy-grid';
@@ -12,9 +12,11 @@ const radio_props = [
   { label: 'Yes', value: 0 },
   { label: 'No', value: 1 },
 ];
+
+// eslint-disable-next-line max-lines-per-function
 export default function Question12({ navigation }) {
-  state = { value: null };
-  console.log(state);
+  const [value, setValue] = useState(null);
+
   return (
     <WhiteCard>
       <View style={styles.grid}>
@@ -43,8 +45,8 @@ export default function Question12({ navigation }) {
                 buttonColor={'#F28E00'}
                 selectedButtonColor={'#F28E00'}
                 buttonInnerColor={'#F28E00'}
-                onPress={(value) => {
-                  this.setState({ value: this.value });
+                onPress={(newValue) => {
+                  setValue({ value: newValue });
                 }}
               />
             </View>
@@ -94,6 +96,8 @@ const styles = StyleSheet.create({
   },
   questionCardsCol: {
     flex: 1,
+    paddingLeft: '2%',
+    paddingRight: '2%',
   },
   question: {
     alignSelf: 'center',

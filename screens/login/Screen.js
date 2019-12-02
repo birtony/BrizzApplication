@@ -27,6 +27,7 @@ export default function Login({ navigation }) {
                 <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
                   <Text style={styles.signUpFlapText}>Sign Up</Text>
                 </TouchableWithoutFeedback>
+
               </View>
             </Col>
           </Row>
@@ -36,6 +37,7 @@ export default function Login({ navigation }) {
               onChangeText={(text) => dispatch(login_username_changed(text))}
               property={user.email}
               iconName={'at'}
+              isSecure={false}
             />
           </Row>
           <Row size={2}>
@@ -44,6 +46,7 @@ export default function Login({ navigation }) {
               onChangeText={(text) => dispatch(login_password_changed(text))}
               property={user.password}
               iconName={'key'}
+              isSecure={true}
             />
           </Row>
           <Row size={0.5} />
