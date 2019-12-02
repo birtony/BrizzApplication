@@ -96,6 +96,11 @@ export const reducer = (state, action) => {
           gender: action.payload,
         },
       };
+    case types.MODAL_CHANGED:
+      return {
+        ...state,
+        modal: action.payload,
+      };
     case types.default:
       return state;
   }
@@ -111,10 +116,11 @@ export const initialState = {
     statusActivated: false,
     firstName: '',
     lastName: '',
-    birthDate: '',
+    birthDate: new Date(),
     city: '',
-    gpa: 0,
+    gpa: '',
     gender: '',
     complete: false,
   },
+  isModalVisible: false,
 };

@@ -29,3 +29,8 @@ export const gender_changed = (gender) => ({
   type: types.GENDER_CHANGED,
   payload: gender,
 });
+
+export const modal_changed = (modal) => ({
+  type: types.MODAL_CHANGED,
+  payload: modal,
+});

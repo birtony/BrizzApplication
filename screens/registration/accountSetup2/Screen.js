@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import * as Progress from 'react-native-progress';
@@ -8,22 +8,11 @@ import InputComponent from '../../../common/components/InputComponent';
 import { Grid, Row, Col } from 'react-native-easy-grid';
 import { useStateValue } from '../../../utils/provider';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { city_changed, gpa_changed, gender_changed } from '../../../actions/user';
+import { city_changed, gpa_changed, gender_changed, modal_changed } from '../../../actions/user';
 
 // eslint-disable-next-line max-lines-per-function
 export default function AccountSetup2({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
-
-  const initialState = {
-    isModalVisible: false,
-  };
-
-  const { isModalVisible } = state;
-
-  const toggleModal = () => {
-    setState({ isModalVisible: !isModalVisible });
-  };
-
   return (
     <WhiteCard>
       <Grid style={styles.grid}>
@@ -69,7 +58,7 @@ export default function AccountSetup2({ navigation }) {
               containerStyle={styles.genderInput}
               disabled
             />
-            <TouchableWithoutFeedback onPress={toggleModal}>
+            <TouchableWithoutFeedback onPress={() => dispatch(modal_changed(!isModalVisible))}>
               <View style={styles.picker}>
                 <RNPickerSelect
                   style={styles.pickerStyle}

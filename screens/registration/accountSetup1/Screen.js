@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TouchableWithoutFeedback, View, DatePickerIOS } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import * as Progress from 'react-native-progress';
@@ -14,16 +14,14 @@ import { first_name_changed, last_name_changed, birth_date_changed } from '../..
 export default function AccountSetup1({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
 
-  let chosenDate = new Date();
-  let isModalVisible = false;
+  const [chosenDate, setChosenDate] = useState(new Date());
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   function setDate(newDate) {
-    // this.setState({ chosenDate: newDate });
-    chosenDate = newDate;
+    setChosenDate({ chosenDate: newDate });
   }
-  function toggleModal() {
-    isModalVisible = false;
-    // this.setState({ isModalVisible: !isModalVisible });
+  function toggleModal(value) {
+    setIsModalVisible({ isModalVisible: value });
   }
 
   return (
@@ -63,21 +61,32 @@ export default function AccountSetup1({ navigation }) {
         </Row>
         <Row style={styles.dateofBirthInputRow} size={2}>
           <Col style={styles.dateofBirthInputCol}>
-            <TouchableWithoutFeedback onPress={toggleModal()}>
+            <TouchableWithoutFeedback>
+              {/* onPress={toggleModal(true)} */}
               <View style={styles.orangeBorder}>
                 <Text style={styles.dobModal}>{chosenDate.toDateString()}</Text>
+                <Modal
+                  isVisible={isModalVisible}
+                  onBackdropPress={() => setIsModalVisible(false)}
+                  animationIn={'slideInRight'}
+                >
+                  <View style={styles.datePickerView}>
+                    <DatePickerIOS
+                      mode={'date'}
+                      date={chosenDate}
+                      onDateChange={(value) => setDate(value)}
+                    />
+                    <Button
+                      title="Done"
+                      onPress={() => {
+                        toggleModal(false);
+                        dispatch(birth_date_changed(chosenDate));
+                      }}
+                    />
+                  </View>
+                </Modal>
               </View>
             </TouchableWithoutFeedback>
-            <Modal
-              isVisible={isModalVisible}
-              onBackdropPress={() => (isVisible = false)}
-              animationIn={'slideInRight'}
-            >
-              <View style={styles.datePickerView}>
-                <DatePickerIOS mode={'date'} date={chosenDate} onDateChange={setDate} />
-                <Button title="Done" onPress={toggleModal()} />
-              </View>
-            </Modal>
           </Col>
         </Row>
         <Row style={styles.buttonRow}>

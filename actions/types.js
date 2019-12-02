@@ -12,3 +12,4 @@ export const BIRTH_DATE_CHANGED = 'birth_date_changed';
 export const CITY_CHANGED = 'city_changed';
 export const GPA_CHANGED = 'gpa_changed';
 export const GENDER_CHANGED = 'gender_changed';
+export const MODAL_CHANGED = 'modal_changed';
