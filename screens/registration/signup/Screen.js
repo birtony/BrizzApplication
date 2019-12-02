@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import { useStateValue } from '../../../utils/provider';
-import { login_username_changed, login_password_changed, logged_in } from '../../../actions/auth';
+import { login_username_changed, login_password_changed } from '../../../actions/auth';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import WhiteCard from '../../../common/components/WhiteCard';
 import InputComponent from '../../../common/components/InputComponent';
@@ -68,53 +68,6 @@ export default function Signup({ navigation }) {
         </Grid>
       </View>
     </WhiteCard>
-    /* <Image style={styles.logoImage} source={logo}></Image>
-    <View style={styles.backgroundCircle}></View>
-    <View style={styles.roundedRectangle}></View>
-    <View style={styles.LoginFlap}></View>
-    <View style={styles.SignUpFlap}></View>
-    <TouchableWithoutFeedback onPress={() => navigation.navigate('Login')}>
-      <View style={styles.logInFlapView}>
-        <Text style={styles.logInFlapViewText}>Log In</Text>
-      </View>
-    </TouchableWithoutFeedback>
-    <Text style={styles.signupText}>Sign Up</Text>
-    <Text h3 style={styles.EmailText}>
-      Email
-    </Text>
-    <Input
-      placeholder="Email"
-      leftIcon={{ type: 'font-awesome', name: 'at', left: -14, size: 35 }}
-      inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-      containerStyle={styles.EmailInput}
-    />
-    <Text h3 style={styles.PasswordText}>
-      Password
-    </Text>
-    <Input
-      placeholder="Password"
-      leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35 }}
-      inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-      containerStyle={styles.passwordInput}
-    />
-    <Text h3 style={styles.ConfirmPasswordText}>
-      Confirm Password
-    </Text>
-    <Input
-      placeholder="Confirm Password"
-      leftIcon={{ type: 'font-awesome', name: 'key', left: -14, size: 35 }}
-      inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-      containerStyle={styles.ConfirmPasswordInput}
-    />
-    <View style={styles.buttonSignUp}>
-      <Button
-        title="Sign Up"
-        titleStyle={{ fontSize: 40, fontFamily: 'Optima-Bold' }}
-        onPress={() => handleRegister()}
-        buttonStyle={styles.signUpButtonStyle}
-      />
-    </View>
-  </SafeAreaView> */
   );
 }
 
