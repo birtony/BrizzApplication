@@ -28,6 +28,7 @@ export default function Login({ navigation }) {
                 <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
                   <Text style={styles.signUpFlapText}>Sign Up</Text>
                 </TouchableWithoutFeedback>
+
               </View>
             </Col>
           </Row>
@@ -38,6 +39,8 @@ export default function Login({ navigation }) {
               property={user.email}
               iconName={'at'}
             ></InputComponent>
+            <Button onPress={() => navigation.navigate('ProgramsMatched')}>Programs Matched, Delete me after!</Button>
+
           </Row>
           <Row size={2}>
             <InputComponent

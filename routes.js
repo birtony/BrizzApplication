@@ -8,7 +8,7 @@ const navigator = createSwitchNavigator({
   Login,
   RegistrationStackNavigator,
   mainStackNavigator,
-  QuestionnaireStackNavigator
+  QuestionnaireStackNavigator,
 });
 
 export default navigator;

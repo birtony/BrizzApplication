@@ -89,4 +89,4 @@ const navigator = createStackNavigator(
   },
   { initialRouteName: 'Question1' },
 );
-export default navigator
+export default navigator;

@@ -7,7 +7,7 @@ import { Grid, Row } from 'react-native-easy-grid';
 // And for loop Views to display individual results per result.
 
 export default function ProgramsMatched({ navigation }) {
-  var programs = [];
+  const programs = [];
   for (let i = 0; i < 10; i++) {
     programs.push(
       <View style={styles.resultsContainer} key={i}>
@@ -23,8 +23,8 @@ export default function ProgramsMatched({ navigation }) {
           </Grid>
         </View>
         <View style={styles.emptySpace} />
-      </View>
-    )
+      </View>,
+    );
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -73,20 +73,20 @@ const styles = StyleSheet.create({
   },
   programsMatchedTxtRow: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   emptySpace: {
     backgroundColor: 'white',
-    height: 50
+    height: 50,
   },
   programsMatchedTxt: {
-    fontFamily: 'Optima-Bold'
+    fontFamily: 'Optima-Bold',
   },
   resultBox: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: "100%",
+    width: '100%',
     height: 250,
     backgroundColor: 'white',
     borderRadius: 20,
@@ -105,24 +105,24 @@ const styles = StyleSheet.create({
     fontFamily: 'Optima-Bold',
   },
   buttonStyle: {
-    width: "100%",
-    alignSelf: "center"
+    width: '100%',
+    alignSelf: 'center',
   },
   programsGrid: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     justifyContent: 'center',
     maxWidth: '100%',
-    maxHeight: '100%'
+    maxHeight: '100%',
   },
   programDescRow: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     justifyContent: 'center',
   },
   programNameRow: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 });
