@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import { Col, Grid } from 'react-native-easy-grid';
 
-export default function InputComponent({ title, onChangeAction, property, iconName }) {
+export default function InputComponent({ title, onChangeText, property, iconName }) {
   return (
     <Grid>
       <Col size={1}></Col>
@@ -21,7 +21,7 @@ export default function InputComponent({ title, onChangeAction, property, iconNa
             size: 35,
           }}
           containerStyle={styles.Input}
-          onChangeText={(text) => onChangeAction(text)}
+          onChangeText={onChangeText}
           value={property}
         />
       </Col>

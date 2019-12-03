@@ -6,14 +6,13 @@ import { login_username_changed, login_password_changed, logged_in } from '../..
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import WhiteCard from '../../common/components/WhiteCard';
 import InputComponent from '../../common/components/InputComponent';
-
 import * as api from '../../api';
 
+// eslint-disable-next-line max-lines-per-function
 export default function Login({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
-
   return (
-    <WhiteCard style={styles.container}>
+    <WhiteCard>
       <View style={styles.back}>
         <Grid style={styles.grid}>
           <Row style={styles.flapsRow}>
@@ -22,7 +21,7 @@ export default function Login({ navigation }) {
                 <Text style={styles.loginFlapText}>Log In</Text>
               </View>
             </Col>
-            <Col></Col>
+            <Col />
             <Col>
               <View style={styles.SignUpFlap}>
                 <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
@@ -34,20 +33,20 @@ export default function Login({ navigation }) {
           <Row size={2}>
             <InputComponent
               title={'Email'}
-              onChangeAction={() => dispatch(login_username_changed())}
+              onChangeText={(text) => dispatch(login_username_changed(text))}
               property={user.email}
               iconName={'at'}
-            ></InputComponent>
+            />
           </Row>
           <Row size={2}>
             <InputComponent
               title={'Password'}
-              onChangeAction={() => dispatch(login_password_changed())}
+              onChangeText={(text) => dispatch(login_password_changed(text))}
               property={user.password}
               iconName={'key'}
-            ></InputComponent>
+            />
           </Row>
-          <Row size={0.5}></Row>
+          <Row size={0.5} />
           <Row>
             <Col size={1}></Col>
             <Col size={2}>
@@ -65,7 +64,7 @@ export default function Login({ navigation }) {
             </Col>
             <Col size={1}></Col>
           </Row>
-          <Row size={0.5}></Row>
+          <Row size={0.5} />
         </Grid>
       </View>
     </WhiteCard>
@@ -122,32 +121,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Optima-Bold',
     fontSize: 20,
     color: '#00000050',
-  },
-  emailEnterTextH3: {
-    alignContent: 'flex-start',
-    justifyContent: 'center',
-    color: '#F28E00',
-    fontFamily: 'Optima-Bold',
-  },
-  EmailInput: {
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: '#F28E00',
-    height: '50%',
-    width: '100%',
-  },
-  passwordEnterTextH3: {
-    alignContent: 'flex-start',
-    justifyContent: 'center',
-    color: '#F28E00',
-    fontFamily: 'Optima-Bold',
-  },
-  passwordInput: {
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: '#F28E00',
-    height: '50%',
-    width: '100%',
   },
   LoginButtonStyle: {
     alignItems: 'center',

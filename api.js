@@ -1,13 +1,16 @@
 import { Alert } from 'react-native';
-import { SERVER_URL } from './const/SERVER';
+import { get_config } from './const/SERVER';
+
+const config = get_config();
 
 export const login = async (user) => {
-  const url = `${SERVER_URL}/api/users/login`;
+  const url = `${config.SERVER_URL}/api/users/login`;
   const body = {
     username: user.email,
     password: user.password,
   };
   console.log(`Sending to ${url}`);
+  console.log('body = ' + body);
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -31,3 +34,5 @@ export const login = async (user) => {
     Alert.alert('Error', 'Bad username/password. Please double check and try again');
   }
 };
+
+export const signup = async (user) => {};

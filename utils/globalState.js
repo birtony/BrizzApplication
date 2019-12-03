@@ -12,6 +12,11 @@ export const reducer = (state, action) => {
       ...state,
       user: { ...state.user, password: action.payload },
     };
+  case types.SIGNUP_PASSWORDCONF_CHANGED:
+    return {
+      ...state,
+      user: { ...state.user, passwordConf: action.payload },
+    };
   case types.LOGGED_IN:
     return {
       ...state,
@@ -41,6 +46,7 @@ export const initialState = {
   user: {
     email: '',
     password: '',
+    passwordConf: '',
     statusActivated: false,
   },
 };
