@@ -33,15 +33,15 @@ export default function UserProfile({ navigation }) {
               </Row>
               <Row style={styles.birthDateRow}>
                 <Col>
-                  <ProfileText textToPut={"Date of Birth: " + "08-02-1997"} style={styles.dobStyle} />
+                  <ProfileText textToPut={'Date of Birth: ' + '08-02-1997'} style={styles.dobStyle} />
                 </Col>
               </Row>
               <Row style={styles.genderCityRow}>
                 <Col>
-                  <ProfileText textToPut={"Gender: " + "Male"} style={styles.genderStyle} />
+                  <ProfileText textToPut={'Gender: ' + 'Male'} style={styles.genderStyle} />
                 </Col>
                 <Col>
-                  <ProfileText textToPut={"City: " + "Toronto"} style={styles.cityStyle} />
+                  <ProfileText textToPut={'City: ' + 'Toronto'} style={styles.cityStyle} />
                 </Col>
               </Row>
               <Row style={styles.redoQuestionnaireRow}>
@@ -60,13 +60,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F28E00',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   grid: {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
-    width: '100%'
+    width: '100%',
   },
   userNameRow: {
     justifyContent: 'center',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   userName: {
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
-    fontSize: 40
+    fontSize: 40,
   },
   whiteCard: {
     flex: 1,
@@ -97,11 +97,11 @@ const styles = StyleSheet.create({
   },
   backdropRow: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   backdropCol: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   profilePhoto: {
     width: '80%',
@@ -114,13 +114,13 @@ const styles = StyleSheet.create({
   firstNameStyle: {
     fontSize: 40,
     fontFamily: 'Optima-Bold',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   lastNameStyle: {
     fontSize: 25,
     fontFamily: 'Optima-Bold',
     alignSelf: 'center',
-    top: '-30%'
+    top: '-30%',
   },
   dobStyle: {
     fontSize: 25,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   },
   firstRow: {
     alignItems: 'center',
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   FirstRowCol: {
     alignItems: 'center',
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   FirstRowCol2: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   firstNameRow: {
     alignItems: 'center',
