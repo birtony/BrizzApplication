@@ -22,7 +22,7 @@ export default function AccountSetup3({ navigation }) {
         </Row>
         <Row style={styles.NextButtonCol}>
           <Col style={styles.NextButtonRow}>
-            <TouchableWithoutFeedback onPress={() => navigation.navigate('Questionnaire')}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('Question1')}>
               <Icon
                 type="font-awesome"
                 name="arrow-circle-right"

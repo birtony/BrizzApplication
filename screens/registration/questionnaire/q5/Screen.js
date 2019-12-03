@@ -2,17 +2,17 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { Col, Row } from 'react-native-easy-grid';
-import WhiteCard from '../../../common/components/WhiteCard';
-import * as questions from '../../../const/questions/questions.json';
+import WhiteCard from '../../../../common/components/WhiteCard';
+import * as questions from '../../../../const/questions/questions.json';
 import RadioForm from 'react-native-simple-radio-button';
 import { Button } from 'react-native-paper';
 
-const q1 = questions.Q1;
+const q5 = questions.Q5;
 const radio_props = [
   { label: 'Yes', value: 0 },
   { label: 'No', value: 1 },
 ];
-export default function Questionnaire({ navigation }) {
+export default function Question5({ navigation }) {
   state = { value: null };
   console.log(state);
   return (
@@ -27,7 +27,7 @@ export default function Questionnaire({ navigation }) {
         </Row>
         <Row style={styles.questionCardsRow}>
           <Col style={styles.questionCardsCol}>
-            <Text style={styles.question}>{q1}</Text>
+            <Text style={styles.question}>{q5}</Text>
           </Col>
         </Row>
         <Row>
@@ -51,7 +51,7 @@ export default function Questionnaire({ navigation }) {
         <Row>
           <Col>
             <View>
-              <Button style={styles.nextButton}>Next Question</Button>
+              <Button style={styles.nextButton} onPress={() => navigation.navigate('Question6')}>Next Question</Button>
             </View>
           </Col>
         </Row>
