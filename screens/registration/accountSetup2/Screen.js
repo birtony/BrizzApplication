@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableWithoutFeedback, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
 import { Input, Text } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Progress from 'react-native-progress';
 import RNPickerSelect from 'react-native-picker-select';
-import logo from '../../../assets/logo.png';
+import WhiteCard from '../../../common/components/WhiteCard';
+import InputComponent from '../../../common/components/InputComponent';
+import { Grid, Row, Col } from 'react-native-easy-grid';
+import { useStateValue } from '../../../utils/provider';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { city_changed, gpa_changed, gender_changed } from '../../../actions/user';
 
+// eslint-disable-next-line max-lines-per-function
 export default function AccountSetup2({ navigation }) {
+  const [{ user }, dispatch] = useStateValue();
+
   const initialState = {
     isModalVisible: false,
   };
-
-  const [state, setState] = useState(initialState);
 
   const { isModalVisible } = state;
 
@@ -20,154 +25,169 @@ export default function AccountSetup2({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.backgroundCircle}></View>
-      <View style={styles.roundedRectangle}></View>
-      <Image style={styles.logoImage} source={logo}></Image>
-      <Text style={styles.accountSetupText}>Account Setup</Text>
-      <Text h3 style={styles.genderText}>
-        Gender
-      </Text>
-      <Input
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.genderInput}
-        disabled
-      />
-      <TouchableWithoutFeedback onPress={toggleModal}>
-        <View style={{ position: 'absolute', top: '53%', left: '12%' }}>
-          <RNPickerSelect
-            onValueChange={(value) => console.log(value)}
-            items={[
-              { label: 'Male', value: 'male' },
-              { label: 'Female', value: 'female' },
-              { label: 'Other', value: 'other' },
-            ]}
-          />
-        </View>
-      </TouchableWithoutFeedback>
-      <Text h3 style={styles.cityText}>
-        City
-      </Text>
-      <Input
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.cityInput}
-      />
-      <Text h3 style={styles.gpaText}>
-        GPA
-      </Text>
-      <Input
-        keyboardType={'numbers-and-punctuation'}
-        inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
-        containerStyle={styles.gpaInput}
-      />
-
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountSetup3')}>
-        <Icon type="font-awesome" name="check" size={35} style={styles.arrowRight} />
-      </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountSetup1')}>
-        <Icon type="font-awesome" name="arrow-left" size={35} style={styles.arrowBack} />
-      </TouchableWithoutFeedback>
-      <Progress.Bar progress={1} width={200} color={'#F28E00'} position={'absolute'} top={'95%'} />
-    </SafeAreaView>
+    <WhiteCard>
+      <Grid style={styles.grid}>
+        <Row style={styles.accountSetupRow}>
+          <Col style={styles.accountSetupCol}>
+            <Text h2 style={styles.accountSetupText}>
+              Account Setup
+            </Text>
+          </Col>
+        </Row>
+        <Row size={2}>
+          <Col>
+            <InputComponent
+              title={'City'}
+              onChangeText={(value) => dispatch(city_changed(value))}
+              property={user.city}
+              iconName={'home'}
+            />
+          </Col>
+        </Row>
+        <Row size={2}>
+          <Col>
+            <InputComponent
+              title={'GPA'}
+              onChangeText={(value) => dispatch(gpa_changed(value))}
+              property={user.gpa}
+              iconName={'calculator'}
+            />
+          </Col>
+        </Row>
+        <Row size={2} style={styles.genderRow}>
+          <Col style={styles.genderCol}>
+            <Text h3 style={styles.genderText}>
+              Gender
+            </Text>
+          </Col>
+        </Row>
+        <Row style={styles.genderRow2}>
+          <Col style={styles.genderCol2}>
+            <View style={styles.orangeBorder} />
+            <Input
+              inputContainerStyle={{ borderBottomWidth: 0, top: 13 }}
+              containerStyle={styles.genderInput}
+              disabled
+            />
+            <TouchableWithoutFeedback onPress={toggleModal}>
+              <View style={styles.picker}>
+                <RNPickerSelect
+                  style={styles.pickerStyle}
+                  onValueChange={(value) => dispatch(gender_changed(value))}
+                  items={[
+                    { label: 'Male', value: 'male' },
+                    { label: 'Female', value: 'female' },
+                    { label: 'Other', value: 'other' },
+                  ]}
+                />
+              </View>
+            </TouchableWithoutFeedback>
+          </Col>
+        </Row>
+        <Row style={styles.buttonRow}>
+          <Col style={styles.buttonCol}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountSetup3')}>
+              <Icon
+                type="font-awesome"
+                name="arrow-circle-right"
+                size={50}
+                style={styles.nextButton}
+              />
+            </TouchableWithoutFeedback>
+          </Col>
+        </Row>
+        <Row style={styles.progressBarRow}>
+          <Col style={styles.progressBarCol}>
+            <Progress.Bar progress={1} width={200} color={'#F28E00'} style={styles.progressBar} />
+          </Col>
+        </Row>
+      </Grid>
+    </WhiteCard>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  grid: {
     flex: 1,
-    backgroundColor: '#F28E00',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  accountSetupRow: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  roundedRectangle: {
-    width: '94%',
-    height: '60%',
-    borderRadius: 100 / 5,
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: '37%',
-    shadowColor: 'grey',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
-  },
-  backgroundCircle: {
-    width: '105%',
-    height: '90%',
-    borderRadius: 100 / 2,
-    backgroundColor: 'white',
-    position: 'absolute',
-    top: '43%',
-  },
-  logoImage: {
-    width: '40%',
-    height: '20%',
-    position: 'absolute',
-    top: '10%',
+  accountSetupCol: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   accountSetupText: {
-    color: 'black',
+    textDecorationLine: 'underline',
     fontFamily: 'Optima-Bold',
-    fontSize: 30,
-    position: 'absolute',
-    top: '38%',
+  },
+  genderRow: {
+    alignItems: 'flex-start',
+  },
+  genderCol: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   genderText: {
-    position: 'absolute',
-    top: '45%',
+    alignSelf: 'flex-start',
     left: '15%',
-    fontFamily: 'Optima-Bold',
     color: '#F28E00',
+    fontFamily: 'Optima-Bold',
   },
-  genderInput: {
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: '#F28E00',
-    height: '8%',
-    position: 'absolute',
-    top: '50%',
-    width: '85%',
+  progressBarRow: {
+    alignContent: 'center',
+    justifyContent: 'center',
   },
-  cityText: {
+  progressBarCol: {
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  progressBar: {
+    alignSelf: 'center',
+  },
+  buttonRow: {
+    flex: 1,
+    alignItems: 'center',
+    top: '2%',
+    justifyContent: 'center',
+  },
+  buttonCol: {
+    alignItems: 'flex-end',
+    right: '30%',
+    justifyContent: 'center',
+  },
+  nextScreenButton: {
+    alignSelf: 'center',
+  },
+  genderRow2: {
+    alignItems: 'center',
+    top: '-15%',
+    justifyContent: 'center',
+  },
+  genderCol2: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  orangeBorder: {
+    width: '70%',
+    alignSelf: 'flex-start',
     position: 'absolute',
-    top: '60%',
     left: '15%',
-    fontFamily: 'Optima-Bold',
-    color: '#F28E00',
-  },
-  cityInput: {
     borderWidth: 2,
-    borderRadius: 50,
+    height: '90%',
+    borderRadius: 100 / 2,
     borderColor: '#F28E00',
-    height: '8%',
-    position: 'absolute',
-    top: '65%',
-    width: '85%',
   },
-  gpaText: {
-    position: 'absolute',
-    top: '75%',
-    left: '15%',
+  picker: {
+    top: '-40%',
+    left: '-15%',
+  },
+  pickerStyle: {
     fontFamily: 'Optima-Bold',
-    color: '#F28E00',
-  },
-  gpaInput: {
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: '#F28E00',
-    height: '8%',
-    position: 'absolute',
-    top: '80%',
-    width: '85%',
-  },
-  arrowBack: {
-    position: 'absolute',
-    top: '90%',
-    left: '8%',
-  },
-  arrowRight: {
-    position: 'absolute',
-    top: '90%',
-    right: '8%',
   },
 });
