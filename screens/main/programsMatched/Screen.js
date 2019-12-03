@@ -125,4 +125,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  programName: {
+    fontSize: 30,
+    fontFamily: 'Optima-Bold',
+    textAlign: 'center',
+  },
 });

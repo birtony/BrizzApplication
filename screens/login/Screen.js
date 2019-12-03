@@ -28,7 +28,6 @@ export default function Login({ navigation }) {
                 <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
                   <Text style={styles.signUpFlapText}>Sign Up</Text>
                 </TouchableWithoutFeedback>
-
               </View>
             </Col>
           </Row>

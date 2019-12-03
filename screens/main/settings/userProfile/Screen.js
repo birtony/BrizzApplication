@@ -179,7 +179,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F28E00',
     borderRadius: 50,
+    width: 100,
     borderColor: 'grey',
-    borderWidth: 1,
+    borderWidth: 2,
+    right: '10%',
   },
 });
