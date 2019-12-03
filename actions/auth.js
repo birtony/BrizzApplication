@@ -10,6 +10,11 @@ export const login_password_changed = (password) => ({
   payload: password,
 });
 
+export const signup_passwordConf_changed = (passwordConf) => ({
+  type: types.SIGNUP_PASSWORDCONF_CHANGED,
+  payload: passwordConf,
+});
+
 export const logged_in = ({ token, logged_in, complete }) => ({
   type: types.LOGGED_IN,
   payload: { token, logged_in, complete },

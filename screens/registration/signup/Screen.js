@@ -2,11 +2,18 @@ import React from 'react';
 import { StyleSheet, View, TouchableWithoutFeedback } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import { useStateValue } from '../../../utils/provider';
-import { login_username_changed, login_password_changed } from '../../../actions/auth';
+import {
+  login_username_changed,
+  login_password_changed,
+  signup_passwordConf_changed,
+  logged_in,
+} from '../../../actions/auth';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import WhiteCard from '../../../common/components/WhiteCard';
 import InputComponent from '../../../common/components/InputComponent';
+import * as api from '../../../api';
 
+// eslint-disable-next-line max-lines-per-function
 export default function Signup({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
   return (
@@ -31,7 +38,7 @@ export default function Signup({ navigation }) {
           <Row size={2}>
             <InputComponent
               title={'Email'}
-              onChangeAction={() => dispatch(login_username_changed())}
+              onChangeText={(text) => dispatch(login_username_changed(text))}
               property={user.email}
               iconName={'at'}
             />
@@ -39,7 +46,7 @@ export default function Signup({ navigation }) {
           <Row size={2}>
             <InputComponent
               title={'Password'}
-              onChangeAction={() => dispatch(login_password_changed())}
+              onChangeText={(text) => dispatch(login_password_changed(text))}
               property={user.password}
               iconName={'key'}
             />
@@ -47,11 +54,12 @@ export default function Signup({ navigation }) {
           <Row size={2}>
             <InputComponent
               title={'Confirm Password'}
-              onChangeAction={() => dispatch(login_password_changed())}
+              onChangeText={(text) => dispatch(signup_passwordConf_changed(text))}
               property={user.confirmPass}
               iconName={'key'}
             />
           </Row>
+          <Row size={0.5} />
           <Row>
             <Col size={1} />
             <Col size={2}>
@@ -59,12 +67,19 @@ export default function Signup({ navigation }) {
                 title="Sign Up"
                 titleStyle={styles.SignUpButtonTitle}
                 buttonStyle={styles.SignUpButtonStyle}
-                onPress={() => navigation.navigate('AccountSetup1')}
+                onPress={async () => {
+                  const result = await api.signup(user);
+                  if (result) {
+                    dispatch(logged_in(...result));
+                    // navigation.navigate('AccountSetup1');
+                  }
+                  navigation.navigate('AccountSetup1'); // Remove this navigation once signup works
+                }}
               />
             </Col>
             <Col size={1}></Col>
           </Row>
-          <Row size={0.5}></Row>
+          <Row size={0.5} />
         </Grid>
       </View>
     </WhiteCard>
