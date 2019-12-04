@@ -12,7 +12,9 @@ const radio_props = [
   { label: 'Yes', value: 0 },
   { label: 'No', value: 1 },
 ];
+// eslint-disable-next-line max-lines-per-function
 export default function Question1({ navigation }) {
+  // eslint-disable-next-line no-unused-vars
   const [value, setValue] = useState(null);
   return (
     <WhiteCard>
@@ -27,7 +29,7 @@ export default function Question1({ navigation }) {
           </Col>
         </Row>
         <Row style={styles.questionCardsRow}>
-          <Col style={styles.questionCardsCol}>
+          <Col style={styles.questionCardsCol} size={5}>
             <Text style={styles.question}>{q1}</Text>
           </Col>
         </Row>
@@ -90,19 +92,13 @@ const styles = StyleSheet.create({
   },
   questionCardsCol: {
     flex: 1,
+    paddingLeft: '2%',
+    paddingRight: '2%',
   },
   question: {
     alignSelf: 'center',
     fontSize: 20,
     fontFamily: 'Optima-Bold',
-  },
-  answer1: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  answer2: {
-    flex: 1,
-    justifyContent: 'center',
   },
   nextButton: {
     alignSelf: 'center',

@@ -1,21 +1,11 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-  SafeAreaView,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
+import { StyleSheet, View, Image, SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import { Row, Grid } from 'react-native-easy-grid';
 import logo from '../../assets/logo.png';
 
 export default function whiteCard({ children }) {
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.select({ android: 'height', ios: 'padding' })}
-    >
+    <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
       <SafeAreaView style={styles.safeAreaViewContainer}>
         <Grid style={styles.grid}>
           <Row size={2}>

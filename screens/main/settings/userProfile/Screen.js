@@ -1,29 +1,56 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Image } from 'react-native';
+import { Button } from 'react-native-elements';
+import { Grid, Col, Row } from 'react-native-easy-grid';
+import ProfileText from '../../../../common/components/ProfileText';
 
 export default function UserProfile({ navigation }) {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
-      <View style={styles.container}>
-        <View style={styles.background}>
-          <Text style={styles.FName}>First Name</Text>
-          <Text style={styles.LName}>Last Name</Text>
-          <Text style={styles.BDay}>Date of Birth: 00/00/0000</Text>
-          <Text style={styles.gender}>Gender: M</Text>
-          <Text style={styles.city}>City: Aurora</Text>
-          <Text style={styles.qAnswerLbl}>Questionnaire Answers</Text>
-          <Text style={styles.a1}>Answer 1: Blah</Text>
-          <Text style={styles.a2}>Answer 2: Blah</Text>
-          <Text style={styles.a3}>Answer 3: Blah</Text>
-          <Text style={styles.a4}>Answer 4: Blah</Text>
-          <Text style={styles.a5}>Answer 5: Blah</Text>
-          <Text style={styles.a6}>Answer 6: Blah</Text>
-          <Text style={styles.a7}>Answer 7: Blah</Text>
-          <Text style={styles.a8}>Answer 8: Blah</Text>
-          <Text style={styles.a9}>Answer 9: Blah</Text>
-          <Text style={styles.a10}>Answer 10: Blah</Text>
-        </View>
-      </View>
+      <Grid style={styles.grid}>
+        <Row size={1} style={styles.userNameRow}>
+          <Col style={styles.userNameCol}>
+            <ProfileText textToPut="User Name" style={styles.userName} />
+          </Col>
+        </Row>
+        <Row size={6} style={styles.backdropRow}>
+          <View style={styles.whiteCard}>
+            <Grid style={styles.grid}>
+              <Row style={styles.firstRow}>
+                <Col style={styles.FirstRowCol} size={3}>
+                  <Image
+                    style={styles.profilePhoto}
+                    source={require('../../../../assets/ProfilePhoto.png')} />
+                </Col>
+                <Col style={styles.FirstRowCol2} size={3}>
+                  <Row style={styles.firstNameRow}>
+                    <ProfileText textToPut="First Name" style={styles.firstNameStyle} />
+                  </Row>
+                  <Row style={styles.lastNameRow}>
+                    <ProfileText textToPut="Last Name" style={styles.lastNameStyle} />
+                  </Row>
+                </Col>
+              </Row>
+              <Row style={styles.birthDateRow}>
+                <Col>
+                  <ProfileText textToPut={'Date of Birth: ' + '08-02-1997'} style={styles.dobStyle} />
+                </Col>
+              </Row>
+              <Row style={styles.genderCityRow}>
+                <Col>
+                  <ProfileText textToPut={'Gender: ' + 'Male'} style={styles.genderStyle} />
+                </Col>
+                <Col>
+                  <ProfileText textToPut={'City: ' + 'Toronto'} style={styles.cityStyle} />
+                </Col>
+              </Row>
+              <Row style={styles.redoQuestionnaireRow}>
+                <Button buttonStyle={styles.redoButtonStyle} title="Redo Questionnaire" onPress={() => navigation.navigate('AccountSetup3')}>Redo Questionnaire</Button>
+              </Row>
+            </Grid>
+          </View>
+        </Row>
+      </Grid>
     </SafeAreaView>
   );
 }
@@ -32,168 +59,127 @@ const styles = StyleSheet.create({
   safeAreaViewContainer: {
     flex: 1,
     backgroundColor: '#F28E00',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  container: {
-    flex: 1,
+  grid: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    width: '100%',
   },
-  background: {
-    flex: 1,
-    position: 'absolute',
-    backgroundColor: 'white',
-    height: '80%',
-    width: '92%',
-    left: '4%',
+  userNameRow: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  userNameCol: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  userName: {
     alignSelf: 'center',
+    fontFamily: 'Optima-Bold',
+    fontSize: 40,
+  },
+  whiteCard: {
+    flex: 1,
+    maxWidth: '94%',
+    maxHeight: '95%',
+    width: '94%',
+    height: '95%',
     borderRadius: 20,
+    backgroundColor: 'white',
+    shadowColor: 'grey',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    justifyContent: 'center',
+  },
+  backdropRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backdropCol: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   profilePhoto: {
-    flex: 1,
-    position: 'absolute',
-    top: '-70%',
-    left: '8%',
-    width: '30%',
-    height: '30%',
+    width: '80%',
+    height: '80%',
+    minWidth: '30%',
+    minHeight: '30%',
+    resizeMode: 'contain',
+    alignSelf: 'center',
   },
-  FName: {
-    flex: 1,
-    position: 'absolute',
-    left: '45%',
-    top: '-65%',
+  firstNameStyle: {
     fontSize: 40,
     fontFamily: 'Optima-Bold',
+    alignSelf: 'center',
   },
-  LName: {
-    flex: 1,
-    position: 'absolute',
-    left: '52%',
-    top: '-50%',
-    fontSize: 30,
+  lastNameStyle: {
+    fontSize: 25,
     fontFamily: 'Optima-Bold',
+    alignSelf: 'center',
+    top: '-30%',
   },
-  BDay: {
-    flex: 1,
-    position: 'absolute',
-    left: '12%',
-    top: '-25%',
+  dobStyle: {
+    fontSize: 25,
+    alignSelf: 'center',
     fontFamily: 'Optima-Bold',
-    fontSize: 30,
     textDecorationLine: 'underline',
   },
-  gender: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '-12%',
+  firstRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  FirstRowCol: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
+  FirstRowCol2: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  firstNameRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  lastNameRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  birthDateRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  genderCityRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  genderStyle: {
+    fontSize: 25,
+    alignSelf: 'center',
     fontFamily: 'Optima-Bold',
-    fontSize: 20,
     textDecorationLine: 'underline',
   },
-  city: {
-    flex: 1,
-    position: 'absolute',
-    left: '60%',
-    top: '-12%',
+  cityStyle: {
+    fontSize: 25,
+    alignSelf: 'center',
     fontFamily: 'Optima-Bold',
-    fontSize: 20,
     textDecorationLine: 'underline',
   },
-  qAnswerLbl: {
-    flex: 1,
-    position: 'absolute',
-    left: '28%',
-    top: '-5%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
+  redoQuestionnaireRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  a1: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '3%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a2: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '11%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a3: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '19%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a4: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '27%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a5: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '35%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a6: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '43%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a7: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '51%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a8: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '59%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a9: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '67%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-  },
-  a10: {
-    flex: 1,
-    position: 'absolute',
-    left: '16%',
-    top: '75%',
-    fontFamily: 'Optima-Bold',
-    fontSize: 20,
-    textDecorationLine: 'underline',
+  redoButtonStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#F28E00',
+    borderRadius: 50,
+    borderColor: 'grey',
+    borderWidth: 1,
   },
 });
