@@ -1,141 +1,174 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-elements';
-
-// Need to fetch all results into an array.
-// And for loop Views to display individual results per result.
+import { Text, Button } from 'react-native-elements';
+import { Grid, Row, Col } from 'react-native-easy-grid';
+import whiteCard from '../../../common/components/WhiteCard';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function ProgramDetails({ navigation }) {
   return (
-    <SafeAreaView style={styles.safeAreaViewContainer}>
-      <View style={styles.container}>
-        <View style={styles.background}>
-          <Text style={styles.programName}> SOFTWARE DEVELOPMENT </Text>
-          <Text style={styles.descriptionHeading}>DESCRIPTION</Text>
-          <Text style={styles.description}>
-            This four-year honours bachelor degree will provide you with extensive knowledge and
-            technical skills in software development languages. This program also covers topics in
-            operating systems, web applications, multimedia interfaces, information security,
-            databases, system analysis and design principles. You will also develop communication
-            skills to effectively present technical ideas.
+    <SafeAreaView style={styles.container}>
+      <Grid>
+        <Row style={styles.programNameRow} size={1}>
+          <Text h3 style={styles.programsNameTxt}>
+            Software Development
           </Text>
-          <Text style={styles.offeredAtHeading}>OFFERED AT</Text>
-          <Text style={styles.offeredAt}>Seneca College</Text>
-          <Text style={styles.tuitionCostHeading}>TUITION COST</Text>
-          <Text style={styles.tuitionCost}>$8000.00 / year</Text>
-          <Text style={styles.startDateHeading}>START DATE</Text>
-          <Text style={styles.startDate}>September 2019</Text>
-          <Text style={styles.backButton} onPress={() => navigation.navigate('ProgramsMatched')}>
-            Go Back
-          </Text>
-        </View>
-      </View>
+        </Row>
+        <Row size={4}>
+          <Col style={styles.whiteRectangleCol}>
+            <View style={styles.whiteRectangle}>
+              <Row size={2}>
+                <Col>
+                  <Text style={styles.descriptionTxt}>Description</Text>
+                  <ScrollView>
+                    <Text style={styles.programDescriptionTxt}>
+                      This four-year honours bachelor degree will provide you with extensive
+                      knowledge and technical skills in software development languages. This program
+                      also covers topics in operating systems, web applications, multimedia
+                      interfaces, information security, databases, system analysis and design
+                      principles. You will also develop communication
+                    </Text>
+                  </ScrollView>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Text style={styles.tuitionTxt}>Tuition</Text>
+                  <Text style={styles.programTuitionTxt}>$8000.00 / year</Text>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Text style={styles.offeredTxt}>Offered at</Text>
+                  <Text style={styles.programOfferedTxt}>Seneca College</Text>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Text style={styles.startDateTxt}>Start Date</Text>
+                  <Text style={styles.programStartDateTxt}>September 2019</Text>
+                </Col>
+              </Row>
+              <Row style={styles.goBackrow}>
+                <Col style={styles.goBackCol}>
+                  <Button
+                    buttonStyle={styles.goBackButton}
+                    titleStyle={styles.goBackButtonText}
+                    title="Go Back"
+                    onPress={() => navigation.navigate('ProgramsMatched')}
+                  ></Button>
+                </Col>
+              </Row>
+            </View>
+          </Col>
+        </Row>
+      </Grid>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  safeAreaViewContainer: {
-    flex: 1,
-    backgroundColor: 'orange',
-  },
   container: {
-    flex: 1,
-  },
-  background: {
-    flex: 1,
-    position: 'absolute',
-    backgroundColor: 'orange',
+    backgroundColor: '#F28E00',
+    alignItems: 'center',
+    justifyContent: 'center',
     height: '100%',
-    width: '92%',
+    width: '100%',
+  },
+  whiteRectangle: {
+    flex: 1,
+    maxWidth: '100%',
+    maxHeight: '95%',
     borderRadius: 20,
+    backgroundColor: 'white',
+    shadowColor: 'grey',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    justifyContent: 'center',
+  },
+  whiteRectangleCol: {
+    width: '96%',
+    height: '115%',
+    bottom: '20%',
+    left: '1%',
+  },
+  programNameRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  programsNameTxt: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'Optima-Bold',
+    top: '-10%',
+  },
+  descriptionRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  descriptionTxt: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecorationLine: 'underline',
+    left: '2%',
+    fontSize: 20,
+    fontFamily: 'Optima-Bold',
+  },
+  programDescriptionTxt: {
+    left: '2%',
+    fontSize: 17,
+  },
+  tuitionTxt: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecorationLine: 'underline',
+    left: '2%',
+    fontSize: 20,
+    fontFamily: 'Optima-Bold',
+  },
+  programTuitionTxt: {
+    left: '2%',
+    fontSize: 17,
+  },
+  offeredTxt: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecorationLine: 'underline',
+    left: '2%',
+    fontSize: 20,
+    fontFamily: 'Optima-Bold',
+  },
+  programOfferedTxt: {
+    left: '2%',
+    fontSize: 17,
+  },
+  startDateTxt: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textDecorationLine: 'underline',
+    left: '2%',
+    fontSize: 20,
+    fontFamily: 'Optima-Bold',
+  },
+  programStartDateTxt: {
+    left: '2%',
+    fontSize: 17,
+  },
+  goBackrow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  goBackCol: {
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    right: '10%',
   },
   goBackButton: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '12%',
-    right: '7%',
-    fontWeight: 'bold',
+    backgroundColor: '#F28E00',
   },
-  programName: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '160%',
-    left: '14%',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  descriptionHeading: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '150%',
-    left: '5%',
-    fontSize: 18,
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
-  },
-  description: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '90%',
-    left: '5%',
-    right: '5%',
-    fontSize: 16,
-  },
-  offeredAtHeading: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '80%',
-    left: '5%',
-    fontSize: 18,
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
-  },
-  offeredAt: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '73%',
-    left: '5%',
-    right: '5%',
-    fontSize: 16,
-  },
-  tuitionCostHeading: {
-    position: 'absolute',
-    bottom: '63%',
-    left: '5%',
-    fontSize: 18,
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
-  },
-  tuitionCost: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '56%',
-    left: '5%',
-    right: '5%',
-    fontSize: 16,
-  },
-  startDateHeading: {
-    position: 'absolute',
-    bottom: '46%',
-    left: '5%',
-    fontSize: 18,
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
-  },
-  startDate: {
-    flex: 1,
-    position: 'absolute',
-    bottom: '39%',
-    left: '5%',
-    right: '5%',
-    fontSize: 16,
-  },
-  backButton: {
-    position: 'absolute',
-    top: 100,
-    right: 63,
-    fontSize: 18,
-    fontWeight: 'bold',
+  goBackButtonText: {
+    color: 'black',
+    fontFamily: 'Optima-Bold',
   },
 });

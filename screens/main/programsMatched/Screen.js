@@ -19,7 +19,7 @@ export default function ProgramsMatched({ navigation }) {
             <Row style={styles.programDescRow}>
               <Text h5 style={styles.description}>Lorem Ipsum</Text>
             </Row>
-            <Button style={styles.buttonStyle} title="More Information"></Button>
+            <Button style={styles.buttonStyle} title="More Information" onPress={() => navigation.navigate('ProgramDetails')}></Button>
           </Grid>
         </View>
         <View style={styles.emptySpace} />
