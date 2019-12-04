@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   logoutButtonCol: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    top: '100%',
+    top: '50%',
   },
   logoutButtonStyle: {
     alignItems: 'flex-start',

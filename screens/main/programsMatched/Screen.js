@@ -2,30 +2,28 @@ import React from 'react';
 import { StyleSheet, View, ScrollView, SafeAreaView } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { Grid, Row } from 'react-native-easy-grid';
-
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
 export default function ProgramsMatched({ navigation }) {
-  const programs = [];
-  for (let i = 0; i < 10; i++) {
-    programs.push(
-      <View style={styles.resultsContainer} key={i}>
-        <View style={styles.resultBox}>
-          <Grid style={styles.programsGrid}>
-            <Row style={styles.programNameRow}>
-              <Text h4 style={styles.programName}>Program Name: </Text>
-            </Row>
-            <Row style={styles.programDescRow}>
-              <Text h5 style={styles.description}>Lorem Ipsum</Text>
-            </Row>
-            <Button style={styles.buttonStyle} title="More Information"></Button>
-          </Grid>
-        </View>
-        <View style={styles.emptySpace} />
-      </View>,
-    );
-  }
+  const programs = ['1', '2'];
+  const results = programs.map((result) =>
+    <View style={styles.resultsContainer} key={result}>
+      <View style={styles.resultBox}>
+        <Grid style={styles.programsGrid}>
+          <Row style={styles.programNameRow}>
+            <Text h4 style={styles.programName}>Hello</Text>
+          </Row>
+          <Row style={styles.programDescRow}>
+            <Text h5 style={styles.description}>Hi</Text>
+          </Row>
+          <Button style={styles.buttonStyle} title="More Information" onPress={() => navigation.navigate('ProgramDetails')}></Button>
+        </Grid>
+      </View>
+      <View style={styles.emptySpace} />
+    </View>,
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <Grid style={styles.container}>
@@ -35,7 +33,7 @@ export default function ProgramsMatched({ navigation }) {
         <Row size={5}>
           <View style={styles.whiteCard}>
             <ScrollView>
-              {programs}
+              {results}
             </ScrollView>
           </View>
         </Row>
