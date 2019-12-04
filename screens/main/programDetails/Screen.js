@@ -2,7 +2,6 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { Grid, Row, Col } from 'react-native-easy-grid';
-import whiteCard from '../../../common/components/WhiteCard';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function ProgramDetails({ navigation }) {
