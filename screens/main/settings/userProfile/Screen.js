@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, View, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import ProfileText from '../../../../common/components/ProfileText';
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 export default function UserProfile({ navigation }) {
   return (
@@ -15,39 +16,37 @@ export default function UserProfile({ navigation }) {
         </Row>
         <Row size={6} style={styles.backdropRow}>
           <View style={styles.whiteCard}>
-            <Grid style={styles.grid}>
-              <Row style={styles.firstRow}>
-                <Col style={styles.FirstRowCol} size={3}>
-                  <Image
-                    style={styles.profilePhoto}
-                    source={require('../../../../assets/ProfilePhoto.png')} />
-                </Col>
-                <Col style={styles.FirstRowCol2} size={3}>
-                  <Row style={styles.firstNameRow}>
-                    <ProfileText textToPut="First Name" style={styles.firstNameStyle} />
-                  </Row>
-                  <Row style={styles.lastNameRow}>
-                    <ProfileText textToPut="Last Name" style={styles.lastNameStyle} />
-                  </Row>
-                </Col>
-              </Row>
-              <Row style={styles.birthDateRow}>
-                <Col>
-                  <ProfileText textToPut={'Date of Birth: ' + '08-02-1997'} style={styles.dobStyle} />
-                </Col>
-              </Row>
-              <Row style={styles.genderCityRow}>
-                <Col>
-                  <ProfileText textToPut={'Gender: ' + 'Male'} style={styles.genderStyle} />
-                </Col>
-                <Col>
-                  <ProfileText textToPut={'City: ' + 'Toronto'} style={styles.cityStyle} />
-                </Col>
-              </Row>
-              <Row style={styles.redoQuestionnaireRow}>
-                <Button buttonStyle={styles.redoButtonStyle} title="Redo Questionnaire" onPress={() => navigation.navigate('AccountSetup3')}>Redo Questionnaire</Button>
-              </Row>
-            </Grid>
+            <Row style={styles.firstRow}>
+              <Col style={styles.FirstRowCol} size={3}>
+                <Image
+                  style={styles.profilePhoto}
+                  source={require('../../../../assets/ProfilePhoto.png')} />
+              </Col>
+              <Col style={styles.FirstRowCol2} size={3}>
+                <Row style={styles.firstNameRow}>
+                  <ProfileText textToPut="First Name" style={styles.firstNameStyle} />
+                </Row>
+                <Row style={styles.lastNameRow}>
+                  <ProfileText textToPut="Last Name" style={styles.lastNameStyle} />
+                </Row>
+              </Col>
+            </Row>
+            <Row style={styles.birthDateRow}>
+              <Col>
+                <ProfileText textToPut={'Date of Birth: ' + '08-02-1997'} style={styles.dobStyle} />
+              </Col>
+            </Row>
+            <Row style={styles.genderCityRow}>
+              <Col>
+                <ProfileText textToPut={'Gender: ' + 'Male'} style={styles.genderStyle} />
+              </Col>
+              <Col>
+                <ProfileText textToPut={'City: ' + 'Toronto'} style={styles.cityStyle} />
+              </Col>
+            </Row>
+            <Row style={styles.redoQuestionnaireRow}>
+              <Button buttonStyle={styles.redoButtonStyle} title="Redo Questionnaire" onPress={() => navigation.navigate('AccountSetup3')}>Redo Questionnaire</Button>
+            </Row>
           </View>
         </Row>
       </Grid>
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
   userName: {
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
-    fontSize: 40,
+    fontSize: RFPercentage(5),
   },
   whiteCard: {
     flex: 1,
@@ -112,18 +111,18 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   firstNameStyle: {
-    fontSize: 40,
+    fontSize: RFPercentage(5),
     fontFamily: 'Optima-Bold',
     alignSelf: 'center',
   },
   lastNameStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(5),
     fontFamily: 'Optima-Bold',
     alignSelf: 'center',
     top: '-30%',
   },
   dobStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(5),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
@@ -159,13 +158,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   genderStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(5),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
   },
   cityStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(5),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
