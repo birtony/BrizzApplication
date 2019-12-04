@@ -14,7 +14,7 @@ export default function whiteCard({ children }) {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.select({ android: 'height', ios: 'padding' })}
+      behavior="padding"
     >
       <SafeAreaView style={styles.safeAreaViewContainer}>
         <Grid style={styles.grid}>

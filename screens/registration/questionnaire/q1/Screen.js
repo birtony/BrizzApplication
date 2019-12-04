@@ -27,7 +27,7 @@ export default function Question1({ navigation }) {
           </Col>
         </Row>
         <Row style={styles.questionCardsRow}>
-          <Col style={styles.questionCardsCol}>
+          <Col style={styles.questionCardsCol} size={5}>
             <Text style={styles.question}>{q1}</Text>
           </Col>
         </Row>
@@ -90,6 +90,8 @@ const styles = StyleSheet.create({
   },
   questionCardsCol: {
     flex: 1,
+    paddingLeft: '2%',
+    paddingRight: '2%'
   },
   question: {
     alignSelf: 'center',

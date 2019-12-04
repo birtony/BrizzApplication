@@ -12,6 +12,7 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import WhiteCard from '../../../common/components/WhiteCard';
 import InputComponent from '../../../common/components/InputComponent';
 import * as api from '../../../api';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 // eslint-disable-next-line max-lines-per-function
 export default function Signup({ navigation }) {
@@ -35,28 +36,31 @@ export default function Signup({ navigation }) {
               </View>
             </Col>
           </Row>
-          <Row size={2}>
+          <Row size={3}>
             <InputComponent
               title={'Email'}
               onChangeText={(text) => dispatch(login_username_changed(text))}
               property={user.email}
               iconName={'at'}
+              isSecure={false}
             />
           </Row>
-          <Row size={2}>
+          <Row size={3}>
             <InputComponent
               title={'Password'}
               onChangeText={(text) => dispatch(signup_password_changed(text))}
               property={user.signup_password}
               iconName={'key'}
+              isSecure={true}
             />
           </Row>
-          <Row size={2}>
+          <Row size={3}>
             <InputComponent
               title={'Confirm Password'}
               onChangeText={(text) => dispatch(signup_passwordConf_changed(text))}
               property={user.signup_passwordConf}
               iconName={'key'}
+              isSecure={true}
             />
           </Row>
           <Row size={0.5} />
@@ -75,6 +79,7 @@ export default function Signup({ navigation }) {
                   }
                 }}
               />
+              <Button title="Go Further" onPress={() => navigation.navigate('AccountSetup1')}></Button>
             </Col>
             <Col size={1}></Col>
           </Row>

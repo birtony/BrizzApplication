@@ -9,14 +9,16 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { first_name_changed, last_name_changed, birth_date_changed } from '../../../actions/user';
+import Moment from 'moment';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
 // eslint-disable-next-line max-lines-per-function
 export default function AccountSetup1({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
-
-  const [chosenDate, setChosenDate] = useState(new Date());
+  Moment.locale('en');
+  let [chosenDate, setChosenDate] = useState(new Date());
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  setChosenDate = setChosenDate.bind(this);
   function setDate(newDate) {
     setChosenDate({ chosenDate: newDate });
   }
@@ -34,36 +36,34 @@ export default function AccountSetup1({ navigation }) {
             </Text>
           </Col>
         </Row>
-        <Row size={2}>
+        <Row size={3}>
           <Col>
             <InputComponent
               title={'First Name'}
               onChangeText={(value) => dispatch(first_name_changed(value))}
               property={user.firstName}
+              isSecure={false}
             />
           </Col>
         </Row>
-        <Row size={2}>
+        <Row size={3}>
           <Col>
             <InputComponent
               title={'Last Name'}
               onChangeText={(value) => dispatch(last_name_changed(value))}
               property={user.lastName}
+              isSecure={false}
             />
           </Col>
         </Row>
-        <Row size={2} style={styles.dobTextRow}>
-          <Col style={styles.dobTextCol}>
-            <Text h3 style={styles.dobText}>
+        <Row size={0}>
+          <Col>
+            <Text style={styles.dobText}>
               Date of Birth
             </Text>
-          </Col>
-        </Row>
-        <Row style={styles.dateofBirthInputRow} size={2}>
-          <Col style={styles.dateofBirthInputCol}>
             <TouchableWithoutFeedback onPress={() => toggleModal(true)}>
               <View style={styles.orangeBorder}>
-                <Text style={styles.dobModal}>{chosenDate.toString()}</Text>
+                <Text style={styles.dobModal}>{Moment(chosenDate).format('DD/MM/YYYY')}</Text>
                 {/* Find a way to display chosenDate in a right format */}
                 <Modal
                   isVisible={isModalVisible}
@@ -72,7 +72,7 @@ export default function AccountSetup1({ navigation }) {
                 >
                   <View style={styles.datePickerView}>
                     <DatePickerIOS
-                      mode={'date'}
+                      mode={"date"}
                       date={chosenDate}
                       onDateChange={(value) => setDate(value)}
                     />
@@ -140,10 +140,11 @@ const styles = StyleSheet.create({
   },
   dobText: {
     left: '-11%',
-    top: '-18%',
+    top: '-14%',
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     color: '#F28E00',
+    fontSize: RFPercentage(4.5)
   },
   dobModal: {
     position: 'absolute',
