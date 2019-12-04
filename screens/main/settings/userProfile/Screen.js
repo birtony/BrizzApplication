@@ -3,7 +3,9 @@ import { SafeAreaView, StyleSheet, View, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import ProfileText from '../../../../common/components/ProfileText';
+import { RFPercentage } from 'react-native-responsive-fontsize';
 
+// eslint-disable-next-line max-lines-per-function
 export default function UserProfile({ navigation }) {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
@@ -15,46 +17,61 @@ export default function UserProfile({ navigation }) {
         </Row>
         <Row size={6} style={styles.backdropRow}>
           <View style={styles.whiteCard}>
-            <Grid style={styles.grid}>
-              <Row style={styles.firstRow}>
-                <Col style={styles.FirstRowCol} size={3}>
-                  <Image
-                    style={styles.profilePhoto}
-                    source={require('../../../../assets/ProfilePhoto.png')} />
-                </Col>
-                <Col style={styles.FirstRowCol2} size={3}>
-                  <Row style={styles.firstNameRow}>
-                    <ProfileText textToPut="First Name" style={styles.firstNameStyle} />
-                  </Row>
-                  <Row style={styles.lastNameRow}>
-                    <ProfileText textToPut="Last Name" style={styles.lastNameStyle} />
-                  </Row>
-                </Col>
-              </Row>
-              <Row style={styles.birthDateRow}>
-                <Col>
-                  <ProfileText textToPut={'Date of Birth: ' + '08-02-1997'} style={styles.dobStyle} />
-                </Col>
-              </Row>
-              <Row style={styles.genderCityRow}>
-                <Col>
-                  <ProfileText textToPut={'Gender: ' + 'Male'} style={styles.genderStyle} />
-                </Col>
-                <Col>
-                  <ProfileText textToPut={'City: ' + 'Toronto'} style={styles.cityStyle} />
-                </Col>
-              </Row>
-              <Row style={styles.redoQuestionnaireRow}>
-                <Button buttonStyle={styles.redoButtonStyle} title="Redo Questionnaire" onPress={() => navigation.navigate('AccountSetup3')}>Redo Questionnaire</Button>
-              </Row>
-            </Grid>
+            <Row style={styles.firstRow}>
+              <Col style={styles.FirstRowCol} size={3}>
+                <Image
+                  style={styles.profilePhoto}
+                  source={require('../../../../assets/ProfilePhoto.png')}
+                />
+              </Col>
+              <Col style={styles.FirstRowCol2} size={3}>
+                <Row style={styles.firstNameRow}>
+                  <ProfileText textToPut="First Name" style={styles.firstNameStyle} />
+                </Row>
+                <Row style={styles.lastNameRow}>
+                  <ProfileText textToPut="Last Name" style={styles.lastNameStyle} />
+                </Row>
+              </Col>
+            </Row>
+            <Row style={styles.birthDateRow}>
+              <Col>
+                <ProfileText textToPut={'Date of Birth: '} style={styles.dobStyle} />
+              </Col>
+              <Col>
+                <ProfileText textToPut={'08-02-1997'} style={styles.dobStyle2} />
+              </Col>
+            </Row>
+            <Row style={styles.genderCityRow}>
+              <Col>
+                <ProfileText textToPut={'Gender: '} style={styles.genderStyle} />
+              </Col>
+              <Col>
+                <ProfileText textToPut={'Male'} style={styles.genderStyle2} />
+              </Col>
+            </Row>
+            <Row style={styles.genderCityRow}>
+              <Col>
+                <ProfileText textToPut={'City: '} style={styles.cityStyle} />
+              </Col>
+              <Col>
+                <ProfileText textToPut={'Toronto'} style={styles.cityStyle2} />
+              </Col>
+            </Row>
+            <Row style={styles.redoQuestionnaireRow}>
+              <Button
+                buttonStyle={styles.redoButtonStyle}
+                title="Redo Questionnaire"
+                onPress={() => navigation.navigate('AccountSetup3')}
+              >
+                Redo Questionnaire
+              </Button>
+            </Row>
           </View>
         </Row>
       </Grid>
     </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   safeAreaViewContainer: {
     flex: 1,
@@ -79,7 +96,7 @@ const styles = StyleSheet.create({
   userName: {
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
-    fontSize: 40,
+    fontSize: RFPercentage(5),
   },
   whiteCard: {
     flex: 1,
@@ -112,21 +129,26 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   firstNameStyle: {
-    fontSize: 40,
+    fontSize: RFPercentage(5),
     fontFamily: 'Optima-Bold',
     alignSelf: 'center',
   },
   lastNameStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(5),
     fontFamily: 'Optima-Bold',
     alignSelf: 'center',
     top: '-30%',
   },
   dobStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(3),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
+  },
+  dobStyle2: {
+    fontSize: RFPercentage(3),
+    alignSelf: 'center',
+    fontFamily: 'Optima-Bold',
   },
   firstRow: {
     alignItems: 'center',
@@ -141,6 +163,7 @@ const styles = StyleSheet.create({
   FirstRowCol2: {
     alignItems: 'center',
     justifyContent: 'center',
+    top: '5%',
   },
   firstNameRow: {
     alignItems: 'center',
@@ -159,16 +182,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   genderStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(3),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
   },
   cityStyle: {
-    fontSize: 25,
+    fontSize: RFPercentage(3),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
+  },
+  genderStyle2: {
+    fontSize: RFPercentage(4),
+    alignSelf: 'center',
+    fontFamily: 'Optima-Bold',
+  },
+  cityStyle2: {
+    fontSize: RFPercentage(4),
+    alignSelf: 'center',
+    fontFamily: 'Optima-Bold',
   },
   redoQuestionnaireRow: {
     alignItems: 'center',
@@ -179,7 +212,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F28E00',
     borderRadius: 50,
+    width: 100,
     borderColor: 'grey',
-    borderWidth: 1,
+    borderWidth: 2,
+    right: '10%',
   },
 });
