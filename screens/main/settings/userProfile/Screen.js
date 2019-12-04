@@ -33,15 +33,26 @@ export default function UserProfile({ navigation }) {
             </Row>
             <Row style={styles.birthDateRow}>
               <Col>
-                <ProfileText textToPut={'Date of Birth: ' + '08-02-1997'} style={styles.dobStyle} />
+                <ProfileText textToPut={'Date of Birth: '} style={styles.dobStyle} />
+              </Col>
+              <Col>
+                <ProfileText textToPut={'08-02-1997'} style={styles.dobStyle2} />
               </Col>
             </Row>
             <Row style={styles.genderCityRow}>
               <Col>
-                <ProfileText textToPut={'Gender: ' + 'Male'} style={styles.genderStyle} />
+                <ProfileText textToPut={'Gender: '} style={styles.genderStyle} />
               </Col>
               <Col>
-                <ProfileText textToPut={'City: ' + 'Toronto'} style={styles.cityStyle} />
+                <ProfileText textToPut={'Male'} style={styles.genderStyle2} />
+              </Col>
+            </Row>
+            <Row style={styles.genderCityRow}>
+              <Col>
+                <ProfileText textToPut={'City: '} style={styles.cityStyle} />
+              </Col>
+              <Col>
+                <ProfileText textToPut={'Toronto'} style={styles.cityStyle2} />
               </Col>
             </Row>
             <Row style={styles.redoQuestionnaireRow}>
@@ -122,10 +133,15 @@ const styles = StyleSheet.create({
     top: '-30%',
   },
   dobStyle: {
-    fontSize: RFPercentage(5),
+    fontSize: RFPercentage(3),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
+  },
+  dobStyle2: {
+    fontSize: RFPercentage(3),
+    alignSelf: 'center',
+    fontFamily: 'Optima-Bold',
   },
   firstRow: {
     alignItems: 'center',
@@ -140,6 +156,7 @@ const styles = StyleSheet.create({
   FirstRowCol2: {
     alignItems: 'center',
     justifyContent: 'center',
+    top: '5%'
   },
   firstNameRow: {
     alignItems: 'center',
@@ -158,16 +175,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   genderStyle: {
-    fontSize: RFPercentage(5),
+    fontSize: RFPercentage(3),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
   },
   cityStyle: {
-    fontSize: RFPercentage(5),
+    fontSize: RFPercentage(3),
     alignSelf: 'center',
     fontFamily: 'Optima-Bold',
     textDecorationLine: 'underline',
+  },
+  genderStyle2: {
+    fontSize: RFPercentage(4),
+    alignSelf: 'center',
+    fontFamily: 'Optima-Bold',
+  },
+  cityStyle2: {
+    fontSize: RFPercentage(4),
+    alignSelf: 'center',
+    fontFamily: 'Optima-Bold',
   },
   redoQuestionnaireRow: {
     alignItems: 'center',
