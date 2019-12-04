@@ -78,10 +78,6 @@ export default function Signup({ navigation }) {
                   }
                 }}
               />
-              <Button
-                title="Go Further"
-                onPress={() => navigation.navigate('AccountSetup1')}
-              ></Button>
             </Col>
             <Col size={1}></Col>
           </Row>
@@ -159,4 +155,3 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 });
-

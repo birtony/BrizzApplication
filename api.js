@@ -63,3 +63,30 @@ export const signup = async (user) => {
     return null;
   }
 };
+
+export const getAllPrograms = async (token) => {
+  const url = `${SERVER_URL}/api/programs`;
+  console.log(`Sending to ${url}`);
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: '',
+    });
+    console.log('Dispatching event...');
+    const data = await response.json();
+    console.log('data =' + JSON.stringify(data));
+    if (data) {
+      return data;
+    } else {
+      Alert.alert('Error', 'No Programs Found');
+    }
+  } catch (e) {
+    console.log(e);
+    Alert.alert('Error', 'Probably your token is invalid, try again');
+  }
+};

@@ -3,7 +3,7 @@ const PRODUCTION = {
 };
 
 const DEVELOPMENT = {
-  SERVER_URL: 'http://172.20.10.3:8080',
+  SERVER_URL: 'https://brizz-server.herokuapp.com',
 };
 
 // eslint-disable-next-line no-undef

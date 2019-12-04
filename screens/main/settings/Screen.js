@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Row, Grid, Col } from 'react-native-easy-grid';
 import ProfileText from '../../../common/components/ProfileText';
+import { logged_out } from '../../../actions/auth';
 export default function Settings({ navigation }) {
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
@@ -16,7 +17,11 @@ export default function Settings({ navigation }) {
           <View style={styles.whiteCard}>
             <Row style={styles.userProfileRow}>
               <Col style={styles.profileButtonCol}>
-                <Button title="User Profile" onPress={() => navigation.navigate('UserProfile')} buttonStyle={styles.userProfileButtonStyle} />
+                <Button
+                  title="User Profile"
+                  onPress={() => navigation.navigate('UserProfile')}
+                  buttonStyle={styles.userProfileButtonStyle}
+                />
               </Col>
             </Row>
             <Row style={styles.logoutRow}>
@@ -24,8 +29,8 @@ export default function Settings({ navigation }) {
                 <Button
                   title="Log Out"
                   buttonStyle={styles.logoutButtonStyle}
-                  onPress={() => {
-                    // logout the user
+                  onPress={async () => {
+                    dispatch(logged_out(...result));
                     navigation.navigate('Login');
                   }}
                 />

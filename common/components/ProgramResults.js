@@ -4,29 +4,33 @@ import { Text, Button } from 'react-native-elements';
 import { Grid, Row } from 'react-native-easy-grid';
 
 export default function ProgramResults({ matchedPrograms = [], navigation }) {
-  const results = matchedPrograms.map((program) =>
+  const results = matchedPrograms.map((program) => (
     <View style={styles.resultsContainer} key={program}>
       <View style={styles.resultBox}>
         <Grid style={styles.programsGrid}>
           <Row style={styles.programNameRow}>
-            <Text h4 style={styles.programName}>{program.name}</Text>
+            <Text h4 style={styles.programName}>
+              {program.name}
+            </Text>
           </Row>
           <Row style={styles.programDescRow}>
-            <Text h5 style={styles.description}>{program.desc}</Text>
+            <Text h5 style={styles.description}>
+              {program.description}
+            </Text>
           </Row>
-          <Button style={styles.buttonStyle} title="More Information" onPress={() => {
-            navigation.navigate('ProgramDetails');
-          }}></Button>
+          <Button
+            style={styles.buttonStyle}
+            title="More Information"
+            onPress={() => {
+              navigation.navigate('ProgramDetails');
+            }}
+          ></Button>
         </Grid>
       </View>
       <View style={styles.emptySpace} />
-    </View>,
-  );
-  return (
-    <ScrollView>
-      {results}
-    </ScrollView>
-  );
+    </View>
+  ));
+  return <ScrollView>{results}</ScrollView>;
 }
 
 const styles = StyleSheet.create({
