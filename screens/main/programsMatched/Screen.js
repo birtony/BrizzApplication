@@ -1,29 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { Grid, Row } from 'react-native-easy-grid';
+import ProgramResults from '../../../common/components/ProgramResults';
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
 export default function ProgramsMatched({ navigation }) {
   const programs = ['1', '2'];
-  const results = programs.map((result) =>
-    <View style={styles.resultsContainer} key={result}>
-      <View style={styles.resultBox}>
-        <Grid style={styles.programsGrid}>
-          <Row style={styles.programNameRow}>
-            <Text h4 style={styles.programName}>Hello</Text>
-          </Row>
-          <Row style={styles.programDescRow}>
-            <Text h5 style={styles.description}>Hi</Text>
-          </Row>
-          <Button style={styles.buttonStyle} title="More Information" onPress={() => navigation.navigate('ProgramDetails')}></Button>
-        </Grid>
-      </View>
-      <View style={styles.emptySpace} />
-    </View>,
-  );
-
   return (
     <SafeAreaView style={styles.container}>
       <Grid style={styles.container}>
@@ -32,9 +16,7 @@ export default function ProgramsMatched({ navigation }) {
         </Row>
         <Row size={5}>
           <View style={styles.whiteCard}>
-            <ScrollView>
-              {results}
-            </ScrollView>
+            <ProgramResults matchedPrograms={programs} navigation={navigation}></ProgramResults>
           </View>
         </Row>
       </Grid>
