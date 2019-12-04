@@ -87,6 +87,6 @@ const navigator = createStackNavigator(
       },
     },
   },
-  { initialRouteName: 'Question1' }
+  { initialRouteName: 'Question1' },
 );
 export default navigator;

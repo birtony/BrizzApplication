@@ -13,17 +13,10 @@ import { city_changed, gpa_changed, gender_changed } from '../../../actions/user
 // eslint-disable-next-line max-lines-per-function
 export default function AccountSetup2({ navigation }) {
   const [{ user }, dispatch] = useStateValue();
-
-  const initialState = {
-    isModalVisible: false,
-  };
-
-  const { isModalVisible } = state;
-
-  const toggleModal = () => {
-    setState({ isModalVisible: !isModalVisible });
-  };
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  function toggleModal(value) {
+    setIsModalVisible({ isModalVisible: value });
+  }
   return (
     <WhiteCard>
       <Grid style={styles.grid}>
@@ -69,7 +62,7 @@ export default function AccountSetup2({ navigation }) {
               containerStyle={styles.genderInput}
               disabled
             />
-            <TouchableWithoutFeedback onPress={toggleModal}>
+            <TouchableWithoutFeedback onPress={() => toggleModal(true)}>
               <View style={styles.picker}>
                 <RNPickerSelect
                   style={styles.pickerStyle}

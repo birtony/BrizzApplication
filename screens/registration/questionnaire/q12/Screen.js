@@ -21,7 +21,9 @@ export default function Question12({ navigation }) {
         <Row style={styles.questionnaireRow}>
           <Col style={styles.questionnaireCol}>
             <View style={styles.questionLabelView}>
-              <Text h3 style={styles.questionnaireLabel}>Questionnaire</Text>
+              <Text h3 style={styles.questionnaireLabel}>
+                Questionnaire
+              </Text>
             </View>
           </Col>
         </Row>
@@ -51,14 +53,19 @@ export default function Question12({ navigation }) {
         <Row>
           <Col>
             <View>
-              <Button style={styles.nextButton} onPress={() => navigation.navigate('ProgramsMatched')}>Next Question</Button>
+              <Button
+                style={styles.nextButton}
+                onPress={() => navigation.navigate('ProgramsMatched')}
+              >
+                Next Question
+              </Button>
             </View>
           </Col>
         </Row>
       </View>
     </WhiteCard>
   );
-};
+}
 
 const styles = StyleSheet.create({
   grid: {

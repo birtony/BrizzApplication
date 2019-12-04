@@ -1,6 +1,3 @@
-import Constants from 'expo-constants';
-const { manifest } = Constants;
-
 const PRODUCTION = {
   SERVER_URL: 'https://brizz-server.herokuapp.com',
 };
