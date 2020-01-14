@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, SafeAreaView } from 'react-native';
-import { Text, Button } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import { Grid, Row } from 'react-native-easy-grid';
+import { useStateValue } from '../../../utils/provider';
+import { programs_received } from '../../../actions/programs';
 import ProgramResults from '../../../common/components/ProgramResults';
+import * as api from '../../../api';
+import programsLocal from '../../../const/programs.json';
 // Need to fetch all results into an array.
 // And for loop Views to display individual results per result.
 
 export default function ProgramsMatched({ navigation }) {
-  const programs = ['1', '2'];
+  const [{ token }, t_dispatch] = useStateValue();
+  const [{ programs }, p_dispatch] = useStateValue();
+  useEffect(() => {
+    async () => p_dispatch(programs_received(await api.getAllPrograms(token)));
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <Grid style={styles.container}>
         <Row size={1} style={styles.programsMatchedTxtRow}>
-          <Text h3 style={styles.programsMatchedTxt}>Programs Matched</Text>
+          <Text h3 style={styles.programsMatchedTxt}>
+            Programs Matched
+          </Text>
         </Row>
         <Row size={5}>
           <View style={styles.whiteCard}>
-            <ProgramResults matchedPrograms={programs} navigation={navigation}></ProgramResults>
+            <ProgramResults
+              matchedPrograms={programsLocal}
+              navigation={navigation}
+            ></ProgramResults>
           </View>
         </Row>
       </Grid>
