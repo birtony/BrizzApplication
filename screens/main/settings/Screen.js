@@ -18,6 +18,7 @@ export default function Settings({ navigation }) {
         </Row>
         <Row size={5}>
           <View style={styles.whiteCard}>
+            <Row></Row>
             <Row style={styles.userProfileRow}>
               <Col style={styles.profileButtonCol}>
                 <Button
@@ -27,7 +28,7 @@ export default function Settings({ navigation }) {
                 />
               </Col>
             </Row>
-            <Row size={6}></Row>
+            <Row></Row>
             <Row style={styles.logoutRow}>
               <Col style={styles.logoutButtonCol}>
                 <Button
@@ -40,7 +41,7 @@ export default function Settings({ navigation }) {
                 />
               </Col>
             </Row>
-            <Row size={3}></Row>
+            <Row></Row>
           </View>
         </Row>
       </Grid>
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     maxWidth: '94%',
     maxHeight: '95%',
     width: '94%',
-    height: '95%',
+    height: '50%',
     borderRadius: 20,
     backgroundColor: 'white',
     shadowColor: 'grey',
