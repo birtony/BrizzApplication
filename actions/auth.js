@@ -30,6 +30,7 @@ export const signed_up = ({ token, signed_up }) => ({
   payload: { token, signed_up },
 });
 
-export const logged_out = () => ({
+export const logged_out = (token) => ({
   type: types.LOGGED_OUT,
+  payload: { token, logged_out },
 });

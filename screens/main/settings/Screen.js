@@ -4,7 +4,10 @@ import { Button } from 'react-native-elements';
 import { Row, Grid, Col } from 'react-native-easy-grid';
 import ProfileText from '../../../common/components/ProfileText';
 import { logged_out } from '../../../actions/auth';
+import { useStateValue } from '../../../utils/provider';
+
 export default function Settings({ navigation }) {
+  const [{ token, user }, dispatch] = useStateValue();
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <Grid style={styles.grid}>
@@ -24,13 +27,14 @@ export default function Settings({ navigation }) {
                 />
               </Col>
             </Row>
+            <Row size={6}></Row>
             <Row style={styles.logoutRow}>
               <Col style={styles.logoutButtonCol}>
                 <Button
                   title="Log Out"
                   buttonStyle={styles.logoutButtonStyle}
                   onPress={async () => {
-                    dispatch(logged_out(...result));
+                    dispatch(logged_out());
                     navigation.navigate('Login');
                   }}
                 />
@@ -104,7 +108,6 @@ const styles = StyleSheet.create({
   logoutButtonCol: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    top: '50%',
   },
   logoutButtonStyle: {
     alignItems: 'flex-start',
