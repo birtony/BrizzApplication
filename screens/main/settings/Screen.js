@@ -4,7 +4,10 @@ import { Button } from 'react-native-elements';
 import { Row, Grid, Col } from 'react-native-easy-grid';
 import ProfileText from '../../../common/components/ProfileText';
 import { logged_out } from '../../../actions/auth';
+import { useStateValue } from '../../../utils/provider';
+
 export default function Settings({ navigation }) {
+  const [{ token, user }, dispatch] = useStateValue();
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <Grid style={styles.grid}>
@@ -15,6 +18,7 @@ export default function Settings({ navigation }) {
         </Row>
         <Row size={5}>
           <View style={styles.whiteCard}>
+            <Row></Row>
             <Row style={styles.userProfileRow}>
               <Col style={styles.profileButtonCol}>
                 <Button
@@ -24,19 +28,20 @@ export default function Settings({ navigation }) {
                 />
               </Col>
             </Row>
+            <Row></Row>
             <Row style={styles.logoutRow}>
               <Col style={styles.logoutButtonCol}>
                 <Button
                   title="Log Out"
                   buttonStyle={styles.logoutButtonStyle}
                   onPress={async () => {
-                    dispatch(logged_out(...result));
+                    dispatch(logged_out());
                     navigation.navigate('Login');
                   }}
                 />
               </Col>
             </Row>
-            <Row size={3}></Row>
+            <Row></Row>
           </View>
         </Row>
       </Grid>
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
     maxWidth: '94%',
     maxHeight: '95%',
     width: '94%',
-    height: '95%',
+    height: '50%',
     borderRadius: 20,
     backgroundColor: 'white',
     shadowColor: 'grey',
@@ -104,7 +109,6 @@ const styles = StyleSheet.create({
   logoutButtonCol: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    top: '50%',
   },
   logoutButtonStyle: {
     alignItems: 'flex-start',

@@ -65,7 +65,7 @@ export const signup = async (user) => {
 };
 
 export const getAllPrograms = async (token) => {
-  const url = `${SERVER_URL}/api/programs`;
+  const url = `${config.SERVER_URL}/api/programs`;
   console.log(`Sending to ${url}`);
   try {
     const response = await fetch(url, {
