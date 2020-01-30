@@ -4,8 +4,8 @@ import { Text, Button } from 'react-native-elements';
 import { Grid, Row } from 'react-native-easy-grid';
 
 export default function ProgramResults({ matchedPrograms = [], navigation }) {
-  const results = matchedPrograms.map((program) => (
-    <View style={styles.resultsContainer} key={program}>
+  const results = matchedPrograms.map((program, _id) => (
+    <View style={styles.resultsContainer} key={_id}>
       <View style={styles.resultBox}>
         <Grid style={styles.programsGrid}>
           <Row style={styles.programNameRow}>
@@ -14,7 +14,7 @@ export default function ProgramResults({ matchedPrograms = [], navigation }) {
             </Text>
           </Row>
           <Row style={styles.programDescRow}>
-            <Text h5 style={styles.description}>
+            <Text h5 style={styles.desciption}>
               {program.description}
             </Text>
           </Row>

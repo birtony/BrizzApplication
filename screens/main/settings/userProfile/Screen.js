@@ -1,12 +1,21 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, View, Image } from 'react-native';
 import { Button } from 'react-native-elements';
+import { useStateValue } from '../../../../utils/provider';
+import {
+  first_name_changed,
+  last_name_changed,
+  birth_date_changed,
+  gender_changed,
+  city_changed,
+} from '../../../../actions/user';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import ProfileText from '../../../../common/components/ProfileText';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 // eslint-disable-next-line max-lines-per-function
 export default function UserProfile({ navigation }) {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <SafeAreaView style={styles.safeAreaViewContainer}>
       <Grid style={styles.grid}>
@@ -26,10 +35,16 @@ export default function UserProfile({ navigation }) {
               </Col>
               <Col style={styles.FirstRowCol2} size={3}>
                 <Row style={styles.firstNameRow}>
-                  <ProfileText textToPut="First Name" style={styles.firstNameStyle} />
+                  <ProfileText
+                    textToPut={JSON.stringify(user.firstName)}
+                    style={styles.firstNameStyle}
+                  />
                 </Row>
                 <Row style={styles.lastNameRow}>
-                  <ProfileText textToPut="Last Name" style={styles.lastNameStyle} />
+                  <ProfileText
+                    textToPut={JSON.stringify(user.lastName)}
+                    style={styles.lastNameStyle}
+                  />
                 </Row>
               </Col>
             </Row>
@@ -38,7 +53,7 @@ export default function UserProfile({ navigation }) {
                 <ProfileText textToPut={'Date of Birth: '} style={styles.dobStyle} />
               </Col>
               <Col>
-                <ProfileText textToPut={'08-02-1997'} style={styles.dobStyle2} />
+                <ProfileText textToPut={JSON.stringify(user.birthDate)} style={styles.dobStyle2} />
               </Col>
             </Row>
             <Row style={styles.genderCityRow}>
@@ -46,7 +61,7 @@ export default function UserProfile({ navigation }) {
                 <ProfileText textToPut={'Gender: '} style={styles.genderStyle} />
               </Col>
               <Col>
-                <ProfileText textToPut={'Male'} style={styles.genderStyle2} />
+                <ProfileText textToPut={JSON.stringify(user.gender)} style={styles.genderStyle2} />
               </Col>
             </Row>
             <Row style={styles.genderCityRow}>
@@ -54,7 +69,7 @@ export default function UserProfile({ navigation }) {
                 <ProfileText textToPut={'City: '} style={styles.cityStyle} />
               </Col>
               <Col>
-                <ProfileText textToPut={'Toronto'} style={styles.cityStyle2} />
+                <ProfileText textToPut={JSON.stringify(user.city)} style={styles.cityStyle2} />
               </Col>
             </Row>
             <Row style={styles.redoQuestionnaireRow}>
