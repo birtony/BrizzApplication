@@ -102,6 +102,11 @@ export const reducer = (state, action) => {
         ...state,
         programs: action.payload,
       };
+    case types.CURR_PROG_ID_CHANGED:
+      return {
+        ...state,
+        currProgId: action.payload,
+      };
     case types.default:
       return state;
   }
@@ -124,4 +129,5 @@ export const initialState = {
     complete: false,
   },
   programs: [],
+  currProgId: '',
 };

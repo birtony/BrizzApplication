@@ -3,14 +3,17 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { Grid, Row, Col } from 'react-native-easy-grid';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useStateValue } from '../../../utils/provider';
 
 export default function ProgramDetails({ navigation }) {
+  const [{ programs }, p_dispatch] = useStateValue();
+  const [{ currProgId }, c_dispatch] = useStateValue();
   return (
     <SafeAreaView style={styles.container}>
       <Grid>
         <Row style={styles.programNameRow} size={1}>
           <Text h3 style={styles.programsNameTxt}>
-            Software Development
+            {programs.find((x) => x._id === currProgId).name}
           </Text>
         </Row>
         <Row size={4}>

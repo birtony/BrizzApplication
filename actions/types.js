@@ -13,3 +13,4 @@ export const CITY_CHANGED = 'city_changed';
 export const GPA_CHANGED = 'gpa_changed';
 export const GENDER_CHANGED = 'gender_changed';
 export const PROGRAMS_RECEIVED = 'programs_received';
+export const CURR_PROG_ID_CHANGED = 'curr_prog_id_changed';

@@ -2,8 +2,11 @@ import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { Grid, Row } from 'react-native-easy-grid';
+import { curr_prog_id_changed } from '../../actions/programs';
+import { useStateValue } from '../../utils/provider';
 
 export default function ProgramResults({ matchedPrograms = [], navigation }) {
+  const [{ currProgId }, dispatch] = useStateValue();
   const results = matchedPrograms.map((program, _id) => (
     <View style={styles.resultsContainer} key={_id}>
       <View style={styles.resultBox}>
@@ -22,6 +25,7 @@ export default function ProgramResults({ matchedPrograms = [], navigation }) {
             style={styles.buttonStyle}
             title="More Information"
             onPress={() => {
+              dispatch(curr_prog_id_changed(_id));
               navigation.navigate('ProgramDetails');
             }}
           ></Button>
