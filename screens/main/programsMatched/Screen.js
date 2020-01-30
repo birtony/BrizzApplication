@@ -6,16 +6,20 @@ import { useStateValue } from '../../../utils/provider';
 import { programs_received } from '../../../actions/programs';
 import ProgramResults from '../../../common/components/ProgramResults';
 import * as api from '../../../api';
-import programsLocal from '../../../const/programs.json';
-// Need to fetch all results into an array.
-// And for loop Views to display individual results per result.
 
 export default function ProgramsMatched({ navigation }) {
-  const [{ token }, t_dispatch] = useStateValue();
+  const [{ user }, u_dispatch] = useStateValue();
   const [{ programs }, p_dispatch] = useStateValue();
+
   useEffect(() => {
-    async () => p_dispatch(programs_received(await api.getAllPrograms(token)));
-  }, []);
+    async function fetchData() {
+      const result = await api.getAllPrograms(user.token);
+      if (result) {
+        p_dispatch(programs_received(result));
+      }
+    }
+    fetchData();
+  }, [p_dispatch, user.token]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,10 +31,7 @@ export default function ProgramsMatched({ navigation }) {
         </Row>
         <Row size={5}>
           <View style={styles.whiteCard}>
-            <ProgramResults
-              matchedPrograms={programsLocal}
-              navigation={navigation}
-            ></ProgramResults>
+            <ProgramResults matchedPrograms={programs} navigation={navigation} />
           </View>
         </Row>
       </Grid>

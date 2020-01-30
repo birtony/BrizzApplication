@@ -27,7 +27,6 @@ export default function Login({ navigation }) {
                 <TouchableWithoutFeedback onPress={() => navigation.navigate('Signup')}>
                   <Text style={styles.signUpFlapText}>Sign Up</Text>
                 </TouchableWithoutFeedback>
-
               </View>
             </Col>
           </Row>
@@ -60,7 +59,7 @@ export default function Login({ navigation }) {
                 onPress={async () => {
                   const result = await api.login(user);
                   if (result) {
-                    dispatch(logged_in(...result));
+                    dispatch(logged_in(result));
                     navigation.navigate('ProgramsMatched');
                   }
                 }}

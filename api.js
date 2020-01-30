@@ -77,9 +77,7 @@ export const getAllPrograms = async (token) => {
       },
       body: '',
     });
-    console.log('Dispatching event...');
     const data = await response.json();
-    console.log('data =' + JSON.stringify(data));
     if (data) {
       return data;
     } else {
