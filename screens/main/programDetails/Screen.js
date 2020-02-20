@@ -1,58 +1,70 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Linking } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { Grid, Row, Col } from 'react-native-easy-grid';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useStateValue } from '../../../utils/provider';
+import * as WebBrowser from 'expo-web-browser';
 
 export default function ProgramDetails({ navigation }) {
+  const [{ programs }, p_dispatch] = useStateValue();
+  const [{ currProgId }, c_dispatch] = useStateValue();
+  const program = programs.find((x) => x._id === currProgId);
+
   return (
     <SafeAreaView style={styles.container}>
       <Grid>
-        <Row style={styles.programNameRow} size={1}>
+        <Row style={styles.programNameRow} size={2}>
           <Text h3 style={styles.programsNameTxt}>
-            Software Development
+            {program.name}
           </Text>
         </Row>
         <Row size={4}>
           <Col style={styles.whiteRectangleCol}>
             <View style={styles.whiteRectangle}>
-              <Row size={2}>
+              <Row size={3}>
                 <Col>
-                  <Text style={styles.descriptionTxt}>Description</Text>
-                  <ScrollView>
-                    <Text style={styles.programDescriptionTxt}>
-                      This four-year honours bachelor degree will provide you with extensive
-                      knowledge and technical skills in software development languages. This program
-                      also covers topics in operating systems, web applications, multimedia
-                      interfaces, information security, databases, system analysis and design
-                      principles. You will also develop communication
-                    </Text>
+                  <Text style={styles.caption}>Description</Text>
+                  <ScrollView style={styles.scrollView}>
+                    <Text style={styles.value}>{program.description}</Text>
                   </ScrollView>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Text style={styles.tuitionTxt}>Tuition</Text>
-                  <Text style={styles.programTuitionTxt}>$8000.00 / year</Text>
+                  <Text style={styles.caption}>Tuition</Text>
+                  <Text style={styles.value}>{program.tuition}</Text>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Text style={styles.offeredTxt}>Offered at</Text>
-                  <Text style={styles.programOfferedTxt}>Seneca College</Text>
+                  <Text style={styles.caption}>Offered at</Text>
+                  <Text style={styles.value}>Seneca College {program.campus} Campus</Text>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Text style={styles.startDateTxt}>Start Date</Text>
-                  <Text style={styles.programStartDateTxt}>September 2019</Text>
+                  <Text style={styles.caption}>Duration</Text>
+                  <Text style={styles.value}>{program.duration}</Text>
                 </Col>
+              </Row>
+              <Row>
+                <Col />
+                <Col size={2}>
+                  <Button
+                    title="More Information"
+                    onPress={() => WebBrowser.openBrowserAsync(program.url)}
+                    buttonStyle={styles.moreInfoButton}
+                    titleStyle={styles.buttonTitle}
+                  />
+                </Col>
+                <Col />
               </Row>
               <Row style={styles.goBackrow}>
                 <Col style={styles.goBackCol}>
                   <Button
                     buttonStyle={styles.goBackButton}
-                    titleStyle={styles.goBackButtonText}
+                    titleStyle={styles.buttonTitle}
                     title="Go Back"
                     onPress={() => navigation.navigate('ProgramsMatched')}
                   ></Button>
@@ -85,6 +97,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 5,
     justifyContent: 'center',
+    paddingTop: 15,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   whiteRectangleCol: {
     width: '96%',
@@ -92,9 +108,15 @@ const styles = StyleSheet.create({
     bottom: '20%',
     left: '1%',
   },
+  scrollView: {
+    marginTop: 5,
+    marginBottom: 10,
+  },
   programNameRow: {
     alignItems: 'center',
     justifyContent: 'center',
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   programsNameTxt: {
     alignItems: 'center',
@@ -102,7 +124,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Optima-Bold',
     top: '-10%',
   },
-  descriptionTxt: {
+  caption: {
     alignItems: 'center',
     justifyContent: 'center',
     textDecorationLine: 'underline',
@@ -110,43 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Optima-Bold',
   },
-  programDescriptionTxt: {
-    left: '2%',
-    fontSize: 17,
-  },
-  tuitionTxt: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    textDecorationLine: 'underline',
-    left: '2%',
-    fontSize: 20,
-    fontFamily: 'Optima-Bold',
-  },
-  programTuitionTxt: {
-    left: '2%',
-    fontSize: 17,
-  },
-  offeredTxt: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    textDecorationLine: 'underline',
-    left: '2%',
-    fontSize: 20,
-    fontFamily: 'Optima-Bold',
-  },
-  programOfferedTxt: {
-    left: '2%',
-    fontSize: 17,
-  },
-  startDateTxt: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    textDecorationLine: 'underline',
-    left: '2%',
-    fontSize: 20,
-    fontFamily: 'Optima-Bold',
-  },
-  programStartDateTxt: {
+  value: {
     left: '2%',
     fontSize: 17,
   },
@@ -159,10 +145,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     right: '10%',
   },
+  moreInfoButton: {
+    backgroundColor: '#F28E00',
+  },
   goBackButton: {
     backgroundColor: '#F28E00',
   },
-  goBackButtonText: {
+  buttonTitle: {
     color: 'black',
     fontFamily: 'Optima-Bold',
   },
