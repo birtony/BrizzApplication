@@ -31,7 +31,11 @@ export default function ProgramsMatched({ navigation }) {
         </Row>
         <Row size={5}>
           <View style={styles.whiteCard}>
-            <ProgramResults matchedPrograms={programs} navigation={navigation} />
+            <ProgramResults
+              style={styles.programResultsContainer}
+              matchedPrograms={programs}
+              navigation={navigation}
+            />
           </View>
         </Row>
       </Grid>
@@ -46,13 +50,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: '100%',
     width: '100%',
-  },
-  resultsContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    maxWidth: '100%',
-    maxHeight: '100%',
   },
   whiteCard: {
     flex: 1,
@@ -70,59 +67,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  emptySpace: {
-    backgroundColor: 'white',
-    height: 50,
-  },
   programsMatchedTxt: {
     fontFamily: 'Optima-Bold',
-  },
-  resultBox: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    height: 250,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    shadowColor: 'grey',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
   },
   programName: {
     fontFamily: 'Optima-Bold',
     fontSize: 25,
     textAlign: 'center',
   },
-  description: {
-    alignSelf: 'center',
-    fontFamily: 'Optima-Bold',
-  },
-  buttonStyle: {
-    width: '100%',
-    alignSelf: 'center',
-  },
-  programsGrid: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-  programDescRow: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  programNameRow: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  programName: {
-    fontSize: 30,
-    fontFamily: 'Optima-Bold',
-    textAlign: 'center',
-  },
+  programResultsContainer: {},
 });
