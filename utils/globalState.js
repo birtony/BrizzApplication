@@ -107,6 +107,14 @@ export const reducer = (state, action) => {
         ...state,
         currProgId: action.payload,
       };
+    case types.USER_INTERESTS_CHANGED:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          interests: action.payload,
+        },
+      };
     case types.default:
       return state;
   }
@@ -127,6 +135,32 @@ export const initialState = {
     gpa: '',
     gender: '',
     complete: false,
+    interests: {
+      i1: {
+        raisecTag: '',
+        percentage: '',
+      },
+      i2: {
+        raisecTag: '',
+        percentage: '',
+      },
+      i3: {
+        raisecTag: '',
+        percentage: '',
+      },
+      i4: {
+        raisecTag: '',
+        percentage: '',
+      },
+      i5: {
+        raisecTag: '',
+        percentage: '',
+      },
+      i6: {
+        raisecTag: '',
+        percentage: '',
+      },
+    },
   },
   programs: [],
   currProgId: '',
