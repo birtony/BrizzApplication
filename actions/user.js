@@ -29,3 +29,8 @@ export const gender_changed = (gender) => ({
   type: types.GENDER_CHANGED,
   payload: gender,
 });
+
+export const user_interests_changed = (interests) => ({
+  type: types.USER_INTERESTS_CHANGED,
+  payload: interests,
+});
