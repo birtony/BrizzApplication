@@ -3,7 +3,7 @@ import Signup from './signup/Screen';
 import AccountSetup1 from './accountSetup1/Screen';
 import AccountSetup2 from './accountSetup2/Screen';
 import AccountSetup3 from './accountSetup3/Screen';
-import QuestionnaireNavigator from './questionnaire';
+import Questionnaire from './questionnaire/Screen';
 
 const navigator = createStackNavigator(
   {
@@ -32,13 +32,13 @@ const navigator = createStackNavigator(
       },
     },
     QuestionnaireNavigator: {
-      screen: QuestionnaireNavigator,
+      screen: Questionnaire,
       navigationOptions: {
         headerShown: false,
       },
     },
   },
-  { initialRouteName: 'Signup' },
+  { initialRouteName: 'Signup' }
 );
 
 export default navigator;
