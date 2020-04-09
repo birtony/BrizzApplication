@@ -74,7 +74,7 @@ const navigator = createStackNavigator(
       }),
     },
   },
-  { initialRouteName: 'ProgramsMatched' },
+  { initialRouteName: 'ProgramsMatched' }
 );
 
 export default navigator;

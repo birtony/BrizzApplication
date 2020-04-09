@@ -1,29 +1,51 @@
 import React, { Component } from 'react';
-import { DeckSwiper, Container } from 'native-base';
-import { StyleSheet, View } from 'react-native';
-import { Text } from 'native-base';
+import { Container } from 'native-base';
+import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
+import Swiper from 'react-native-deck-swiper';
 import QuestionnaireGrid from './QuestionnaireGrid';
 import WhiteCard from '../../../common/components/WhiteCard';
 import { WORK_ACTIVITIES } from '../../../const/USER';
 
 export default class Questionnaire extends Component {
-  render() {
+  render(navigation) {
     return (
       <Container>
         <WhiteCard>
           <View style={styles.root}>
             <View style={styles.deckerContainer}>
-              <DeckSwiper
-                style={styles.deckSwiper}
-                ref={(c) => (this._deckSwiper = c)}
-                dataSource={WORK_ACTIVITIES}
-                renderEmpty={() => (
-                  <View style={{ alignSelf: 'center' }}>
-                    <Text>Over</Text>
-                  </View>
-                )}
-                renderItem={(item) => <QuestionnaireGrid questions={item} />}
+              <Swiper
+                cardStyle={styles.swiper}
+                ref={(swiper) => {
+                  this.swiper = swiper;
+                }}
+                cards={WORK_ACTIVITIES}
+                renderCard={(item) => <QuestionnaireGrid questions={item} />}
+                infinite={false}
+                showSecondCard={false}
+                verticalSwipe={false}
+                backgroundColor={'#fff'}
+                cardVerticalMargin={0}
+                cardHorizontalMargin={0}
+                goBackToPreviousCardOnSwipeRight={true}
+                animateOverlayLabelsOpacity
+                animateCardOpacity
+                childrenOnTop={true}
+                useViewOverflow={true}
+                onSwipedAll={() => {
+                  console.log('Final screen');
+                  return (
+                    <View style={styles.completeScreen}>
+                      <Text>Congratulation! You have completed questionnaire</Text>
+                      <Button
+                        buttonStyle={styles.buttonStyle}
+                        buttonTitle={styles.buttonTitle}
+                        title="See Matched Programs"
+                        onPress={() => navigation.navigate('ProgramsMatched')}
+                      />
+                    </View>
+                  );
+                }}
               />
             </View>
             <View style={styles.buttonsContainer}>
@@ -32,7 +54,7 @@ export default class Questionnaire extends Component {
                 buttonTitle={styles.buttonTitle}
                 title="Previous"
                 onPress={() => {
-                  this._deckSwiper._root.swipeLeft();
+                  this.swiper.swipeRight();
                 }}
               />
               <Button
@@ -40,7 +62,7 @@ export default class Questionnaire extends Component {
                 buttonTitle={styles.buttonTitle}
                 title="Next"
                 onPress={() => {
-                  this._deckSwiper._root.swipeRight();
+                  this.swiper.swipeLeft();
                 }}
               />
             </View>
@@ -59,13 +81,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   deckerContainer: {
-    flex: 1,
     width: '100%',
-    height: '100%',
-    padding: 1,
+    height: '90%',
   },
-  deckSwiper: {
+  swiper: {
     height: '100%',
+    width: '100%',
+    flex: 1,
   },
   buttonsContainer: {
     flexDirection: 'row',
@@ -89,5 +111,10 @@ const styles = StyleSheet.create({
   buttonTitle: {
     color: 'black',
     fontFamily: 'Optima-Bold',
+  },
+  completeScreen: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

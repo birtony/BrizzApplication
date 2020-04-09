@@ -32,9 +32,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     flexDirection: 'row',
-    top: 30,
-    height: 450,
-    width: '100%',
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
@@ -53,5 +50,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  questionnaireItem: {},
 });

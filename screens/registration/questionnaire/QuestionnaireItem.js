@@ -12,7 +12,7 @@ export default function QuestionnaireItem({ question }) {
             icon
             bordered
             dark
-            onPress={console.log('Saving answer')}
+            onPress={console.log('Red button pressed')}
           >
             <Icon style={styles.icon} name="close-circle-outline" />
           </Button>
@@ -21,7 +21,7 @@ export default function QuestionnaireItem({ question }) {
             icon
             bordered
             dark
-            onPress={console.log('Saving answer')}
+            onPress={console.log('Green button pressed')}
           >
             <Icon style={styles.icon} name="checkmark-circle-outline" />
           </Button>
