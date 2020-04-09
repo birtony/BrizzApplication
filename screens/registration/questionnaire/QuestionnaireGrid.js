@@ -3,7 +3,13 @@ import { StyleSheet, View } from 'react-native';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import QuestionnaireItem from './QuestionnaireItem';
 
-export default function QuestionnaireGrid({ questions, redCnt, greenCnt }) {
+export default function QuestionnaireGrid({
+  questions,
+  redCnt,
+  greenCnt,
+  onRedPress,
+  onGreenPress,
+}) {
   return (
     <View style={styles.root}>
       <Grid style={styles.grid}>
@@ -13,7 +19,9 @@ export default function QuestionnaireGrid({ questions, redCnt, greenCnt }) {
               style={styles.questionnaireItem}
               question={questions[0]}
               redCnt={redCnt}
+              onRedPress={onRedPress}
               greenCnt={greenCnt}
+              onGreenPress={onGreenPress}
             />
           </Row>
           <Row style={styles.row}>
@@ -21,7 +29,9 @@ export default function QuestionnaireGrid({ questions, redCnt, greenCnt }) {
               style={styles.questionnaireItem}
               question={questions[1]}
               redCnt={redCnt}
+              onRedPress={onRedPress}
               greenCnt={greenCnt}
+              onGreenPress={onGreenPress}
             />
           </Row>
         </Col>
@@ -31,7 +41,9 @@ export default function QuestionnaireGrid({ questions, redCnt, greenCnt }) {
               style={styles.questionnaireItem}
               question={questions[2]}
               redCnt={redCnt}
+              onRedPress={onRedPress}
               greenCnt={greenCnt}
+              onGreenPress={onGreenPress}
             />
           </Row>
           <Row style={styles.row}>
@@ -39,7 +51,9 @@ export default function QuestionnaireGrid({ questions, redCnt, greenCnt }) {
               style={styles.questionnaireItem}
               question={questions[3]}
               redCnt={redCnt}
+              onRedPress={onRedPress}
               greenCnt={greenCnt}
+              onGreenPress={onGreenPress}
             />
           </Row>
         </Col>

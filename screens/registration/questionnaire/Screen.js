@@ -9,9 +9,20 @@ import ViewOverflow from 'react-native-view-overflow';
 import { WORK_ACTIVITIES } from '../../../const/USER';
 
 export default class Questionnaire extends Component {
-  render(navigation) {
-    let redCnt = 0;
-    let greenCnt = 0;
+  constructor(props) {
+    super(props);
+    this.state = {
+      redCnt: 0,
+      greenCnt: 0,
+    };
+  }
+  setRedCnt = (v) => {
+    this.setState({ redCnt: v });
+  };
+  setGreenCnt = (v) => {
+    this.setState({ greenCnt: v });
+  };
+  render() {
     return (
       <Container>
         <WhiteCard>
@@ -24,19 +35,24 @@ export default class Questionnaire extends Component {
                 }}
                 cards={WORK_ACTIVITIES}
                 renderCard={(item) => (
-                  <QuestionnaireGrid questions={item} redCnt={redCnt} greenCnt={greenCnt} />
+                  <QuestionnaireGrid
+                    questions={item}
+                    redCnt={this.state.redCnt}
+                    greenCnt={this.state.greenCnt}
+                    onRedPress={(v) => this.setRedCnt(v)}
+                    onGreenPress={(v) => this.setGreenCnt(v)}
+                  />
                 )}
                 infinite={false}
-                showSecondCard={false}
                 verticalSwipe={false}
+                disableRightSwipe
                 backgroundColor={'#fff'}
                 cardVerticalMargin={0}
                 cardHorizontalMargin={0}
-                goBackToPreviousCardOnSwipeRight={true}
                 animateOverlayLabelsOpacity
                 animateCardOpacity
                 childrenOnTop={true}
-                useViewOverflow={false}
+                stackSize={2}
                 onSwipedAll={() => {
                   console.log('Final screen');
                   return (
@@ -57,26 +73,23 @@ export default class Questionnaire extends Component {
               <Button
                 buttonStyle={styles.buttonStyle}
                 buttonTitle={styles.buttonTitle}
-                title="Previous"
-                onPress={() => {
-                  this.swiper.swipeRight();
-                }}
-              />
-              <Button
-                buttonStyle={styles.buttonStyle}
-                buttonTitle={styles.buttonTitle}
                 title="Next"
                 onPress={() => {
-                  if (redCnt === 1 && greenCnt === 1) {
+                  if (this.state.redCnt === 1 && this.state.greenCnt === 1) {
+                    this.setRedCnt(0);
+                    this.setGreenCnt(0);
                     this.swiper.swipeLeft();
-                    redCnt = 0;
-                    greenCnt = 0;
-                  } else if (redCnt === 0 && greenCnt === 1) {
+                    console.log('swiped');
+                  } else if (this.state.redCnt === 0 && this.state.greenCnt !== 0) {
                     Alert.alert('You need to select position you do not prefer');
-                  } else if (redCnt === 1 && greenCnt === 0) {
+                    console.log('You need to select position you do not prefer');
+                  } else if (this.state.redCnt !== 0 && this.state.greenCnt === 0) {
                     Alert.alert('You need to select position you prefer');
+                    console.log('You need to select position you prefer');
                   } else {
                     Alert.alert('You need to select one position you prefer and one you do not');
+                    console.log('redCnt =', this.state.redCnt);
+                    console.log('greenCnt =', this.state.greenCnt);
                   }
                 }}
               />
