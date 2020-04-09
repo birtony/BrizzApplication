@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Container } from 'native-base';
-import { StyleSheet, View, Text } from 'react-native';
+import { Alert, StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import Swiper from 'react-native-deck-swiper';
 import QuestionnaireGrid from './QuestionnaireGrid';
 import WhiteCard from '../../../common/components/WhiteCard';
+import ViewOverflow from 'react-native-view-overflow';
 import { WORK_ACTIVITIES } from '../../../const/USER';
 
 export default class Questionnaire extends Component {
   render(navigation) {
+    let redCnt = 0;
+    let greenCnt = 0;
     return (
       <Container>
         <WhiteCard>
@@ -20,7 +23,9 @@ export default class Questionnaire extends Component {
                   this.swiper = swiper;
                 }}
                 cards={WORK_ACTIVITIES}
-                renderCard={(item) => <QuestionnaireGrid questions={item} />}
+                renderCard={(item) => (
+                  <QuestionnaireGrid questions={item} redCnt={redCnt} greenCnt={greenCnt} />
+                )}
                 infinite={false}
                 showSecondCard={false}
                 verticalSwipe={false}
@@ -31,11 +36,11 @@ export default class Questionnaire extends Component {
                 animateOverlayLabelsOpacity
                 animateCardOpacity
                 childrenOnTop={true}
-                useViewOverflow={true}
+                useViewOverflow={false}
                 onSwipedAll={() => {
                   console.log('Final screen');
                   return (
-                    <View style={styles.completeScreen}>
+                    <ViewOverflow style={styles.completeScreen}>
                       <Text>Congratulation! You have completed questionnaire</Text>
                       <Button
                         buttonStyle={styles.buttonStyle}
@@ -43,7 +48,7 @@ export default class Questionnaire extends Component {
                         title="See Matched Programs"
                         onPress={() => navigation.navigate('ProgramsMatched')}
                       />
-                    </View>
+                    </ViewOverflow>
                   );
                 }}
               />
@@ -62,7 +67,17 @@ export default class Questionnaire extends Component {
                 buttonTitle={styles.buttonTitle}
                 title="Next"
                 onPress={() => {
-                  this.swiper.swipeLeft();
+                  if (redCnt === 1 && greenCnt === 1) {
+                    this.swiper.swipeLeft();
+                    redCnt = 0;
+                    greenCnt = 0;
+                  } else if (redCnt === 0 && greenCnt === 1) {
+                    Alert.alert('You need to select position you do not prefer');
+                  } else if (redCnt === 1 && greenCnt === 0) {
+                    Alert.alert('You need to select position you prefer');
+                  } else {
+                    Alert.alert('You need to select one position you prefer and one you do not');
+                  }
                 }}
               />
             </View>
@@ -81,8 +96,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   deckerContainer: {
-    width: '100%',
-    height: '90%',
+    width: '95%',
+    height: '85%',
+    top: 5,
+    borderRadius: 20,
+    backgroundColor: 'white',
   },
   swiper: {
     height: '100%',
@@ -94,6 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     height: '10%',
+    marginTop: 10,
   },
   buttonStyle: {
     width: '70%',

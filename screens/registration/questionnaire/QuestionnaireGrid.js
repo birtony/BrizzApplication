@@ -3,24 +3,44 @@ import { StyleSheet, View } from 'react-native';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import QuestionnaireItem from './QuestionnaireItem';
 
-export default function QuestionnaireGrid({ questions }) {
+export default function QuestionnaireGrid({ questions, redCnt, greenCnt }) {
   return (
     <View style={styles.root}>
       <Grid style={styles.grid}>
         <Col style={styles.col}>
           <Row style={styles.row}>
-            <QuestionnaireItem style={styles.questionnaireItem} question={questions[0]} />
+            <QuestionnaireItem
+              style={styles.questionnaireItem}
+              question={questions[0]}
+              redCnt={redCnt}
+              greenCnt={greenCnt}
+            />
           </Row>
           <Row style={styles.row}>
-            <QuestionnaireItem style={styles.questionnaireItem} question={questions[1]} />
+            <QuestionnaireItem
+              style={styles.questionnaireItem}
+              question={questions[1]}
+              redCnt={redCnt}
+              greenCnt={greenCnt}
+            />
           </Row>
         </Col>
         <Col style={styles.col}>
           <Row style={styles.row}>
-            <QuestionnaireItem style={styles.questionnaireItem} question={questions[2]} />
+            <QuestionnaireItem
+              style={styles.questionnaireItem}
+              question={questions[2]}
+              redCnt={redCnt}
+              greenCnt={greenCnt}
+            />
           </Row>
           <Row style={styles.row}>
-            <QuestionnaireItem style={styles.questionnaireItem} question={questions[3]} />
+            <QuestionnaireItem
+              style={styles.questionnaireItem}
+              question={questions[3]}
+              redCnt={redCnt}
+              greenCnt={greenCnt}
+            />
           </Row>
         </Col>
       </Grid>

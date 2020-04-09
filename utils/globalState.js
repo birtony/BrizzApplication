@@ -115,6 +115,55 @@ export const reducer = (state, action) => {
           interests: action.payload,
         },
       };
+    case types.QS_ARTISTIC_CHANGED:
+      return {
+        ...state,
+        qs: {
+          ...state.qs,
+          a: action.payload,
+        },
+      };
+    case types.QS_CONVENTIONAL_CHANGED:
+      return {
+        ...state,
+        qs: {
+          ...state.qs,
+          c: action.payload,
+        },
+      };
+    case types.QS_ENTERPRISING_CHANGED:
+      return {
+        ...state,
+        qs: {
+          ...state.qs,
+          e: action.payload,
+        },
+      };
+    case types.QS_INVESTIGATIVE_CHANGED:
+      return {
+        ...state,
+        qs: {
+          ...state.qs,
+          i: action.payload,
+        },
+      };
+    case types.QS_REALISTIC_CHANGED:
+      return {
+        ...state,
+        qs: {
+          ...state.qs,
+          r: action.payload,
+        },
+      };
+    case types.QS_SOCIAL_CHANGED:
+      return {
+        ...state,
+        qs: {
+          ...state.qs,
+          s: action.payload,
+        },
+      };
+
     case types.default:
       return state;
   }
@@ -164,4 +213,12 @@ export const initialState = {
   },
   programs: [],
   currProgId: '',
+  qs: {
+    a: 10,
+    c: 10,
+    e: 10,
+    i: 10,
+    r: 10,
+    s: 10,
+  },
 };

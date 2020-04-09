@@ -34,3 +34,33 @@ export const user_interests_changed = (interests) => ({
   type: types.USER_INTERESTS_CHANGED,
   payload: interests,
 });
+
+export const qs_artistic_changed = (a) => ({
+  type: types.QS_ARTISTIC_CHANGED,
+  payload: a,
+});
+
+export const qs_conventional_changed = (c) => ({
+  type: types.QS_CONVENTIONAL_CHANGED,
+  payload: c,
+});
+
+export const qs_enterprising_changed = (e) => ({
+  type: types.QS_ENTERPRISING_CHANGED,
+  payload: e,
+});
+
+export const qs_investigative_changed = (i) => ({
+  type: types.QS_INVESTIGATIVE_CHANGED,
+  payload: i,
+});
+
+export const qs_realistic_changed = (r) => ({
+  type: types.QS_REALISTIC_CHANGED,
+  payload: r,
+});
+
+export const qs_social_changed = (s) => ({
+  type: types.QS_SOCIAL_CHANGED,
+  payload: s,
+});
