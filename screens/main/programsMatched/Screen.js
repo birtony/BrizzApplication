@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native';
 import { Text } from 'react-native-elements';
 import { Grid, Row } from 'react-native-easy-grid';
 import { useStateValue } from '../../../utils/provider';
@@ -10,36 +10,45 @@ import * as api from '../../../api';
 export default function ProgramsMatched({ navigation }) {
   const [{ user }, u_dispatch] = useStateValue();
   const [{ programs }, p_dispatch] = useStateValue();
+  let programsFound = true;
 
   useEffect(() => {
     async function fetchData() {
-      const result = await api.getAllPrograms(user.token);
+      const result = await api.getProgramsMatched(user.token);
       if (result) {
         p_dispatch(programs_received(result));
-      }
+        console.log('Results: ' + result);
+      } else programsFound = false;
     }
     fetchData();
   }, [p_dispatch, user.token]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Grid style={styles.container}>
-        <Row size={1} style={styles.programsMatchedTxtRow}>
-          <Text h3 style={styles.programsMatchedTxt}>
-            Programs Matched
-          </Text>
-        </Row>
-        <Row size={5}>
-          <View style={styles.whiteCard}>
-            <ProgramResults
-              style={styles.programResultsContainer}
-              matchedPrograms={programs}
-              navigation={navigation}
-            />
-          </View>
-        </Row>
-      </Grid>
-    </SafeAreaView>
+    <>
+      <StatusBar barStyle={'dark-content'} />
+      <SafeAreaView style={styles.container}>
+        <Grid style={styles.container}>
+          <Row size={1} style={styles.programsMatchedTxtRow}>
+            <Text h3 style={styles.programsMatchedTxt}>
+              Programs Matched
+            </Text>
+          </Row>
+          <Row size={5}>
+            <View style={styles.whiteCard}>
+              {!!programsFound ? (
+                <ProgramResults
+                  style={styles.programResultsContainer}
+                  matchedPrograms={programs}
+                  navigation={navigation}
+                />
+              ) : (
+                <Text>Sorry, an error occurred - please try again.</Text>
+              )}
+            </View>
+          </Row>
+        </Grid>
+      </SafeAreaView>
+    </>
   );
 }
 

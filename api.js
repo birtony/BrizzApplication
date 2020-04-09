@@ -89,7 +89,7 @@ export const getAllPrograms = async (token) => {
 };
 
 export const getProgramsMatched = async (token, email) => {
-  const url = `${config.SERVER_URL}/api/programs/${email}`;
+  const url = `${config.SERVER_URL}/api/programs/matchedprograms/${email}`;
   try {
     const response = await fetch(url, {
       method: 'GET',
