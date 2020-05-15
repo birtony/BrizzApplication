@@ -66,3 +66,8 @@ a.out
 *.obj
 *.o
 .DS_Store
+.expo/*
+.expo/settings.json
+.expo/packager-info.json
+.expo/packager-info.json
+.expo/packager-info.json

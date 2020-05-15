@@ -1,0 +1,17 @@
+export const LOGIN_USERNAME_CHANGED = 'login_username_changed';
+export const LOGIN_PASSWORD_CHANGED = 'login_password_changed';
+export const LOGGED_IN = 'logged_in';
+export const SIGNUP_USERNAME_CHANGED = 'signup_username_changed';
+export const SIGNUP_PASSWORD_CHANGED = 'signup_password_changed';
+export const SIGNUP_PASSWORDCONF_CHANGED = 'signup_passwordConf_changed';
+export const SIGNED_UP = 'signed_up';
+export const LOGGED_OUT = 'logged_out';
+export const FIRST_NAME_CHANGED = 'first_name_changed';
+export const LAST_NAME_CHANGED = 'last_name_changed';
+export const BIRTH_DATE_CHANGED = 'birth_date_changed';
+export const CITY_CHANGED = 'city_changed';
+export const GPA_CHANGED = 'gpa_changed';
+export const GENDER_CHANGED = 'gender_changed';
+export const PROGRAMS_RECEIVED = 'programs_received';
+export const CURR_PROG_ID_CHANGED = 'curr_prog_id_changed';
+export const USER_INTERESTS_CHANGED = 'user_interests_changed';
