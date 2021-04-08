@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Input, Button, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import * as Progress from 'react-native-progress';
+import ProgressBar from 'react-native-progress/Bar';
 import Modal from 'react-native-modal';
 
 class RegisterTwo extends Component {
@@ -80,7 +80,7 @@ class RegisterTwo extends Component {
         <TouchableWithoutFeedback onPress={this.NextScreen}>
           <Icon type="font-awesome" name="arrow-right" size={35} style={styles.nextScreenButton} />
         </TouchableWithoutFeedback>
-        <Progress.Bar
+        <ProgressBar
           progress={0.5}
           width={200}
           color={'#F28E00'}

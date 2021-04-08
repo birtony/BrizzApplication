@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, TouchableWithoutFeedback, Image, SafeAreaView } from 'react-native';
 import { Input, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import * as Progress from 'react-native-progress';
+import ProgressBar from 'react-native-progress/Bar';
 import RNPickerSelect from 'react-native-picker-select';
 
 class RegisterTwo extends Component {
@@ -64,13 +64,7 @@ class RegisterTwo extends Component {
         <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('RegisterTwo')}>
           <Icon type="font-awesome" name="arrow-left" size={35} style={styles.arrowBack} />
         </TouchableWithoutFeedback>
-        <Progress.Bar
-          progress={1}
-          width={200}
-          color={'#F28E00'}
-          position={'absolute'}
-          top={'95%'}
-        />
+        <ProgressBar progress={1} width={200} color={'#F28E00'} position={'absolute'} top={'95%'} />
       </SafeAreaView>
     );
   }

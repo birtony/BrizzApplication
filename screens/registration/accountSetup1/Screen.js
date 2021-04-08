@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, TouchableWithoutFeedback, View, DatePickerIOS } from 'react-native';
 import { Button, Text } from 'react-native-elements';
-import * as Progress from 'react-native-progress';
+import ProgressBar from 'react-native-progress/Bar';
 import WhiteCard from '../../../common/components/WhiteCard';
 import InputComponent from '../../../common/components/InputComponent';
 import { useStateValue } from '../../../utils/provider';
@@ -100,7 +100,7 @@ export default function AccountSetup1({ navigation }) {
         </Row>
         <Row style={styles.progressBarRow}>
           <Col style={styles.progressBarCol}>
-            <Progress.Bar progress={0.5} width={200} color={'#F28E00'} style={styles.progressBar} />
+            <ProgressBar progress={0.5} width={200} color={'#F28E00'} style={styles.progressBar} />
           </Col>
         </Row>
       </Grid>
